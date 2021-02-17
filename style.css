@@ -60,7 +60,7 @@
 }
 
 .socialMediaDropdownImage {
-    max-width: 80%;
+    max-width: 60%;
     height: auto;
 }
 
@@ -112,7 +112,7 @@ h1 {
     background-image: url("images/codeBackgroundFaded.jpg");
     background-size: 100%;
     text-align: center;
-    height: 6rem;
+    height: 8rem;
     padding-top: 2rem;
     margin-bottom: 0;
 }
@@ -121,6 +121,7 @@ body {
     margin: 2rem 1rem 2rem 1rem;
     background-color: #123;
     color: aliceblue;
+    font-size: 1.3rem;
 }
 
 main {

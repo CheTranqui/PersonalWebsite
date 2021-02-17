@@ -5,13 +5,39 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2FD953EB-D5B2-4920-A5A5-B089CFD78C61}"
 	ProjectSection(SolutionItems) = preProject
+		domJS.js = domJS.js
 		index.html = index.html
 		style.css = style.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{A08B3D1A-DA7A-4B98-9F84-15093A8235EE}"
+	ProjectSection(SolutionItems) = preProject
+		images\codeBackgroundFaded.jpg = images\codeBackgroundFaded.jpg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "socialMediaIcons", "socialMediaIcons", "{63F16D3A-4057-4F18-82D8-DD31C039E1CC}"
+	ProjectSection(SolutionItems) = preProject
+		images\socialMediaIcons\2021 Twitter logo - black.png = images\socialMediaIcons\2021 Twitter logo - black.png
+		images\socialMediaIcons\2021 Twitter logo - blue.png = images\socialMediaIcons\2021 Twitter logo - blue.png
+		images\socialMediaIcons\2021 Twitter logo - white.png = images\socialMediaIcons\2021 Twitter logo - white.png
+		images\socialMediaIcons\GitHub-Mark-Light-120px-plus.png = images\socialMediaIcons\GitHub-Mark-Light-120px-plus.png
+		images\socialMediaIcons\GitHub_Logo.png = images\socialMediaIcons\GitHub_Logo.png
+		images\socialMediaIcons\GitHub_Logo_White.png = images\socialMediaIcons\GitHub_Logo_White.png
+		images\socialMediaIcons\TwitchGlitchBlackOps.png = images\socialMediaIcons\TwitchGlitchBlackOps.png
+		images\socialMediaIcons\TwitchGlitchPurple.png = images\socialMediaIcons\TwitchGlitchPurple.png
+		images\socialMediaIcons\TwitchGlitchWhite.png = images\socialMediaIcons\TwitchGlitchWhite.png
+		images\socialMediaIcons\youtube_social_circle_red.png = images\socialMediaIcons\youtube_social_circle_red.png
+		images\socialMediaIcons\youtube_social_icon_red.png = images\socialMediaIcons\youtube_social_icon_red.png
+		images\socialMediaIcons\youtube_social_square_red.png = images\socialMediaIcons\youtube_social_square_red.png
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A08B3D1A-DA7A-4B98-9F84-15093A8235EE} = {2FD953EB-D5B2-4920-A5A5-B089CFD78C61}
+		{63F16D3A-4057-4F18-82D8-DD31C039E1CC} = {A08B3D1A-DA7A-4B98-9F84-15093A8235EE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BF9FFA4A-B3BF-4514-BCE0-71E962E462FF}

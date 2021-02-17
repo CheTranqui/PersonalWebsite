@@ -11,18 +11,92 @@
     <meta charset="utf-8" />
     <title>CheTranqui HQ</title>
     <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="domJS.js"></script>
 </head>
 <body>
     <header>
+        <div id="navContainer">
+            <nav class="navBar" id="socialMediaNavBar">
+                <!--<?php include('nav.php');?>-->
+                <div id="socialMediaDisplay" alt="Social Media Links">
+                    <a onclick="socialMediaDropdownExpander()" href="" class="navLink" id="socialMediaDropdownLink">
+                        <p class="socialMediaLinkText">
+                            CheMedia
+                        </p>
+                    </a>
+                    <div class="socialMedia socialMediaLinks" id="socialMediaDropdownDiv">
+                        <ul class="navList" id="socialMediaDropdownList">
+                            <li class="socialMediaDropdownItem">
+                                <a class="socialMediaDropdownLink socialMediaDropdownGitHub" id="socialMediaDropdownGitHubLink" href="https://github.com/CheTranqui">
+                                    <img class="socialMediaDropdownImage socialMediaDropdownGitHub" id="socialMediaDropdownGitHubImage" src="images/socialMediaIcons/GitHub-Mark-Light-120px-plus.png" />
+                                    <span class="socialMediaDropdownText" id="socialMediaGitHubText">GitHub</span>
+                                </a>
+                            </li>
+                            <li class="socialMediaDropdownItem">
+                                <a class="socialMediaDropdownLink socialMediaDropdownYT" id="socialMediaDropdownYTLink" href="https://www.youtube.com/channel/UC43wbpw02ZIYkhes0O70IVg">
+                                    <img class="socialMediaDropdownImage socialMediaDropdownYT" id="socialMediaDropdownYTImage" src="images/socialMediaIcons/youtube_social_icon_red.png" />
+                                    <span class="socialMediaDropdownText" id="socialMediaYTText">YouTube</span>
+                                </a>
+                            </li>
+                            <li class="socialMediaDropdownItem">
+                                <a class="socialMediaDropdownLink socialMediaDropdownTwitch" id="socialMediaDropdownTwitchLink" href="https://www.twitch.tv/chetranqui">
+                                    <img class="socialMediaDropdownImage socialMediaDropdownTwitch" id="socialMediaDropdownTwitchImage" src="images/socialMediaIcons/TwitchGlitchPurple.png" />
+                                    <span class="socialMediaDropdownText" id="socialMediaTwitchText">Twitch</span>
+                                </a>
+                            </li>
+                            <li class="socialMediaDropdownItem">
+                                <a class="socialMediaDropdownLink socialMediaDropdownTwitter" id="socialMediaDropdownTwitterLink" href="https://twitter.com/CheTranqui">
+                                    <img class="socialMediaDropdownImage socialMediaDropdownTwitter" id="socialMediaDropdownTwitterImage" src="images/socialMediaIcons/2021 Twitter logo - white.png" />
+                                    <span class="socialMediaDropdownText" id="socialMediaTwitterText">Twitter</span>
+                                </a>
+                            </li>
+                            <li class="socialMediaDropdownItem">
+                                <a class="socialMediaDropdownLink socialMediaDropdownLinkedIn" id="socialMediaDropdownLinkedInLink" href="https://twitter.com/CheTranqui">
+                                    <img class="socialMediaDropdownImage socialMediaDropdownLinkedIn" id="socialMediaDropdownLinkedInImage" src="images/socialMediaIcons/LI-In-Bug.png" />
+                                    <span class="socialMediaDropdownText" id="socialMediaLinkedInText">LinkedIn</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navBar" id="navMenu">
+                <ul class="navList" id="navMenuList">
+                    <li class="navMenuItem">
+                        <a class="navLink" href="mailto:chetranqui@gmail.com">
+                            <p>
+                                Contact
+                            </p>
+                        </a>
+                    </li>
+                    <li class="navMenuItem">
+                        <a class="navLink" href="projects.html">
+                            <p>
+                                Projects
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div> <!--closing nav container-->
         <h1>
-            This is a placeholder for my future website.
+            Digital Experience Designer
         </h1>
     </header>
     <main>
-        <section>
-            <p>
-
+        <section id="introduction">
+            <p class="introductionText">
+                I'm Chaz, known across the web as CheTranqui, I began this journey into Software Development informally in 2017, seeking to create a better way to learn the intricacies of my favorite game at the time: Heroes of the Storm.
             </p>
+            <p class="introductionText">
+                Since then I've engaged in numerous projects, some bigger than others, to improve my own digital experiences and those of others. Below you'll find my first ever projects that inspired me to begin this new career, or you can find my more recent projects 
+                <a id="inlineProjectsLink" href="projects.html">
+                    here.
+                </a>
+            </p>
+        </section>
+        <section id="inspirationProjects">
+
         </section>
 
     </main>

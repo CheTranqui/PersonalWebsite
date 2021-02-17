@@ -3,9 +3,136 @@
     Alias:  CheTranqui
 */
 
+/*==================================
+           NavBar Styling
+====================================*/
+#navContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 1.3rem;
+}
+
+.navBar {
+    display: flex;
+    width: 50%;
+    margin-top: 0;
+}
+
+#socialMediaDisplay, #navMenuList {
+    width: 100%;
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+.navLink{
+    color: rgb(30, 200, 175);
+}
+
+.navBar p {
+    margin: 0.4rem 0 0 0;
+}
+
+
+/*==================================
+    NavBar: Social Media Dropdown
+====================================*/
+
+.navList{
+    list-style-type: none;
+    padding-left: 0.5rem;
+    margin: 0 0 0 0;
+}
+
+.socialMediaLinks {
+    display: none;
+    position: absolute;
+    background-color: #222;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    max-width: 5%;
+    padding: 0.2rem 2rem 0.2rem 0;
+    height: auto;
+}
+
+.socialMediaDropdownItem{
+    margin: 0.5rem 0 0 0;
+}
+
+.socialMediaDropdownImage {
+    max-width: 80%;
+    height: auto;
+}
+
+.socialMediaDropdownLink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 0.5rem;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.socialMediaDropdownText {
+    margin-left: 0.5rem;
+    display: inline-block;
+}
+
+.show{
+    display: inline-block;
+}
+
+/*==================================
+    NavBar: Right-side Nav Menu
+====================================*/
+
+#navMenu{
+    align-content: flex-end;
+}
+
+.navMenuItem{
+    float: right;
+    display: block;
+    margin: 0 0.25rem 0 0.25rem;
+}
+
+/*==================================
+    Main Section Styles
+====================================*/
+
+ul {
+    margin-top: 0;
+}
+
+header {
+    background-color: #222;
+}
+
+h1 {
+    background-image: url("images/codeBackgroundFaded.jpg");
+    background-size: 100%;
+    text-align: center;
+    height: 6rem;
+    padding-top: 2rem;
+    margin-bottom: 0;
+}
 
 body {
-    margin: 2em 4em 2em 4em;
+    margin: 2rem 1rem 2rem 1rem;
     background-color: #123;
-    color: white;
+    color: aliceblue;
+}
+
+main {
+    padding-top: 0.05rem;
+    background-color: #222;
+}
+
+.introductionText{
+    text-indent: 1.5rem;
+}
+
+#inlineProjectsLink{
+    color: antiquewhite;
+    text-decoration: none;
 }

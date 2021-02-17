@@ -20,13 +20,12 @@
     margin-top: 0;
 }
 
-#socialMediaDisplay, #navMenuList {
-    width: 100%;
-    margin: 0 0.5rem 0 0.5rem;
-}
-
 .navLink{
     color: rgb(30, 200, 175);
+}
+
+.navLink p:hover{
+    font-size: 1.4rem;
 }
 
 .navBar p {
@@ -42,6 +41,10 @@
     list-style-type: none;
     padding-left: 0.5rem;
     margin: 0 0 0 0;
+}
+
+#socialMediaDisplay {
+    margin: 0 0.5rem 0 0.5rem;
 }
 
 .socialMediaLinks {
@@ -73,6 +76,10 @@
     color: aliceblue;
 }
 
+.socialMediaDropdownLink:hover{
+    width:125%;
+}
+
 .socialMediaDropdownText {
     margin-left: 0.8rem;
     display: inline-block;
@@ -90,7 +97,12 @@
     align-content: flex-end;
 }
 
-.navMenuItem{
+#navMenuList {
+    width: 100%;
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+.navMenuItem {
     float: right;
     display: block;
     margin: 0 0.25rem 0 0.25rem;

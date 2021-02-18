@@ -84,21 +84,122 @@
         </h1>
     </header>
     <main>
-        <section id="introduction">
-            <p class="introductionText">
-                I'm Chaz, known across the web as CheTranqui, I began this journey into Software Development informally in 2017, seeking to create a better way to learn the intricacies of my favorite game at the time: Heroes of the Storm.
-            </p>
-            <p class="introductionText">
-                Since then I've engaged in numerous projects, some bigger than others, to improve my own digital experiences and those of others. Below you'll find my first ever projects that inspired me to begin this new career, or you can find my more recent projects 
-                <a id="inlineProjectsLink" href="projects.html">
-                    here.
-                </a>
-            </p>
-        </section>
-        <section id="inspirationProjects">
-
+        <article class="introductionArticle">
+            <section class="introductionSection" id="introductionQuestionSection">
+                <h2 class="introductionQuestion">
+                    Who Am I?
+                </h2>
+            </section>
+            <section class="introductionSection" id="introductionTextSection">
+                <p class="introductionText">
+                    I'm Chaz, known across the web as CheTranqui, I began this journey into Software Development informally in 2017, seeking to create a better way to learn the intricacies of my favorite game at the time: Heroes of the Storm.
+                </p>
+                <p class="introductionText">
+                    Since then I've engaged in numerous projects, some bigger than others, to improve my own digital experiences and those of others. Below you'll find my first ever projects that inspired me to begin this new career, or you can find my more recent projects
+                    <a class="inlineLink" id="inlineProjectsLink" href="projects.html">
+                        here.
+                    </a>
+                </p>
+            </section>
+        </article>
+        <section id="inspiration">
+            <h2>Inspiration</h2>
+            <div id="myInspirationProjects">
+                <article class="inspirationProject" id="inspirationOne">
+                    <section class="inspirationPreview">
+                        <figure>
+                            <img class="inspirationImage" src="images/inspiration/HotSMinigamePreview.jpg" />
+                            <figcaption class="inspirationCaption">
+                                HotS Drafting Minigame
+                            </figcaption>
+                        </figure>
+                    </section>
+                    <section class="inspirationDescription">
+                        <p class="inspirationText">
+                            This was my first ever project back in 2017. I wanted to learn how to draft better and decided to create a minigame that would let me draft against professional teams and critique my choices. Most people start off with 'Hello World', I started off with C#, Unity, and how to import data from a JSON file. It was a rough couple of months, but I'm proud of the not-quite-finished result.
+                        </p>
+                    </section>
+                    <section class="inspirationLinks">
+                            <a class="inspirationLink inspirationLinkToGitHub" href="https://github.com/CheTranqui/HotS-Drafting-Minigame" target="_blank">
+                                GitHub
+                            </a>
+                            <a class="inspirationLink inspirationLinkToVideo hidden">
+                                Video
+                            </a>
+                            <a class="inspirationLink inspirationLinkToProject" href="https://drive.google.com/file/d/1fdf6VtAxig_gEylEyDo641TbCXmTWLDF/view" target="_blank">
+                                Download
+                            </a>
+                    </section>
+                </article>
+                <article class="inspirationProject" id="inspirationTwo">
+                    <section class="inspirationPreview">
+                        <figure>
+                            <img class="inspirationImage" id="martianTribuneImage" src="images/inspiration/MartianTribunePreview.jpg" />
+                            <figcaption class="inspirationCaption">
+                                The Martian Tribune
+                            </figcaption>
+                        </figure>
+                    </section>
+                    <section class="inspirationDescription">
+                        <p class="inspirationText">
+                            In 2018
+                            <a class="inlineLink" href="https://www.haemimontgames.com/" target="_blank">
+                                Haemimont Games
+                            </a>
+                            released a game called Surviving Mars. I wanted the colonists to have a more personal feel, so I trusted that I learned enough in making the drafting minigame and made my first ever mod: The Martian Tribune. It presents stories that my team and I wrote to the player every three in-game days and each story was seleted dynamically based upon the current state of the game.
+                        </p>
+                        <p class="caveat">
+                            (Note: I wrote the original code, but it was later refactored by a professional developer. The code on GitHub was not written by me. I was project lead.)
+                        </p>
+                    </section>
+                    <section class="inspirationLinks">
+                        <a class="inspirationLink inspirationLinkToGitHub" href="https://github.com/CheTranqui/Surviving-Mars-Martian-Tribune" target="_blank">
+                            GitHub
+                        </a>
+                        <a class="inspirationLink inspirationLinkToVideo" href="https://www.youtube.com/watch?v=QJvOHWFPZ_Y&ab_channel=CheTranqui" target="_blank">
+                            Video
+                        </a>
+                        <a class="inspirationLink inspirationLinkToProject" href="https://steamcommunity.com/sharedfiles/filedetails/?id=1376913896" target="_blank">
+                            Steam
+                        </a>
+                    </section>
+                </article>
+                <article class="inspirationProject" id="inspirationThree">
+                    <section class="inspirationPreview">
+                        <figure>
+                            <img class="inspirationImage" src="images/inspiration/EstateMgmtPreview.jpg" />
+                            <figcaption class="inspirationCaption">
+                                Estate Management Web App
+                            </figcaption>
+                        </figure>
+                    </section>
+                    <section class="inspirationDescription">
+                        <p class="inspirationText">
+                            In Spring of 2019 my uncle passed away. To assist my father with his estate work I built him a simple website that he could run locally to track his tasks, contacts, goods, and properties. This work forced me to put into practice what I had learned from my informal study via freeCodeCamp.org and an informal mentorship by a co-worker (
+                            <a href="https://github.com/webdevandres" target="_blank">
+                                WebDevAndres
+                            </a>
+                            ).
+                        </p>
+                    </section>
+                    <section class="inspirationLinks">
+                        <a class="inspirationLink inspirationLinkToGitHub" href="https://github.com/CheTranqui/Estate-Management" target="_blank">
+                            GitHub
+                        </a>
+                        <a class="inspirationLink inspirationLinkToVideo" href="https://youtu.be/jQxiyXLbtPI" target="_blank">
+                            Video
+                        </a>
+                        <a class="inspirationLink inspirationLinkToProject" href="https://chetranqui.github.io/Estate-Management/" target="_blank">
+                            Github.IO
+                        </a>
+                    </section>
+                </article>
+            </div>
         </section>
 
     </main>
+    <footer>
+
+    </footer>
 </body>
 </html>

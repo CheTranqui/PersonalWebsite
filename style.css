@@ -4,6 +4,54 @@
 */
 
 /*==================================
+    Primary Document Styles
+====================================*/
+
+
+ul {
+    margin-top: 0;
+}
+
+header {
+    background-color: #222;
+}
+
+h1 {
+    background-image: url("images/codeBackgroundFaded.jpg");
+    background-size: 100%;
+    text-align: center;
+    height: 10rem;
+    padding-top: 4rem;
+    margin-bottom: 0;
+}
+
+h2 {
+    align-self: center;
+    color: #38a2c2;
+    font-size: 3rem;
+    text-shadow: 3px 3px black;
+}
+
+body {
+    margin: 2rem;
+    background-color: #123;
+    color: aliceblue;
+    font-size: 1.3rem;
+}
+
+main {
+    padding-top: 0.05rem;
+    background-color: #222;
+}
+
+a:hover, a:focus, .navLink p:hover, .navLink:focus {
+    font-size: 1.4rem;
+}
+
+a {
+    color: #1ec8af;
+}
+/*==================================
            NavBar Styling
 ====================================*/
 #navContainer {
@@ -20,12 +68,8 @@
     margin-top: 0;
 }
 
-.navLink{
-    color: rgb(30, 200, 175);
-}
-
-.navLink p:hover{
-    font-size: 1.4rem;
+.navLink {
+    color: #1ec8af;
 }
 
 .navBar p {
@@ -51,7 +95,7 @@
     display: none;
     position: absolute;
     background-color: #222;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
     z-index: 1;
     max-width: 5%;
     padding: 0.2rem 2rem 0.2rem 0;
@@ -109,43 +153,139 @@
 }
 
 /*==================================
-    Main Section Styles
+    Introduction Styles
 ====================================*/
 
-ul {
-    margin-top: 0;
+.introductionArticle{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    margin: 1rem 10% 1rem 10%;
 }
 
-header {
-    background-color: #222;
+.introductionQuestion, .introductionText{
+    align-content: center;
 }
 
-h1 {
-    background-image: url("images/codeBackgroundFaded.jpg");
-    background-size: 100%;
+#introductionQuestionSection {
+    width: 35%;
+    background-color: #333;
+    height: 300px;
     text-align: center;
-    height: 8rem;
-    padding-top: 2rem;
-    margin-bottom: 0;
 }
 
-body {
-    margin: 2rem 1rem 2rem 1rem;
-    background-color: #123;
-    color: aliceblue;
-    font-size: 1.3rem;
+.introductionQuestion {
+    position: relative;
+    top: 42%;
+    margin: 0;
+    transform: rotate(-35deg);
 }
 
-main {
-    padding-top: 0.05rem;
-    background-color: #222;
+#introductionTextSection {
+    width: 55%;
+    text-align: center;
 }
 
-.introductionText{
+.introductionText {
     text-indent: 1.5rem;
+    margin: 0.5rem;
 }
 
-#inlineProjectsLink{
+#inlineLink {
     color: antiquewhite;
     text-decoration: none;
+}
+
+/*==================================
+    Inspiration Styles
+====================================*/
+
+#inspiration {
+    text-align: center;
+}
+
+#inspiration h2 {
+    margin-top: 0;
+    background-color: #333;
+}
+
+#myInspirationProjects{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 35rem 5rem 2rem 21rem auto auto auto;
+    grid-gap: 2rem, 3rem;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+#inspirationOne{
+    grid-column: 1;
+}
+
+#inspirationTwo{
+    grid-column: 2;
+}
+
+#inspirationThree{
+    grid-column: 3;
+}
+
+.inspirationPreview{
+    grid-row: 1;
+}
+
+.inspirationDescription{
+    grid-row: 2;
+}
+
+.inspirationLinks{
+    grid-row: 3;
+}
+
+
+.inspirationProject{
+    height: 40rem;
+    margin: 0.5rem 2rem 0.5rem 2rem;
+}
+
+.inspirationPreview figure{
+    height: 33rem;
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    justify-content: center;
+}
+
+.inspirationImage {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 100%;
+    max-height: 30rem;
+    align-self: end;
+}
+
+.inspirationCaption{
+    grid-column: 1;
+    grid-row: 2;
+    font-size: 2rem;
+    color: darkorange;
+    align-self: center;
+}
+
+.inspirationLink{
+    margin: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.hidden{
+    display: none;
+}
+
+.caveat{
+    font-size: 1rem;
+    color: #808080
 }

@@ -31,6 +31,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "socialMediaIcons", "socialM
 		images\socialMediaIcons\youtube_social_square_red.png = images\socialMediaIcons\youtube_social_square_red.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "inspiration", "inspiration", "{8878AC75-7882-4954-8B7A-04C0C93D9E74}"
+	ProjectSection(SolutionItems) = preProject
+		images\inspiration\EstateMgmtPreview.jpg = images\inspiration\EstateMgmtPreview.jpg
+		images\inspiration\HotSMinigamePreview.jpg = images\inspiration\HotSMinigamePreview.jpg
+		images\inspiration\MartianTribunePreview.jpg = images\inspiration\MartianTribunePreview.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +45,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A08B3D1A-DA7A-4B98-9F84-15093A8235EE} = {2FD953EB-D5B2-4920-A5A5-B089CFD78C61}
 		{63F16D3A-4057-4F18-82D8-DD31C039E1CC} = {A08B3D1A-DA7A-4B98-9F84-15093A8235EE}
+		{8878AC75-7882-4954-8B7A-04C0C93D9E74} = {A08B3D1A-DA7A-4B98-9F84-15093A8235EE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BF9FFA4A-B3BF-4514-BCE0-71E962E462FF}

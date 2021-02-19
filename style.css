@@ -7,13 +7,30 @@
     Primary Document Styles
 ====================================*/
 
+:root {
+    --color-primaryBackground: #123;
+    --color-secondaryBackground: #222;
+    --color-accentBackground: #333;
+    --color-primaryTitle: #38a2c2;
+    --color-secondaryTitle: #ff8c00;
+    --color-primaryText: #f0f8ff;
+    --color-secondaryText:;
+    --color-fadedText: #808080;
+    --color-links: #1ec8af;
+    --ff-primaryFont: 'Times New Roman';
+    --ff-accentFont: 'Palatino Linotype';
+}
+
+
 
 ul {
     margin-top: 0;
 }
 
 header {
-    background-color: #222;
+    font-size: 1.3vw;
+    font-family: var(--ff-accentFont);
+    background-color: var(--color-secondaryBackground);
 }
 
 h1 {
@@ -23,33 +40,37 @@ h1 {
     height: 10rem;
     padding-top: 4rem;
     margin-bottom: 0;
+    font-size: 3vw;
+    font-family: var(--ff-accentFont);
 }
 
 h2 {
     align-self: center;
-    color: #38a2c2;
-    font-size: 3rem;
+    color: var(--color-primaryTitle);
+    font-size: 2.5vw;
     text-shadow: 3px 3px black;
+    font-family: var(--ff-accentFont);
 }
 
 body {
     margin: 2rem;
-    background-color: #123;
-    color: aliceblue;
-    font-size: 1.3rem;
+    background-color: var(--color-primaryBackground);
+    color: var(--color-primaryText);
+    font-size: 1.2vw;
+    font-family: var(--ff-primaryFont);
 }
 
 main {
     padding-top: 0.05rem;
-    background-color: #222;
+    background-color: var(--color-secondaryBackground);
 }
 
 a:hover, a:focus, .navLink p:hover, .navLink:focus {
-    font-size: 1.4rem;
+    font-size: 1.4vw;
 }
 
 a {
-    color: #1ec8af;
+    color: var(--color-links);
 }
 /*==================================
            NavBar Styling
@@ -69,7 +90,7 @@ a {
 }
 
 .navLink {
-    color: #1ec8af;
+    color: var(--color-links);
 }
 
 .navBar p {
@@ -91,23 +112,25 @@ a {
     margin: 0 0.5rem 0 0.5rem;
 }
 
-.socialMediaLinks {
+.socialMediaDropdownBackground {
     display: none;
     position: absolute;
-    background-color: #222;
+    background-color: var(--color-secondaryBackground);
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
     z-index: 1;
-    max-width: 5%;
+    max-width: 5.5vw;
     padding: 0.2rem 2rem 0.2rem 0;
     height: auto;
 }
 
 .socialMediaDropdownItem{
-    margin: 0.5rem 0 0 0;
+    margin: 0.5rem 0 0.5rem 0;
+    display: block;
+    background-color: var(--color-secondaryBackground);
 }
 
 .socialMediaDropdownImage {
-    max-width: 60%;
+    max-width: 32%;
     height: auto;
 }
 
@@ -115,17 +138,19 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 0.7rem;
+    font-size: 0.8vw;
     text-decoration: none;
-    color: aliceblue;
+    color: var(--color-primaryText);
+    background-color: var(--color-secondaryBackground);
 }
 
-.socialMediaDropdownLink:hover{
-    width:125%;
+.socialMediaDropdownLink:hover {
+    width: 110%;
+    font-size: 1.1vw;
 }
 
 .socialMediaDropdownText {
-    margin-left: 0.8rem;
+    margin-left: 0.35rem;
     display: inline-block;
 }
 
@@ -172,7 +197,7 @@ a {
 
 #introductionQuestionSection {
     width: 35%;
-    background-color: #333;
+    background-color: var(--color-accentBackground);
     height: 300px;
     text-align: center;
 }
@@ -195,7 +220,7 @@ a {
 }
 
 #inlineLink {
-    color: antiquewhite;
+    color: var(--color-fadedText);
     text-decoration: none;
 }
 
@@ -207,10 +232,10 @@ a {
     text-align: center;
 }
 
-#inspiration h2 {
-    margin-top: 0;
-    background-color: #333;
-}
+    #inspiration h2 {
+        margin-top: 0;
+        background-color: var(--color-accentBackground);
+    }
 
 #myInspirationProjects{
     text-align: center;
@@ -269,12 +294,13 @@ a {
     align-self: end;
 }
 
-.inspirationCaption{
+.inspirationCaption {
     grid-column: 1;
     grid-row: 2;
-    font-size: 2rem;
-    color: darkorange;
     align-self: center;
+    font-size: 2vw;
+    color: var(--color-secondaryTitle);
+    font-family: var(--ff-accentFont);
 }
 
 .inspirationLink{
@@ -285,7 +311,7 @@ a {
     display: none;
 }
 
-.caveat{
-    font-size: 1rem;
-    color: #808080
+.caveat {
+    font-size: 0.8vw;
+    color: var(--color-fadedText);
 }

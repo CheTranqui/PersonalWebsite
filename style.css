@@ -73,179 +73,179 @@ a {
     color: var(--color-links);
 }
 
-@media (min-width: 50rem) {
+@media (min-width: 425px) {
     h1 {
         height: 8rem;
         padding-top: 4rem;
     }
 }
-    /*==================================
+/*==================================
            NavBar Styling
 ====================================*/
-    #navContainer {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-        height: 1.3rem;
-    }
+#navContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 1.3rem;
+}
 
-    .navBar {
-        display: flex;
-        width: 50%;
-        margin-top: 0;
-    }
+.navBar {
+    display: flex;
+    width: 50%;
+    margin-top: 0;
+}
 
-    .navLink {
-        color: var(--color-links);
-    }
+.navLink {
+    color: var(--color-links);
+}
 
-    .navBar p {
-        margin: 0.4rem 0 0 0;
-    }
+.navBar p {
+    margin: 0.4rem 0 0 0;
+}
 
 
-    /*==================================
+/*==================================
     NavBar: Social Media Dropdown
 ====================================*/
 
-    .navList {
-        list-style-type: none;
-        padding-left: 0.5rem;
-        margin: 0 0 0 0;
+.navList {
+    list-style-type: none;
+    padding-left: 0.5rem;
+    margin: 0 0 0 0;
+}
+
+#socialMediaDisplay {
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+.socialMediaDropdownBackground {
+    display: none;
+    position: absolute;
+    background-color: var(--color-secondaryBackground);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+    z-index: 1;
+    max-width: 5.5vw;
+    padding: 0.2rem 2rem 0.2rem 0;
+    height: auto;
+}
+
+.socialMediaDropdownItem {
+    margin: 0.5rem 0 0.5rem 0;
+    display: block;
+    background-color: var(--color-secondaryBackground);
+}
+
+.socialMediaDropdownImage {
+    max-width: 32%;
+    height: auto;
+}
+
+.socialMediaDropdownLink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 0.8vw;
+    text-decoration: none;
+    color: var(--color-primaryText);
+    background-color: var(--color-secondaryBackground);
+}
+
+    .socialMediaDropdownLink:hover {
+        width: 110%;
+        font-size: 1.1vw;
     }
 
-    #socialMediaDisplay {
-        margin: 0 0.5rem 0 0.5rem;
-    }
+.socialMediaDropdownText {
+    margin-left: 0.35rem;
+    display: inline-block;
+}
 
-    .socialMediaDropdownBackground {
-        display: none;
-        position: absolute;
-        background-color: var(--color-secondaryBackground);
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
-        z-index: 1;
-        max-width: 5.5vw;
-        padding: 0.2rem 2rem 0.2rem 0;
-        height: auto;
-    }
+.show {
+    display: inline-block;
+}
 
-    .socialMediaDropdownItem {
-        margin: 0.5rem 0 0.5rem 0;
-        display: block;
-        background-color: var(--color-secondaryBackground);
-    }
-
-    .socialMediaDropdownImage {
-        max-width: 32%;
-        height: auto;
-    }
-
-    .socialMediaDropdownLink {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        font-size: 0.8vw;
-        text-decoration: none;
-        color: var(--color-primaryText);
-        background-color: var(--color-secondaryBackground);
-    }
-
-        .socialMediaDropdownLink:hover {
-            width: 110%;
-            font-size: 1.1vw;
-        }
-
-    .socialMediaDropdownText {
-        margin-left: 0.35rem;
-        display: inline-block;
-    }
-
-    .show {
-        display: inline-block;
-    }
-
-    /*==================================
+/*==================================
     NavBar: Right-side Nav Menu
 ====================================*/
 
-    #navMenu {
-        align-content: flex-end;
-    }
+#navMenu {
+    align-content: flex-end;
+}
 
-    #navMenuList {
-        width: 100%;
-        margin: 0 0.5rem 0 0.5rem;
-    }
+#navMenuList {
+    width: 100%;
+    margin: 0 0.5rem 0 0.5rem;
+}
 
-    .navMenuItem {
-        float: right;
-        display: block;
-        margin: 0 0.25rem 0 0.25rem;
-    }
+.navMenuItem {
+    float: right;
+    display: block;
+    margin: 0 0.25rem 0 0.25rem;
+}
 
-    /*==================================
+/*==================================
     Introduction Styles
 ====================================*/
 
-    .introductionArticle {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: auto;
-        height: auto;
-        margin: 1rem 10% 1rem 10%;
-    }
+.introductionArticle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    margin: 1rem 10% 1rem 10%;
+}
 
-    .introductionQuestion, .introductionText {
-        align-content: center;
+.introductionQuestion, .introductionText {
+    align-content: center;
+}
+
+#introductionQuestionSection {
+    width: auto;
+    background-color: var(--color-accentBackground);
+    height: 5rem;
+    text-align: center;
+}
+
+.introductionQuestion {
+    position: relative;
+    top: 42%;
+    margin: 0;
+    transform: rotate(-35deg);
+}
+
+#introductionTextSection {
+    text-align: center;
+}
+
+.introductionText {
+    text-indent: 1.5rem;
+    margin: 0.5rem;
+}
+
+#inlineLink {
+    color: var(--color-fadedText);
+    text-decoration: none;
+}
+
+@media (min-width: 425px) {
+    .introductionArticle {
+        flex-direction: row;
+        width: 80%;
+        height: auto;
     }
 
     #introductionQuestionSection {
-        width: auto;
-        background-color: var(--color-accentBackground);
-        height: 5rem;
-        text-align: center;
-    }
-
-    .introductionQuestion {
-        position: relative;
-        top: 42%;
-        margin: 0;
-        transform: rotate(-35deg);
+        width: 35%;
+        height: 14vw;
     }
 
     #introductionTextSection {
-        text-align: center;
+        width: 55%;
     }
-
-    .introductionText {
-        text-indent: 1.5rem;
-        margin: 0.5rem;
-    }
-
-    #inlineLink {
-        color: var(--color-fadedText);
-        text-decoration: none;
-    }
-
-    @media (min-width: 50rem) {
-        .introductionArticle {
-            flex-direction: row;
-            width: 80%;
-            height: auto;
-        }
-
-        #introductionQuestionSection {
-            width: 35%;
-            height: 14vw;
-        }
-
-        #introductionTextSection {
-            width: 55%;
-        }
-    }
+}
 
     /*==================================
     Inspiration Styles
@@ -315,7 +315,7 @@ a {
     grid-row: 9;
 }
 
-@media (min-width: 50rem) {
+@media (min-width: 425px) {
     #myInspirationProjects{
         grid-template-columns: 30% 30% 30%;
         grid-template-rows: 35rem 5rem 2rem 21rem auto auto auto;
@@ -361,7 +361,7 @@ a {
     justify-content: center;
 }
 
-@media (min-width: 50rem) {
+@media (min-width: 425px) {
     .inspirationProject{
         height: 40rem;
     }

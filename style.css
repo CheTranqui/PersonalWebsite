@@ -37,8 +37,8 @@ h1 {
     background-image: url("images/codeBackgroundFaded.jpg");
     background-size: 100%;
     text-align: center;
-    height: 10rem;
-    padding-top: 4rem;
+    height: 5rem;
+    padding-top: 2rem;
     margin-bottom: 0;
     font-size: 3vw;
     font-family: var(--ff-accentFont);
@@ -72,159 +72,182 @@ a:hover, a:focus, .navLink p:hover, .navLink:focus {
 a {
     color: var(--color-links);
 }
-/*==================================
+
+@media (min-width: 50rem) {
+    h1 {
+        height: 8rem;
+        padding-top: 4rem;
+    }
+}
+    /*==================================
            NavBar Styling
 ====================================*/
-#navContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    height: 1.3rem;
-}
+    #navContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: 1.3rem;
+    }
 
-.navBar {
-    display: flex;
-    width: 50%;
-    margin-top: 0;
-}
+    .navBar {
+        display: flex;
+        width: 50%;
+        margin-top: 0;
+    }
 
-.navLink {
-    color: var(--color-links);
-}
+    .navLink {
+        color: var(--color-links);
+    }
 
-.navBar p {
-    margin: 0.4rem 0 0 0;
-}
+    .navBar p {
+        margin: 0.4rem 0 0 0;
+    }
 
 
-/*==================================
+    /*==================================
     NavBar: Social Media Dropdown
 ====================================*/
 
-.navList{
-    list-style-type: none;
-    padding-left: 0.5rem;
-    margin: 0 0 0 0;
-}
+    .navList {
+        list-style-type: none;
+        padding-left: 0.5rem;
+        margin: 0 0 0 0;
+    }
 
-#socialMediaDisplay {
-    margin: 0 0.5rem 0 0.5rem;
-}
+    #socialMediaDisplay {
+        margin: 0 0.5rem 0 0.5rem;
+    }
 
-.socialMediaDropdownBackground {
-    display: none;
-    position: absolute;
-    background-color: var(--color-secondaryBackground);
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
-    z-index: 1;
-    max-width: 5.5vw;
-    padding: 0.2rem 2rem 0.2rem 0;
-    height: auto;
-}
+    .socialMediaDropdownBackground {
+        display: none;
+        position: absolute;
+        background-color: var(--color-secondaryBackground);
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+        z-index: 1;
+        max-width: 5.5vw;
+        padding: 0.2rem 2rem 0.2rem 0;
+        height: auto;
+    }
 
-.socialMediaDropdownItem{
-    margin: 0.5rem 0 0.5rem 0;
-    display: block;
-    background-color: var(--color-secondaryBackground);
-}
+    .socialMediaDropdownItem {
+        margin: 0.5rem 0 0.5rem 0;
+        display: block;
+        background-color: var(--color-secondaryBackground);
+    }
 
-.socialMediaDropdownImage {
-    max-width: 32%;
-    height: auto;
-}
+    .socialMediaDropdownImage {
+        max-width: 32%;
+        height: auto;
+    }
 
-.socialMediaDropdownLink {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 0.8vw;
-    text-decoration: none;
-    color: var(--color-primaryText);
-    background-color: var(--color-secondaryBackground);
-}
+    .socialMediaDropdownLink {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 0.8vw;
+        text-decoration: none;
+        color: var(--color-primaryText);
+        background-color: var(--color-secondaryBackground);
+    }
 
-.socialMediaDropdownLink:hover {
-    width: 110%;
-    font-size: 1.1vw;
-}
+        .socialMediaDropdownLink:hover {
+            width: 110%;
+            font-size: 1.1vw;
+        }
 
-.socialMediaDropdownText {
-    margin-left: 0.35rem;
-    display: inline-block;
-}
+    .socialMediaDropdownText {
+        margin-left: 0.35rem;
+        display: inline-block;
+    }
 
-.show{
-    display: inline-block;
-}
+    .show {
+        display: inline-block;
+    }
 
-/*==================================
+    /*==================================
     NavBar: Right-side Nav Menu
 ====================================*/
 
-#navMenu{
-    align-content: flex-end;
-}
+    #navMenu {
+        align-content: flex-end;
+    }
 
-#navMenuList {
-    width: 100%;
-    margin: 0 0.5rem 0 0.5rem;
-}
+    #navMenuList {
+        width: 100%;
+        margin: 0 0.5rem 0 0.5rem;
+    }
 
-.navMenuItem {
-    float: right;
-    display: block;
-    margin: 0 0.25rem 0 0.25rem;
-}
+    .navMenuItem {
+        float: right;
+        display: block;
+        margin: 0 0.25rem 0 0.25rem;
+    }
 
-/*==================================
+    /*==================================
     Introduction Styles
 ====================================*/
 
-.introductionArticle{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: auto;
-    margin: 1rem 10% 1rem 10%;
-}
+    .introductionArticle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: auto;
+        margin: 1rem 10% 1rem 10%;
+    }
 
-.introductionQuestion, .introductionText{
-    align-content: center;
-}
+    .introductionQuestion, .introductionText {
+        align-content: center;
+    }
 
-#introductionQuestionSection {
-    width: 35%;
-    background-color: var(--color-accentBackground);
-    height: 300px;
-    text-align: center;
-}
+    #introductionQuestionSection {
+        width: auto;
+        background-color: var(--color-accentBackground);
+        height: 5rem;
+        text-align: center;
+    }
 
-.introductionQuestion {
-    position: relative;
-    top: 42%;
-    margin: 0;
-    transform: rotate(-35deg);
-}
+    .introductionQuestion {
+        position: relative;
+        top: 42%;
+        margin: 0;
+        transform: rotate(-35deg);
+    }
 
-#introductionTextSection {
-    width: 55%;
-    text-align: center;
-}
+    #introductionTextSection {
+        text-align: center;
+    }
 
-.introductionText {
-    text-indent: 1.5rem;
-    margin: 0.5rem;
-}
+    .introductionText {
+        text-indent: 1.5rem;
+        margin: 0.5rem;
+    }
 
-#inlineLink {
-    color: var(--color-fadedText);
-    text-decoration: none;
-}
+    #inlineLink {
+        color: var(--color-fadedText);
+        text-decoration: none;
+    }
 
-/*==================================
+    @media (min-width: 50rem) {
+        .introductionArticle {
+            flex-direction: row;
+            width: 80%;
+            height: auto;
+        }
+
+        #introductionQuestionSection {
+            width: 35%;
+            height: 14vw;
+        }
+
+        #introductionTextSection {
+            width: 55%;
+        }
+    }
+
+    /*==================================
     Inspiration Styles
 ====================================*/
 
@@ -232,53 +255,105 @@ a {
     text-align: center;
 }
 
-    #inspiration h2 {
-        margin-top: 0;
-        background-color: var(--color-accentBackground);
-    }
+#inspiration h2 {
+    margin-top: 0;
+    background-color: var(--color-accentBackground);
+}
 
-#myInspirationProjects{
+#myInspirationProjects {
     text-align: center;
     display: grid;
-    grid-template-columns: 30% 30% 30%;
-    grid-template-rows: 35rem 5rem 2rem 21rem auto auto auto;
-    grid-gap: 2rem, 3rem;
     justify-content: space-evenly;
     align-content: center;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto;
+    grid-gap: 1vw, 1vw;
 }
 
-#inspirationOne{
+#inspirationOne .inspirationPreview {
     grid-column: 1;
-}
-
-#inspirationTwo{
-    grid-column: 2;
-}
-
-#inspirationThree{
-    grid-column: 3;
-}
-
-.inspirationPreview{
     grid-row: 1;
 }
 
-.inspirationDescription{
+#inspirationOne .inspirationDescription {
+    grid-column: 1;
     grid-row: 2;
 }
 
-.inspirationLinks{
+#inspirationOne .inspirationLinks {
+    grid-column: 1;
     grid-row: 3;
 }
 
+#inspirationTwo .inspirationPreview {
+    grid-column: 1;
+    grid-row: 4;
+}
 
-.inspirationProject{
-    height: 40rem;
+#inspirationTwo .inspirationDescription {
+    grid-column: 1;
+    grid-row: 5;
+}
+
+#inspirationTwo .inspirationLinks {
+    grid-column: 1;
+    grid-row: 6;
+}
+
+#inspirationThree .inspirationPreview {
+    grid-column: 1;
+    grid-row: 7;
+}
+
+#inspirationThree .inspirationDescription {
+    grid-column: 1;
+    grid-row: 8;
+}
+
+#inspirationThree .inspirationLinks {
+    grid-column: 1;
+    grid-row: 9;
+}
+
+@media (min-width: 50rem) {
+    #myInspirationProjects{
+        grid-template-columns: 30% 30% 30%;
+        grid-template-rows: 35rem 5rem 2rem 21rem auto auto auto;
+        grid-gap: 2rem, 3rem;
+    }
+    #inspirationOne {
+        grid-column: 1;
+    }
+
+    #inspirationTwo {
+        grid-column: 2;
+    }
+
+    #inspirationThree {
+        grid-column: 3;
+    }
+
+    .inspirationPreview {
+        grid-row: 1;
+    }
+
+    .inspirationDescription {
+        grid-row: 2;
+    }
+
+    .inspirationLinks {
+        grid-row: 3;
+    }
+}
+
+
+.inspirationProject {
+    height: auto;
     margin: 0.5rem 2rem 0.5rem 2rem;
 }
 
-.inspirationPreview figure{
-    height: 33rem;
+.inspirationPreview figure {
+    height: auto;
     margin: 0;
     display: grid;
     grid-template-columns: auto;
@@ -286,32 +361,43 @@ a {
     justify-content: center;
 }
 
-.inspirationImage {
-    grid-column: 1;
-    grid-row: 1;
-    max-width: 100%;
-    max-height: 30rem;
-    align-self: end;
+@media (min-width: 50rem) {
+    .inspirationProject{
+        height: 40rem;
+    }
+    .inspirationPreview figure {
+        height: 33rem;
+        margin: 0;
+    }
 }
 
-.inspirationCaption {
-    grid-column: 1;
-    grid-row: 2;
-    align-self: center;
-    font-size: 2vw;
-    color: var(--color-secondaryTitle);
-    font-family: var(--ff-accentFont);
-}
 
-.inspirationLink{
-    margin: 0.5rem 1rem 0.5rem 1rem;
-}
+    .inspirationImage {
+        grid-column: 1;
+        grid-row: 1;
+        max-width: 100%;
+        max-height: 30rem;
+        align-self: end;
+    }
 
-.hidden{
-    display: none;
-}
+    .inspirationCaption {
+        grid-column: 1;
+        grid-row: 2;
+        align-self: center;
+        font-size: 2vw;
+        color: var(--color-secondaryTitle);
+        font-family: var(--ff-accentFont);
+    }
 
-.caveat {
-    font-size: 0.8vw;
-    color: var(--color-fadedText);
-}
+    .inspirationLink {
+        margin: 0.5rem 1rem 0.5rem 1rem;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .caveat {
+        font-size: 0.8vw;
+        color: var(--color-fadedText);
+    }

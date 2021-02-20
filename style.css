@@ -3,203 +3,204 @@
     Alias:  CheTranqui
 */
 
-/*==================================
-    Primary Document Styles
-====================================*/
+    /*==================================
+            Primary Document Styles
+    ====================================*/
 
-:root {
-    --color-primaryBackground: #123;
-    --color-secondaryBackground: #222;
-    --color-accentBackground: #333;
-    --color-primaryTitle: #38a2c2;
-    --color-secondaryTitle: #ff8c00;
-    --color-primaryText: #f0f8ff;
-    --color-secondaryText:;
-    --color-fadedText: #808080;
-    --color-links: #1ec8af;
-    --ff-primaryFont: 'Times New Roman';
-    --ff-accentFont: 'Palatino Linotype';
-}
+    :root {
+        --color-primaryBackground: #123;
+        --color-secondaryBackground: #222;
+        --color-accentBackground: #333;
+        --color-primaryTitle: #38a2c2;
+        --color-secondaryTitle: #ff8c00;
+        --color-primaryText: #f0f8ff;
+        --color-secondaryText:;
+        --color-fadedText: #808080;
+        --color-links: #1ec8af;
+        --ff-primaryFont: 'Times New Roman';
+        --ff-accentFont: 'Palatino Linotype';
+    }
 
 
 
-ul {
-    margin-top: 0;
-}
+    ul {
+        margin-top: 0;
+    }
 
-header {
-    font-size: 3vw;
-    font-family: var(--ff-accentFont);
-    background-color: var(--color-secondaryBackground);
-}
-
-h1 {
-    background-image: url("images/codeBackgroundFaded.jpg");
-    background-size: 100%;
-    text-align: center;
-    height: 5rem;
-    padding-top: 2rem;
-    margin-bottom: 0;
-    font-size: 4vw;
-    font-family: var(--ff-accentFont);
-}
-
-h2 {
-    align-self: center;
-    color: var(--color-primaryTitle);
-    font-size: 4vw;
-    text-shadow: 3px 3px black;
-    font-family: var(--ff-accentFont);
-}
-
-body {
-    margin: 2rem;
-    background-color: var(--color-primaryBackground);
-    color: var(--color-primaryText);
-    font-size: 2.2vw;
-    font-family: var(--ff-primaryFont);
-}
-
-main {
-    padding-top: 0.05rem;
-    background-color: var(--color-secondaryBackground);
-}
-
-a:hover, a:focus, .navLink p:hover, .navLink:focus {
-    font-size: 3.5vw;
-}
-
-a {
-    color: var(--color-links);
-}
-
-@media only screen and (min-width: 795px) {
     header {
-        font-size: 1.5vw;
+        font-size: 3vw;
+        font-family: var(--ff-accentFont);
+        background-color: var(--color-secondaryBackground);
     }
 
     h1 {
-        height: 8rem;
-        padding-top: 4rem;
-        font-size: 4vw;
+        background-image: url("images/codeBackgroundFaded.jpg");
+        background-size: 100%;
+        text-align: center;
+        height: 5rem;
+        padding-top: 2rem;
+        margin-bottom: 0;
+        font-size: 6vw;
+        font-family: var(--ff-accentFont);
     }
 
     h2 {
-        font-size: 2.5vw;
+        align-self: center;
+        color: var(--color-primaryTitle);
+        font-size: 5vw;
+        text-shadow: 3px 3px black;
+        font-family: var(--ff-accentFont);
     }
 
     body {
-        font-size: 1.35vw;
+        margin: 0.5rem;
+        background-color: var(--color-primaryBackground);
+        color: var(--color-primaryText);
+        font-size: 3vw;
+        font-family: var(--ff-primaryFont);
+    }
+
+    main {
+        padding-top: 0.05rem;
+        background-color: var(--color-secondaryBackground);
     }
 
     a:hover, a:focus, .navLink p:hover, .navLink:focus {
-        font-size: 1.6vw;
+        font-size: 3.5vw;
     }
-}
-/*==================================
-           NavBar Styling
-====================================*/
-#navContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    height: 1.3rem;
-}
 
-.navBar {
-    display: flex;
-    width: 50%;
-    margin-top: 0;
-}
+    a {
+        color: var(--color-links);
+    }
 
-.navLink {
-    color: var(--color-links);
-}
+    @media only screen and (min-width: 795px) {
+        header {
+            font-size: 1.5vw;
+        }
 
-.navBar p {
-    margin: 0.4rem 0 0 0;
-}
+        h1 {
+            height: 8rem;
+            padding-top: 4rem;
+            font-size: 4vw;
+        }
+
+        h2 {
+            font-size: 2.5vw;
+        }
+
+        body {
+            font-size: 1.35vw;
+            margin: 2rem;
+        }
+
+        a:hover, a:focus, .navLink p:hover, .navLink:focus {
+            font-size: 1.6vw;
+        }
+    }
+    /*==================================
+               NavBar Styling
+    ====================================*/
+    #navContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: 1.3rem;
+    }
+
+    .navBar {
+        display: flex;
+        width: 50%;
+        margin-top: 0;
+    }
+
+    .navLink {
+        color: var(--color-links);
+    }
+
+    .navBar p {
+        margin: 0.4rem 0 0 0;
+    }
 
 
-/*==================================
-    NavBar: Social Media Dropdown
-====================================*/
+    /*==================================
+        NavBar: Social Media Dropdown
+    ====================================*/
 
-.navList {
-    list-style-type: none;
-    padding-left: 0.5rem;
-    margin: 0 0 0 0;
-}
+    .navList {
+        list-style-type: none;
+        padding-left: 0.5rem;
+        margin: 0 0 0 0;
+    }
 
-#socialMediaDisplay {
-    margin: 0 0.5rem 0 0.5rem;
-}
+    #socialMediaDisplay {
+        margin: 0 0.5rem 0 0.5rem;
+    }
 
-.socialMediaDropdownBackground {
-    display: none;
-    position: absolute;
-    background-color: var(--color-secondaryBackground);
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
-    z-index: 1;
-    max-width: 14vw;
-    padding: 0.2rem 2rem 0.2rem 0;
-    height: auto;
-}
-
-.socialMediaDropdownItem {
-    margin: 0.5rem 0 0.5rem 0;
-    display: block;
-    background-color: var(--color-secondaryBackground);
-}
-
-.socialMediaDropdownImage {
-    max-width: 32%;
-    height: auto;
-}
-
-.socialMediaDropdownLink {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 2.5vw;
-    text-decoration: none;
-    color: var(--color-primaryText);
-    background-color: var(--color-secondaryBackground);
-}
-
-.socialMediaDropdownLink:hover, .socialMediaDropdownLink:focus {
-    width: 110%;
-    font-size: 3vw;
-}
-
-.socialMediaDropdownText {
-    margin-left: 0.35rem;
-    display: inline-block;
-}
-
-.show {
-    display: inline-block;
-}
-
-@media only screen and (min-width: 795px) {
     .socialMediaDropdownBackground {
-        max-width: 5.5vw;
+        display: none;
+        position: absolute;
+        background-color: var(--color-secondaryBackground);
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+        z-index: 1;
+        max-width: 14vw;
+        padding: 0.2rem 2rem 0.2rem 0;
+        height: auto;
+    }
+
+    .socialMediaDropdownItem {
+        margin: 0.5rem 0 0.5rem 0;
+        display: block;
+        background-color: var(--color-secondaryBackground);
+    }
+
+    .socialMediaDropdownImage {
+        max-width: 32%;
+        height: auto;
     }
 
     .socialMediaDropdownLink {
-        font-size: 0.9vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 2.5vw;
+        text-decoration: none;
+        color: var(--color-primaryText);
+        background-color: var(--color-secondaryBackground);
     }
 
     .socialMediaDropdownLink:hover, .socialMediaDropdownLink:focus {
-        font-size: 1.15vw;
+        width: 110%;
+        font-size: 3vw;
     }
-}
+
+    .socialMediaDropdownText {
+        margin-left: 0.35rem;
+        display: inline-block;
+    }
+
+    .show {
+        display: inline-block;
+    }
+
+    @media only screen and (min-width: 795px) {
+        .socialMediaDropdownBackground {
+            max-width: 5.5vw;
+        }
+
+        .socialMediaDropdownLink {
+            font-size: 0.9vw;
+        }
+
+        .socialMediaDropdownLink:hover, .socialMediaDropdownLink:focus {
+            font-size: 1.15vw;
+        }
+    }
 
 
-/*==================================
-    NavBar: Right-side Nav Menu
-====================================*/
+    /*==================================
+        NavBar: Right-side Nav Menu
+    ====================================*/
     #navMenu {
         align-content: flex-end;
     }
@@ -216,8 +217,8 @@ a {
     }
 
     /*==================================
-    Introduction Styles
-====================================*/
+            Introduction Styles
+    ====================================*/
 
     .introductionArticle {
         display: flex;
@@ -236,7 +237,7 @@ a {
     #introductionQuestionSection {
         width: auto;
         background-color: var(--color-accentBackground);
-        height: 20vw;
+        height: 28vw;
         text-align: center;
     }
 
@@ -279,8 +280,8 @@ a {
     }
 
     /*==================================
-    Inspiration Styles
-====================================*/
+            Inspiration Styles
+    ====================================*/
 
     #inspiration {
         text-align: center;
@@ -394,52 +395,52 @@ a {
         justify-content: center;
     }
 
-.inspirationImage {
-    grid-column: 1;
-    grid-row: 1;
-    max-width: 100%;
-    max-height: 28vw;
-    align-self: end;
-    transition: transform .5s ease;
-}
-
-.inspirationImage:hover {
-    transform: scale(2);
-}
-
-.inspirationCaption {
-    grid-column: 1;
-    grid-row: 2;
-    align-self: center;
-    font-size: 3vw;
-    color: var(--color-secondaryTitle);
-    font-family: var(--ff-accentFont);
-}
-
-@media only screen and (min-width: 795px) {
-    .inspirationProject {
-        height: 30vw;
+    .inspirationImage {
+        grid-column: 1;
+        grid-row: 1;
+        max-width: 100%;
+        max-height: 28vw;
+        align-self: end;
+        transition: transform .5s ease;
     }
 
-    .inspirationPreview figure {
-        height: 25vw;
-        margin: 0;
+    .inspirationImage:hover {
+        transform: scale(2);
     }
 
     .inspirationCaption {
-        font-size: 2vw;
+        grid-column: 1;
+        grid-row: 2;
+        align-self: center;
+        font-size: 4.5vw;
+        color: var(--color-secondaryTitle);
+        font-family: var(--ff-accentFont);
     }
-}
 
-.inspirationLink {
-    margin: 0.5rem 1rem 0.5rem 1rem;
-}
+    @media only screen and (min-width: 795px) {
+        .inspirationProject {
+            height: 30vw;
+        }
 
-.hidden {
-    display: none;
-}
+        .inspirationPreview figure {
+            height: 25vw;
+            margin: 0;
+        }
 
-.caveat {
-    font-size: 0.8vw;
-    color: var(--color-fadedText);
-}
+        .inspirationCaption {
+            font-size: 2vw;
+        }
+    }
+
+    .inspirationLink {
+        margin: 0.5rem 1rem 0.5rem 1rem;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .caveat {
+        font-size: 0.8vw;
+        color: var(--color-fadedText);
+    }

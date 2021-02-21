@@ -8,54 +8,44 @@
   Everything here is for 795 pixels wide and under
     ====================================*/
 
-    :root {
-        --color-primaryBackground: #123;
-        --color-secondaryBackground: #222;
-        --color-accentBackground: #333;
-        --color-primaryTitle: #38a2c2;
-        --color-secondaryTitle: #ff8c00;
-        --color-primaryText: #f0f8ff;
-        --color-secondaryText:;
-        --color-fadedText: #808080;
-        --color-links: #1ec8af;
-        --ff-primaryFont: 'Times New Roman';
-        --ff-accentFont: 'Palatino Linotype';
-    }
+:root {
+    --color-primaryBackground: #123;
+    --color-secondaryBackground: #222;
+    --color-accentBackground: #333;
+    --color-primaryTitle: #38a2c2;
+    --color-secondaryTitle: #38a2c2;
+/*    --color-secondaryTitle: #ff8c00;*/
+    --color-primaryText: #f0f8ff;
+    --color-secondaryText:;
+    --color-fadedText: #808080;
+    --color-links: #1ec8af;
+    --ff-primaryFont: 'Times New Roman';
+    --ff-accentFont: 'Palatino Linotype';
+}
 
     ul {
         margin-top: 0;
     }
 
     header {
-        font-size: 3vw;
         font-family: var(--ff-accentFont);
         background-color: var(--color-secondaryBackground);
     }
 
     h1 {
-        background-image: url("images/codeBackgroundFaded.jpg");
-        background-size: 100%;
-        text-align: center;
-        height: 5rem;
-        padding-top: 2rem;
-        margin-bottom: 0;
-        font-size: 6vw;
-        font-family: var(--ff-accentFont);
-    }
-
-    h2 {
         align-self: center;
         color: var(--color-primaryTitle);
-        font-size: 5vw;
+        font-size: 2rem;
         text-shadow: 3px 3px black;
         font-family: var(--ff-accentFont);
+        margin: 1rem 0.5rem 1rem 0.5rem;
     }
 
     body {
         margin: 0.5rem;
         background-color: var(--color-primaryBackground);
         color: var(--color-primaryText);
-        font-size: 3vw;
+        font-size: 1.5rem;
         font-family: var(--ff-primaryFont);
     }
 
@@ -65,7 +55,7 @@
     }
 
     a:hover, a:focus, .navLink p:hover, .navLink:focus {
-        font-size: 3.5vw;
+        font-size: 1.9rem;
     }
 
     a {
@@ -82,11 +72,12 @@
         justify-content: space-between;
         width: 100%;
         height: 1.3rem;
+        padding-top: 0.5rem;
     }
 
     .navBar {
         display: flex;
-        width: 50%;
+        width: auto;
         margin-top: 0;
     }
 
@@ -233,12 +224,6 @@
         text-align: center;
     }
 
-    #inspiration h2 {
-        margin-top: 2vw;
-        margin-bottom: 0;
-        background-color: var(--color-accentBackground);
-    }
-
     #myInspirationProjects {
         text-align: center;
         display: grid;
@@ -296,7 +281,7 @@
 
     .inspirationProject {
         height: auto;
-        margin: 0.5rem 2rem 0.5rem 2rem;
+        margin: 0.2rem 1rem 0.2rem 1rem;
     }
 
     .inspirationPreview figure {
@@ -314,6 +299,7 @@
         max-width: 100%;
         max-height: 28vw;
         align-self: end;
+        border: 0.5rem solid var(--color-primaryBackground);
         transition: transform .5s ease;
     }
 
@@ -330,6 +316,15 @@
         font-family: var(--ff-accentFont);
     }
 
+    .inspirationText{
+        margin: 0.5rem 0 0.5rem 0;
+    }
+
+    .inspirationLinks {
+        padding-bottom: 1rem;
+        border-bottom: 1.5rem solid var(--color-primaryBackground);
+    }
+
     .inspirationLink {
         margin: 0.5rem 1rem 0.5rem 1rem;
     }
@@ -343,33 +338,32 @@
         color: var(--color-fadedText);
     }
 
-@media only screen and (min-width: 795px) {
     /*==================================
        Primary Document Styles - Desktop
   Everything here is for over 795 pixels wide
     ====================================*/
-    
+@media only screen and (min-width: 795px) {
+
     header {
         font-size: 1.5vw;
     }
 
     h1 {
-        height: 8rem;
-        padding-top: 4rem;
-        font-size: 4vw;
-    }
-
-    h2 {
-        font-size: 2.5vw;
+        font-size: 2.25rem;
+        margin-bottom: 0;
     }
 
     body {
-        font-size: 1.35vw;
+        font-size: 1.2rem;
         margin: 2rem;
     }
 
-    a:hover, a:focus, .navLink p:hover, .navLink:focus {
-        font-size: 1.6vw;
+    a {
+        font-size: 0.7rem;
+    }
+
+    a:hover, a:focus {
+        font-size: 0.9rem;
     }
     /*==================================
            NavBar Styling - Desktop
@@ -391,25 +385,24 @@
 
     /*==================================
     NavBar: Right-side Nav Menu - Desktop
-                no changes made
     ====================================*/
+    .navLink p, .navLink{
+        font-size: 1.2rem;
+    }
 
+    .navLink p:hover, .navLink:focus{
+        font-size: 1.35rem;
+    }
     /*==================================
         Introduction Styles - Desktop
     ====================================*/
     .introductionArticle {
-        flex-direction: row;
         width: 80%;
         height: auto;
     }
 
-    #introductionQuestionSection {
-        width: 35%;
-        height: 14vw;
-    }
-
-    #introductionTextSection {
-        width: 55%;
+    #introductionTitleSection {
+        
     }
 
     /*==================================
@@ -418,7 +411,7 @@
     #myInspirationProjects {
         grid-template-columns: 30% 30% 30%;
         grid-template-rows: 35rem 5rem 2rem 21rem auto auto auto;
-        grid-gap: 2rem, 3rem;
+        grid-gap: 1rem 1rem;
     }
 
     #inspirationOne {
@@ -443,6 +436,7 @@
 
     .inspirationLinks {
         grid-row: 3;
+        border-bottom: none;
     }
 
     .inspirationProject {
@@ -456,5 +450,9 @@
 
     .inspirationCaption {
         font-size: 2vw;
+    }
+
+    .inspirationText {
+        margin: 0 0 0.5rem 0;
     }
 }

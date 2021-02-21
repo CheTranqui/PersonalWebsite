@@ -5,6 +5,7 @@
 
     /*==================================
             Primary Document Styles
+  Everything here is for 795 pixels wide and under
     ====================================*/
 
     :root {
@@ -20,8 +21,6 @@
         --ff-primaryFont: 'Times New Roman';
         --ff-accentFont: 'Palatino Linotype';
     }
-
-
 
     ul {
         margin-top: 0;
@@ -73,30 +72,7 @@
         color: var(--color-links);
     }
 
-    @media only screen and (min-width: 795px) {
-        header {
-            font-size: 1.5vw;
-        }
 
-        h1 {
-            height: 8rem;
-            padding-top: 4rem;
-            font-size: 4vw;
-        }
-
-        h2 {
-            font-size: 2.5vw;
-        }
-
-        body {
-            font-size: 1.35vw;
-            margin: 2rem;
-        }
-
-        a:hover, a:focus, .navLink p:hover, .navLink:focus {
-            font-size: 1.6vw;
-        }
-    }
     /*==================================
                NavBar Styling
     ====================================*/
@@ -183,20 +159,6 @@
         display: inline-block;
     }
 
-    @media only screen and (min-width: 795px) {
-        .socialMediaDropdownBackground {
-            max-width: 5.5vw;
-        }
-
-        .socialMediaDropdownLink {
-            font-size: 0.9vw;
-        }
-
-        .socialMediaDropdownLink:hover, .socialMediaDropdownLink:focus {
-            font-size: 1.15vw;
-        }
-    }
-
 
     /*==================================
         NavBar: Right-side Nav Menu
@@ -262,22 +224,6 @@
         text-decoration: none;
     }
 
-    @media only screen and (min-width: 795px) {
-        .introductionArticle {
-            flex-direction: row;
-            width: 80%;
-            height: auto;
-        }
-
-        #introductionQuestionSection {
-            width: 35%;
-            height: 14vw;
-        }
-
-        #introductionTextSection {
-            width: 55%;
-        }
-    }
 
     /*==================================
             Inspiration Styles
@@ -287,11 +233,11 @@
         text-align: center;
     }
 
-        #inspiration h2 {
-            margin-top: 2vw;
-            margin-bottom: 0;
-            background-color: var(--color-accentBackground);
-        }
+    #inspiration h2 {
+        margin-top: 2vw;
+        margin-bottom: 0;
+        background-color: var(--color-accentBackground);
+    }
 
     #myInspirationProjects {
         text-align: center;
@@ -348,39 +294,6 @@
         grid-row: 9;
     }
 
-    @media only screen and (min-width: 795px) {
-        #myInspirationProjects {
-            grid-template-columns: 30% 30% 30%;
-            grid-template-rows: 35rem 5rem 2rem 21rem auto auto auto;
-            grid-gap: 2rem, 3rem;
-        }
-
-        #inspirationOne {
-            grid-column: 1;
-        }
-
-        #inspirationTwo {
-            grid-column: 2;
-        }
-
-        #inspirationThree {
-            grid-column: 3;
-        }
-
-        .inspirationPreview {
-            grid-row: 1;
-        }
-
-        .inspirationDescription {
-            grid-row: 2;
-        }
-
-        .inspirationLinks {
-            grid-row: 3;
-        }
-    }
-
-
     .inspirationProject {
         height: auto;
         margin: 0.5rem 2rem 0.5rem 2rem;
@@ -417,21 +330,6 @@
         font-family: var(--ff-accentFont);
     }
 
-    @media only screen and (min-width: 795px) {
-        .inspirationProject {
-            height: 30vw;
-        }
-
-        .inspirationPreview figure {
-            height: 25vw;
-            margin: 0;
-        }
-
-        .inspirationCaption {
-            font-size: 2vw;
-        }
-    }
-
     .inspirationLink {
         margin: 0.5rem 1rem 0.5rem 1rem;
     }
@@ -444,3 +342,119 @@
         font-size: 0.8vw;
         color: var(--color-fadedText);
     }
+
+@media only screen and (min-width: 795px) {
+    /*==================================
+       Primary Document Styles - Desktop
+  Everything here is for over 795 pixels wide
+    ====================================*/
+    
+    header {
+        font-size: 1.5vw;
+    }
+
+    h1 {
+        height: 8rem;
+        padding-top: 4rem;
+        font-size: 4vw;
+    }
+
+    h2 {
+        font-size: 2.5vw;
+    }
+
+    body {
+        font-size: 1.35vw;
+        margin: 2rem;
+    }
+
+    a:hover, a:focus, .navLink p:hover, .navLink:focus {
+        font-size: 1.6vw;
+    }
+    /*==================================
+           NavBar Styling - Desktop
+    ====================================*/
+    /*==================================
+     NavBar: Social Media Dropdown - Desktop
+    ====================================*/
+    .socialMediaDropdownBackground {
+        max-width: 5.5vw;
+    }
+
+    .socialMediaDropdownLink {
+        font-size: 0.9vw;
+    }
+
+    .socialMediaDropdownLink:hover, .socialMediaDropdownLink:focus {
+        font-size: 1.15vw;
+    }
+
+    /*==================================
+    NavBar: Right-side Nav Menu - Desktop
+                no changes made
+    ====================================*/
+
+    /*==================================
+        Introduction Styles - Desktop
+    ====================================*/
+    .introductionArticle {
+        flex-direction: row;
+        width: 80%;
+        height: auto;
+    }
+
+    #introductionQuestionSection {
+        width: 35%;
+        height: 14vw;
+    }
+
+    #introductionTextSection {
+        width: 55%;
+    }
+
+    /*==================================
+        Inspiration Styles - Desktop
+    ====================================*/
+    #myInspirationProjects {
+        grid-template-columns: 30% 30% 30%;
+        grid-template-rows: 35rem 5rem 2rem 21rem auto auto auto;
+        grid-gap: 2rem, 3rem;
+    }
+
+    #inspirationOne {
+        grid-column: 1;
+    }
+
+    #inspirationTwo {
+        grid-column: 2;
+    }
+
+    #inspirationThree {
+        grid-column: 3;
+    }
+
+    .inspirationPreview {
+        grid-row: 1;
+    }
+
+    .inspirationDescription {
+        grid-row: 2;
+    }
+
+    .inspirationLinks {
+        grid-row: 3;
+    }
+
+    .inspirationProject {
+        height: 30vw;
+    }
+
+    .inspirationPreview figure {
+        height: 25vw;
+        margin: 0;
+    }
+
+    .inspirationCaption {
+        font-size: 2vw;
+    }
+}

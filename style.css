@@ -281,14 +281,13 @@
         grid-column: 1;
         grid-row: 1;
         max-width: 100%;
-        max-height: auto;
         align-self: end;
         border: 0.5rem solid var(--color-primaryBackground);
         transition: transform .5s ease;
     }
 
     .inspirationImage:hover {
-        transform: scale(2);
+        transform: scale(1.2);
     }
 
     .inspirationCaption {
@@ -440,6 +439,10 @@
         margin: 0 10% 0 10%;
     }
 
+    .inspirationImage:hover {
+        transform: scale(2);
+    }
+
     .inspirationCaption {
         font-size: 1.65rem;
         margin-bottom: 0.5rem;
@@ -450,8 +453,22 @@
     }
 }
 
+    /*==================================
+           special media query cases
+    ====================================*/
+    
 @media only screen and (min-width: 1285px) {
     .inspirationImage:hover {
         transform: scale(1.7);
+    }
+}
+
+@media only screen and (max-width: 405px){
+    .navBar p{
+        font-size: 1.1rem;
+    }
+
+    .navBar p:hover {
+        font-size: 1.15rem;
     }
 }

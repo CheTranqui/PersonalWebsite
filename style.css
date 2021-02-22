@@ -42,7 +42,7 @@
     }
 
     body {
-        margin: 0.5rem;
+        margin: 1rem;
         background-color: var(--color-primaryBackground);
         color: var(--color-primaryText);
         font-size: 1.5rem;
@@ -216,6 +216,7 @@
         align-content: center;
         grid-template-columns: auto;
         grid-template-rows: auto auto auto auto auto auto auto auto auto;
+        column-gap: normal;
     }
 
     #inspirationOne .inspirationPreview {
@@ -265,7 +266,7 @@
 
     .inspirationProject {
         height: auto;
-        align-self: center;
+        align-self: start;
         text-align: center;
         margin: 0.2rem 1rem 0.2rem 1rem;
     }
@@ -278,14 +279,16 @@
         justify-content: center;
     }
 
-    .inspirationImage {
-        grid-column: 1;
-        grid-row: 1;
-        max-width: 100%;
-        align-self: center;
-        border: 0.5rem solid var(--color-primaryBackground);
-        transition: transform .5s ease;
-    }
+.inspirationImage {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 100%;
+    height: auto;
+    align-self: center;
+    border: 1.5rem solid var(--color-primaryBackground);
+    border-bottom: 0;
+    transition: transform .5s ease;
+}
 
     .inspirationImage:hover {
         transform: scale(1.2);
@@ -306,7 +309,7 @@
 
     .inspirationLinks {
         padding-bottom: 1rem;
-        border-bottom: 1.5rem solid var(--color-primaryBackground);
+/*        border-bottom: 1.5rem solid var(--color-primaryBackground);*/
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -438,6 +441,10 @@
         height: auto;
         width: 80%;
         margin: 0 10% 0 10%;
+    }
+
+    .inspirationImage {
+        border: 1rem solid var(--color-primaryBackground);
     }
 
     .inspirationImage:hover {

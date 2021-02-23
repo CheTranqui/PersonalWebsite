@@ -309,7 +309,6 @@
 
     .inspirationLinks {
         padding-bottom: 1rem;
-/*        border-bottom: 1.5rem solid var(--color-primaryBackground);*/
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -479,4 +478,9 @@
     .navBar p:hover {
         font-size: 1.15rem;
     }
+}
+
+.afterThought{
+    font-size: 1rem;
+    color: var(--color-fadedText);
 }

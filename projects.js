@@ -15,7 +15,8 @@ function getProjects() {
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            createSlides(JSON.parse(this.responseText));
+            const JSONSlides = JSON.parse(this.responseText);
+            createSlides(JSONSlides);
         }
     };
     xmlhttp.open("GET", "projects.json", true);

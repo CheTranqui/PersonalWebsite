@@ -30,42 +30,42 @@ function createSlides(JSONSlides) {
         slide.projectLesson = JSONSlides["Projects"][i].projectLesson;
         console.log(slide);
         const links = [];
-        if (JSONSlides["Projects"][i].projectToGithub != null) {
+        if (JSONSlides["Projects"][i].projectLinkToGithub != null) {
             const myLink = [];
-            myLink.link = JSONSlides["Projects"][i].projectToGithub;
+            myLink.link = JSONSlides["Projects"][i].projectLinkToGithub;
             myLink.text = "Github";
             links.push(myLink);
         }
         console.log(links);
-        if (JSONSlides["Projects"][i].projectToYoutube != null) {
+        if (JSONSlides["Projects"][i].projectLinkToYoutube != null) {
             const myLink = [];
-            myLink.link = JSONSlides["Projects"][i].projectToYoutube;
+            myLink.link = JSONSlides["Projects"][i].projectLinkToYoutube;
             myLink.text = "YouTube";
             links.push(myLink);
         }
         console.log(links);
-        if (JSONSlides["Projects"][i].projectToSteam != null) {
+        if (JSONSlides["Projects"][i].projectLinkToSteam != null) {
             const myLink = [];
-            myLink.link = JSONSlides["Projects"][i].projectToSteam;
+            myLink.link = JSONSlides["Projects"][i].projectLinkToSteam;
             myLink.text = "Steam";
             links.push(myLink);
         }
         console.log(links);
-        if (JSONSlides["Projects"][i].projectToDownload != null) {
+        if (JSONSlides["Projects"][i].projectLinkToDownload != null) {
             const myLink = [];
-            myLink.link = JSONSlides["Projects"][i].projectToDownload;
+            myLink.link = JSONSlides["Projects"][i].projectLinkToDownload;
             myLink.text = "Download";
             links.push(myLink);
         }
-        if (JSONSlides["Projects"][i].projectToGithubIO != null) {
+        if (JSONSlides["Projects"][i].projectLinkToGithubIO != null) {
             const myLink = [];
-            myLink.link = JSONSlides["Projects"][i].projectToGithubIO;
+            myLink.link = JSONSlides["Projects"][i].projectLinkToGithubIO;
             myLink.text = "GithubIO";
             links.push(myLink);
         }
-        if (JSONSlides["Projects"][i].projectToWebsite != null) {
+        if (JSONSlides["Projects"][i].projectLinkToWebsite != null) {
             const myLink = [];
-            myLink.link = JSONSlides["Projects"][i].projectToWebsite;
+            myLink.link = JSONSlides["Projects"][i].projectLinkToWebsite;
             myLink.text = "Website";
             links.push(myLink);
         }

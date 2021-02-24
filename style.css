@@ -14,11 +14,11 @@
     --color-accentBackground: #333;
     --color-primaryTitle: #38a2c2;
     --color-secondaryTitle: #38a2c2;
-/*    --color-secondaryTitle: #ff8c00;*/
     --color-primaryText: #f0f8ff;
     --color-secondaryText:;
     --color-fadedText: #808080;
     --color-links: #1ec8af;
+    --color-inlineLinks: #9CFFDE;
     --ff-primaryFont: 'Times New Roman';
     --ff-accentFont: 'Palatino Linotype';
 }
@@ -195,12 +195,6 @@
         margin: 0.5rem 0 0.5rem 0;
     }
 
-    #inlineLink {
-        color: var(--color-fadedText);
-        text-decoration: none;
-    }
-
-
     /*==================================
             Inspiration Styles
     ====================================*/
@@ -279,16 +273,16 @@
         justify-content: center;
     }
 
-.inspirationImage {
-    grid-column: 1;
-    grid-row: 1;
-    max-width: 100%;
-    height: auto;
-    align-self: center;
-    border: 1.5rem solid var(--color-primaryBackground);
-    border-bottom: 0;
-    transition: transform .5s ease;
-}
+    .inspirationImage {
+        grid-column: 1;
+        grid-row: 1;
+        max-width: 100%;
+        height: auto;
+        align-self: center;
+        border: 1.5rem solid var(--color-primaryBackground);
+        border-bottom: 0;
+        transition: transform .5s ease;
+    }
 
     .inspirationImage:hover {
         transform: scale(1.2);
@@ -320,11 +314,6 @@
 
     .hidden {
         display: none;
-    }
-
-    .caveat {
-        font-size: 0.8vw;
-        color: var(--color-fadedText);
     }
 
     /*==================================
@@ -479,8 +468,145 @@
         font-size: 1.15rem;
     }
 }
+    
 
-.afterThought{
-    font-size: 1rem;
-    color: var(--color-fadedText);
-}
+    /*==================================
+           Projects.html page
+    ====================================*/
+
+    .inlineLink {
+        color: var(--color-inlineLinks);
+        text-decoration: none;
+    }
+
+    .projectIntro{
+        padding-bottom: 3rem;
+    }
+
+    .carousel{
+        position: relative;
+        height: 875px;
+        width: 80%;
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .carouselTrackContainer{
+        position: relative;
+        height: 100%;
+
+    }
+
+    .carouselTrack{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .carouselSlide {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .carouselSideButton {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.3);
+        border: 0;
+        cursor: pointer;
+        font-size: 2rem;
+    }
+
+    #carouselLeftButton{
+        left: -2.5rem;
+    }
+
+    #carouselRightButton {
+        right: -2.5rem;
+    }
+
+    .carouselNav{
+        background: var(--color-secondaryBackground);
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0 0.75rem 0;
+    }
+
+    .carouselBottomButton {
+        border: 0;
+        border-radius: 50%;
+        width: 0.7rem;
+        height: 0.8rem;
+        background: rgba(255,255,255,0.3);
+        margin: 0 1rem 0 1rem;
+        cursor: pointer;
+    }
+
+    .currentSlide {
+        background: rgba(255,255,255,0.6);
+    }
+
+    .projectContainer p {
+        margin: 0;
+    }
+
+    .projectContainer h2 {
+        color: var(--color-primaryTitle);
+        margin: 1rem 0 1rem 0;
+    }
+
+    .projectContainer projectPreview{
+        height:35rem;
+    }
+
+    .projectContainer section figure {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+    }
+
+    .projectContainer section figure figcaption h1 {
+        width: 100%;
+    }
+
+    .projectContainer section figure img{
+        align-self: center;
+        height: 25rem;
+        width: auto;
+        object-fit: cover;
+    }
+
+    .projectContainer .projectDescriptionSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .projectContainer .projectLinks {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .projectContainer .projectLink{
+        margin: 0 2rem 1rem 2rem;
+    }
+
+
+    /*==================================
+               MartianTribuneStories
+        ====================================*/
+    .afterThought {
+        font-size: 1rem;
+        color: var(--color-fadedText);
+    }

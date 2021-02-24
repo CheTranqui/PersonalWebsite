@@ -1,0 +1,439 @@
+body{
+    position: relative;
+    background-color: darkslategray;
+    color: rgb(219, 245, 248);
+}
+
+.text{
+    font-size: 1.1em;
+}
+
+#navList{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-evenly;
+    margin-top: 0;
+}
+
+.btn{
+    color: silver;
+    background-color: navy;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 0.4em;
+    margin: 0.4em;
+    border: 3px solid lightseagreen;
+    font-size: 1em;
+}
+
+.btn:hover{
+    transform: translate(0.1em, 0.1em);
+    box-shadow: -0.3em -0.3em 0 0.2em midnightblue;
+}
+
+#pageTitle{
+    text-align: center;
+    font-size: 3em;
+    margin: 0em;
+}
+
+header{
+    display: inline-block;
+    width: 100%;
+    height: 120px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(55, 56, 56);
+    color: rgb(255, 255, 255);
+    font-style: oblique;
+    z-index: 2;
+    border: 10px solid rgb(2, 43, 77);
+}
+
+section {
+    display: block;
+}
+
+section:before {
+    content: '';
+    display: block;
+    position: relative;
+    width: 0;
+    height: 140px;
+    margin-top: -140px
+}
+
+#ranGenSection{
+    margin-top: 150px;
+}
+
+
+.indent{
+    text-indent: 3em;
+}
+
+.checkbookBtn{
+    transform: translateX(15em);
+}
+
+#checkbookBtnDeposit:hover,
+#checkbookBtnWithdraw:hover{
+    transform: translate(15.1em, 0.1em);
+    box-shadow: -0.3em -0.3em 0 0.2em midnightblue;
+}
+
+.d20RollContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 3.2em;
+}
+
+#ranGenBtnForm{
+    margin-left: 1em;
+}
+
+#ranGenTextDisplay{
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: left;
+    margin-top: 0em;
+    margin-bottom: 2em;
+}
+
+#ranGenTextNumber{
+    color: rgb(49, 226, 217);
+    font-weight: bold;
+    text-indent: 0.15em;
+}
+
+#checkbookForm{
+    position: relative;
+}
+
+#checkbookWarning{
+    display: none;
+    position: absolute;
+    background-color: rgb(93, 32, 32);
+    margin: 0;
+    width: 10em;
+    font-size: 1.1em;
+    height: 2.5em;
+    border-radius: 10px;
+    z-index: 1;
+    top: -1.1em;
+    text-indent: 0;
+    text-align: center;
+}
+
+#checkbookAmountInput{
+    transform: translateX(0.4em);
+}
+
+.comparisonContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.comparisonInput{
+    margin-left: 1em;
+}
+
+#comparisonNumber1Input{
+    margin-left: 2.4em;
+}
+
+.comparisonBtn{
+    transform: translateX(7.5em);
+}
+
+#comparisonBtnNames:hover{
+    transform: translate(7.6em, 0.1em);
+}
+
+#comparisonBtnNumbers{
+    transform: translateX(11em);
+}
+
+#comparisonBtnNumbers:hover{
+    transform: translate(11.1em, 0.1em);
+}
+
+#comparisonResult{
+    display: none;
+    height: 1.5em;
+    padding: 1em 0 1em 0;
+    width: 5em;
+    position: absolute;
+    top: 3em;
+    left: 16.75em;
+    background-color: rgb(93, 32, 32);
+    margin: 0;
+    width: 10em;
+    font-size: 1.1em;
+    height: 2.5em;
+    border-radius: 10px;
+    z-index: 1;
+    text-indent: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+#comparisonBtnReset{
+    transform: translate(20.7em, -3.05em);
+}
+
+#comparisonBtnReset:hover{
+    transform: translate(20.8em, -2.95em);
+}
+
+.loopResultsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 50%;
+    transform: translate(-5em, -3em)
+}
+
+.loopWrapper{
+    position: relative;
+}
+
+.loopForm{
+    padding-top: 1em;
+    position: absolute;
+    top: -1.25em;
+    left: 10em;
+    height: 7em;
+    width: 24em;
+    background-color: rgb(50, 55, 61);
+    text-indent: 0;
+    border-radius: 25px;
+    z-index: 1;
+    display: none;
+}
+
+#loopInputLabel{
+    margin-left: 2em;
+}
+
+#loopInput{
+    margin-left: 1em;
+}
+
+.loopFormButtons{
+    transform: translateX(8.6em);
+}
+
+#loopNotification{
+    display: none;
+    margin-top: 0.25em;
+}
+
+.loopResultsContainer{
+    margin-top: 3em;
+}
+
+#loopCount,
+#loopTotal{
+    margin-left: 0.5em;
+}
+
+fieldset{
+    border: 5px solid lightseagreen;
+    background-color: rgb(55, 56, 56);
+    border-radius: 20px;
+    color: rgb(219, 245, 248);
+}
+
+legend{
+    font-size: 1.3em;
+}
+
+#highLowFieldset{
+
+}
+
+#highLowGameContainer{
+    position: relative;
+    margin-bottom: 2em;
+}
+
+.highLowInput{
+    margin-left: 0.5em;
+}
+
+#highLowResultsForm{
+    /* transform: translate(15em, -1em); */
+}
+
+.highLowResultText{
+    transform: translate(12.5em, -1em);
+    font-size: 1.2em;
+    width: 47%;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#highLowResultLabel{
+    margin-bottom: 0em;
+}
+
+#highLowCountLabel{
+    margin-top: 0em;
+}
+
+#highLowPlayAgainBtn{
+    position: absolute;
+    top: 5em;
+    left: 6em;
+}
+
+#cardContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#cardDisplayContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly
+}
+
+#cardColorPicker{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.cardOptionList{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardListItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.secondPart{
+    margin-left: 1em;
+}
+.cardLabel, .cardInput{
+    font-size: 1.2em;
+}
+
+.cardListItem{
+    list-style-type: none;
+    margin: 1em 0.25em 1em 0.25em;
+}
+
+.cardInput{
+    background-color: rgb(59, 75, 75);
+    color: rgb(219, 245, 248);
+}
+
+.cardDisplay{
+    content: "";
+    margin: 1em 1em 1em 1em;
+    width: 25em;
+    height: 15em;
+    border: 5px solid black;
+    align-self: center;
+    margin-bottom: 2em;
+    background-color: floralwhite;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.cardDisplayHidden{
+    display: none;
+    z-index: 1;
+}
+
+.cardDisplay p{
+    margin: 0.5em 1em 0.5em 1em;
+}
+
+.colorInput{
+    background-color: rgb(55, 56, 56);
+    border: none;
+}
+
+#cardButtonForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 1em 1em 4em 1em;
+}
+
+.cardButton{
+    margin: 1em 0 1em 0;
+}
+
+#cardAlignTextForm{
+    margin-left: 5em;
+}
+
+.cardDisplayBusinessName{
+    font-size: 2em;
+}
+
+.cardDisplayBusinessSlogan,
+.cardDisplayJobTitle,
+.cardDisplayEmail,
+.cardDisplayPhone{
+    font-size: 1.2em;
+}
+
+.cardDisplayEmail,
+.cardDisplayJobTitle{
+    margin-bottom: 0.5em;
+}
+
+.cardDisplayPersonName{
+    font-size: 1.5em;
+}
+
+.default{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.displayBusiness{
+    margin: 0em;
+}
+
+.align-left{
+    text-align: left;
+}
+
+.align-center{
+    text-align: center;
+}
+
+.align-right{
+    text-align: right;
+}
+
+.italicize{
+    font-style: italic;
+}
+
+.displayLine{
+    margin: 0.25em;
+}
+
+

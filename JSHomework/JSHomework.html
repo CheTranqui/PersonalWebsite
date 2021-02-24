@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        JavaScript Intro Project
+    </title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="ranGen.js"></script>
+    <script src="comparisons.js"></script>
+    <script src="checkbook.js"></script>
+    <script src="loop.js"></script>
+    <script src="highLow.js"></script>
+    <script src="cardDesigner.js"></script>
+</head>
+<body>
+<header class="container" id="navContainer">
+    <h1 id="pageTitle">
+        JavaScript Projects
+    </h1>
+    <ul class="container" id="navList">
+        <li class="navItem" id="navRanGen">
+            <form class="btnForm" id="ranGenBtnForm">
+                <button class="btn navBtn" type="submit" id="navBtnRanGen" formaction="#ranGenSection">
+                    RanGen
+                </button>
+            </form>
+        </li>
+        <li class="navItem" id="navCheckbook">
+            <form class="btnForm" id="checkbookBtnForm">
+                <button class="btn navBtn" type="submit" id="navBtnCheckbook" formaction="#checkbookSection">
+                    Checkbook
+                </button>
+            </form>
+        </li>
+        <li class="navItem" id="navComparisons">
+            <form class="btnForm" id="comparisonBtnForm">
+                <button class="btn navBtn" type="submit" id="navBtnComparisons" formaction="#comparisonSection">
+                    Comparisons
+                </button>
+            </form>
+        </li>
+        <li class="navItem" id="navLoop">
+            <form class="btnForm" id="loopBtnForm">
+                <button class="btn navBtn" type="submit" id="navBtnLoop" formaction="#loopSection">
+                    Finite Loops
+                </button>
+            </form>
+        </li>
+        <li class="navItem" id="navProject">
+            <form class="btnForm" id="highLowBtnForm">
+                <button class="btn navBtn" type="submit" id="navBtnHighLow" formaction="#highLowSection">
+                    High-Low
+                </button>
+            </form>
+        </li>
+        <li class="navItem" id="navCard">
+            <form class="btnForm" id="cardBtnForm">
+                <button class="btn navBtn" type="submit" id="navBtnCard" formaction="#cardSection">
+                    Card Designer
+                </button>
+            </form>
+         </li>
+    </ul>
+</header>
+
+    <section class="container projectContainer" id="ranGenSection">
+        <h1>
+            The Random Number Generator
+        </h1>
+        <div class="d20RollContainer">
+            <p class="text textBasic" id="ranGenTextIntro">
+                Click to roll a D20!
+            </p>
+            <form class="btnForm" id="rollDieBtnForm">
+                <button class="btn btnBasic" type="submit" id="ranGenBtn">
+                    Roll the Die!
+                </button>
+            </form>
+        </div>
+        <p class="text textBasic indent" id="ranGenTextDisplay">
+        You have rolled a 
+            <span class="textBasic text" id="ranGenTextNumber">
+                NUMBER
+            </span>
+            !
+        </p>
+    </section>
+
+    <section class="container projectContainer" id="checkbookSection">
+        <h1>
+            Digital Bank-Fu: Banking Done Right (and Left!)
+        </h1>
+            <p class="text indent" id="checkbookIntroText">
+                Current Balance: 
+                <span class="text" id="checkbookBalance">
+                    $0.00
+                </span>
+            </p>
+            <form class="inputForm indent" id="checkbookForm">
+                <label class="checkbookLabel text" id="checkbookLabelAmount" for="checkbookAmountInput">
+                    Deposit/Withdraw Amount: 
+                </label>
+                <span id="checkbookWarning">Error!</span>
+                <input type="number" class="numberInput" id="checkbookAmountInput">
+                <br>
+                <button class="btn btnBasic checkbookBtn" type="submit" id="checkbookBtnDeposit">
+                    Deposit
+                </button>
+                <button class="btn btnBasic checkbookBtn" type="submit" id="checkbookBtnWithdraw">
+                    Withdraw
+                </button>
+            </form>
+    </section>
+    <section class="container projectContainer" id="comparisonSection">
+        <h1>
+            Comparisons:
+        </h1>
+        <span id="comparisonResult">
+            result
+        </span>
+        <div class="comparisonContainer">
+            <form class="inputForm indent" id="nameComparisonForm">
+                <p>
+                <label class="comparisonLabel text" id="comparisonName1Label" for="comparisonName1Input">
+                    Name 1: 
+                </label>
+                <input type="text" class="comparisonInput" id="comparisonName1Input">
+                </p>
+                <p>
+                <label class="comparisonLabel text" id="comparisonName2Label" for="comparisonName2Input">
+                    Name 2: 
+                </label>
+                <input type="text" class="comparisonInput" id="comparisonName2Input">
+                </p>
+                <button class="btn btnBasic comparisonBtn" type="submit" id="comparisonBtnNames">
+                    Compare Names
+                </button>
+            </form>
+            <form class="inputForm indent" id="numberComparisonForm">
+                <p>
+                <label class="comparisonLabel text" id="comparisonNumber1Label" for="comparisonNumber1Input">
+                    First Number: 
+                </label>
+                <input type="text" class="comparisonInput" id="comparisonNumber1Input">
+                </p>
+                <p>
+                <label class="comparisonLabel text" id="comparisonNumber2Label" for="comparisonNumber2Input">
+                    Second Number: 
+                </label>
+                <input type="text" class="comparisonInput" id="comparisonNumber2Input">
+                </p>
+                <button class="btn btnBasic comparisonBtn" type="submit" id="comparisonBtnNumbers">
+                    Compare Numbers
+                </button>
+            </form>
+        </div>
+        <button class="btn btnBasic comparisonBtn" type="reset" id="comparisonBtnReset">
+            Reset
+        </button>
+    </section>
+    <section class="container projectContainer" id="loopSection">
+        <h1>
+            The Non-Infinite Loop
+        </h1>
+        <div class="loopWrapper indent">
+            <form class="loopStartForm">
+                <label class="loopLabel text" id="loopStartLabel" for="loopStartBtn">
+                    Click button to begin: 
+                </label>
+                <button class="btn btnBasic loopBtn" type="submit" id="loopStartBtn">
+                    Begin Addition
+                </button>
+            </form>
+            <form class="loopForm" id="loopForm">
+                <label class="loopLabel text" id="loopInputLabel" for="loopInput">
+                    Input Number:
+                </label>
+                <input type="text" class="loopInput" id="loopInput">
+                <div class="loopFormButtons">
+                    <button class="btn btnBasic loopBtn" type="submit" id="loopAddBtn">
+                        Add To Total
+                    </button>
+                    <button class="btn btnBasic loopBtn" type="submit" id="loopEndBtn">
+                        Finish
+                    </button>
+                    <br>
+                    <p class="text" id="loopNotification">
+                        You gone done did stuff.
+                    </p>
+                </div>
+            </form>
+            <div class="loopResultsContainer" id="loopResultsContainer">
+                <p class="text">
+                    Records Entered: 
+                    <span id="loopCount">
+                    0
+                    </span>
+                </p>
+                <p class="text">
+                    Total: 
+                    <span id="loopTotal">
+                    0
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="container projectContainer" id="highLowSection">
+        <h1>
+            High-Low Guessing Game
+        </h1>
+        <div id="highLowGameContainer">
+            <fieldset class="highLowFieldset" id="highLowFieldset">
+                <legend>
+                    High-Low!
+                </legend>
+                <form class="highLowForm indent" id="highLowForm">
+                    <label class="highLowLabel text" id="highLowLabel" for="highLowInput">
+                        Input a number between 1 and 10:
+                    </label>
+                    <input type="text" class="highLowInput" id="highLowInput">
+                    <button class="btn highLowBtn" id="highLowGuessBtn">
+                        Make a Guess!
+                    </button>
+                </form>
+                <form class="highLowForm indent" id="highLowResultsForm">
+                    <p class=" highLowResultText text" id="highLowResultLabel">
+                        Result: 
+                        <span class="text" id="highLowResultFeedback">
+                            Over or Under
+                        </span>
+                    </p>
+                    <p class="highLowResultText text" id="highLowCountLabel">
+                        Number of Attempts:
+                        <span class="text" id="highLowResultCount">
+                            0
+                        </span>
+                    </p>
+                </form>
+                <button class="btn highLowBtn" id="highLowPlayAgainBtn">
+                    Play Again
+                </button>
+            </fieldset>
+        </div>
+
+    </section>
+    <section class="container projectContainer" id="cardSection">
+        <h1>
+            Business Card Designer
+        </h1>
+        <fieldset id="cardFieldset">
+            <legend id="cardLegend">
+                Card-O-Matic
+            </legend>
+            <div id="cardContainer">
+                <section class="cardSectionContainer" id="cardOptionsContainer">
+                    <ul class="cardOptionList" id="cardOptionList">
+                        <li class="cardListItem" id="cardListName">
+                            <label class="cardLabel firstPart" id="cardBusinessNameLabel" for="cardBusinessName">
+                                Business Name:
+                            </label>
+                            <input type="text" class="cardInput secondPart" id="cardBusinessName">
+                        </li>
+                        <li class="cardListItem" id="cardListSlogan">
+                            <label class="cardLabel firstPart" id="cardBusinessSloganLabel" for="cardBusinessSlogan">
+                                Business Slogan:
+                            </label>
+                            <input type="text" class="cardInput secondPart" id="cardBusinessSlogan">
+                        </li>
+                        <li class="cardListItem" id="cardListPersonName">
+                            <label class="cardLabel firstPart" id="cardBusinessPersonNameLabel" for="cardPersonName">
+                                Your Name:
+                            </label>
+                            <input type="text" class="cardInput secondPart" id="cardPersonName">
+                        </li>
+                        <li class="cardListItem" id="cardListJobTitle">
+                            <label class="cardLabel firstPart" id="cardJobTitleLabel" for="cardJobTitle">
+                                Your Title:
+                            </label>
+                            <input type="text" class="cardInput secondPart" id="cardJobTitle">
+                        </li>
+                        <li class="cardListItem" id="cardListPhone">
+                            <label class="cardLabel firstPart" id="cardPhoneLabel" for="cardPhone">
+                                Phone Number:
+                            </label>
+                            <input type="text" class="cardInput secondPart" id="cardPhone">
+                        </li>
+                        <li class="cardListItem" id="cardListEmail">
+                            <label class="cardLabel firstPart" id="cardEmailLabel" for="cardEmail">
+                                Your Email:
+                            </label>
+                            <input type="text" class="cardInput secondPart" id="cardEmail">
+                        </li>
+                    </ul>
+                    <form id="cardAlignTextForm">
+                        <button class="btn" type="submit" id="cardAlignLeftButton">
+                            Align-Left
+                        </button>
+                        <button class="btn" type="submit" id="cardAlignCenterButton">
+                            Center
+                        </button>
+                        <button class="btn" type="submit" id="cardAlignRightButton">
+                            Align-Right
+                        </button>
+                    </form>
+                </section>
+                <section>
+                    <form id="cardButtonForm">
+                        <button class="btn cardButton" type="submit" id="cardPreviewButton">
+                            Preview
+                        </button>
+                        <button class="btn cardButton" type="reset" id="cardResetButton">
+                            Reset
+                        </button>
+                        <button class="btn cardButton" type="reset" id="cardReverseButton">
+                            Reverse Order
+                        </button>
+                        <button class="btn cardButton" type="reset" id="cardRandomButton">
+                            Randomize
+                        </button>
+                    </form>
+                </section>
+                <section class="cardSectionContainer" id="cardDisplayContainer">
+                    <div class="cardDisplay" id="cardDisplay">
+                        <p class="displayBusiness default">
+                            <span class="displayText cardDisplayBusinessName" id="cardDisplayBusinessName">
+                                Business
+                            </span>
+                            <span class="displayText cardDisplayBusinessSlogan" id="cardDisplayBusinessSlogan">
+                                Slogan
+                            </span>
+                        </p>
+                        <hr class="displayLine" id="displayLine">
+                        <div>
+                            <p class="displayBusiness default">
+                                <span class="displayText cardDisplayPersonName" id="cardDisplayPersonName">
+                                    Your Name
+                                </span>
+                                <span class="displayText cardDisplayJobTitle italicize" id="cardDisplayJobTitle">
+                                    Job Title
+                                </span>
+                            </p>
+                            <p class="displayBusiness default">
+                                <span class="displayText cardDisplayPhone" id="cardDisplayPhone">
+                                    Phone Number
+                                </span>
+                                <span class="displayText cardDisplayEmail" id="cardDisplayEmail">
+                                    Email Address
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                <!-- <div class="cardDisplay cardDisplayHidden" id="cardDisplayHidden">
+                        <p class="displayBusiness default">
+                            <span class="displayText cardDisplayBusinessName" id="cardDisplayBusinessName" value="business">
+                                Business
+                            </span>
+                            <span class="displayText cardDisplayBusinessSlogan" id="cardDisplayBusinessSlogan" value="business">
+                                Slogan
+                            </span>
+                        </p>
+                        <hr>
+                        <p class="displayBusiness default">
+                            <span class="displayText cardDisplayPersonName" id="cardDisplayPersonName" value="person">
+                                Your Name
+                            </span>
+                            <span class="displayText cardDisplayJobTitle" id="cardDisplayJobTitle" value="person">
+                                Job Title
+                            </span>
+                        </p>
+                        <p class="displayBusiness default">
+                            <span class="displayText cardDisplayPhone" id="cardDisplayPhone" value="contact">
+                                Phone Number
+                            </span>
+                            <span class="displayText cardDisplayEmail" id="cardDisplayEmail" value="contact">
+                                Email Address
+                            </span>
+                        </p>
+                    </div> -->
+                    <div id="cardColorPicker">
+                        <section class="displayColorsSection" id="displayColorsPerson">
+                            <p class="displayColors">
+                                <label class="cardLabel firstPart" for="cardBackgroundColor">
+                                    Background:
+                                </label>
+                                <input class="colorInput" type="color" id="cardBackgroundColor" value="#ffffff">
+                            </p>
+                            <p class="displayColors">
+                                <label class="cardLabel firstPart" for="cardTextColor">
+                                    Text Color:
+                                </label>
+                                <input class="colorInput" type="color" id="cardTextColor" value="#000000">
+                            </p>
+                            <p class="displayColors">
+                                <label class="cardLabel firstPart" for="cardAccentColor">
+                                    Accent Color:
+                                </label>
+                                <input class="colorInput" type="color" id="cardAccentColor" value="#ffd700">
+                            </p>
+                        </section>
+                        <section class="displayColorsSection" id="displayColorsBusiness">
+                            <p class="displayColors">
+                                <label class="cardLabel firstPart" for="cardBusinessPrimaryColor">
+                                    Business Color 1:
+                                </label>
+                                <input class="colorInput" type="color" id="cardBusinessPrimaryColor" value="#0000ff">
+                            </p>
+                            <p class="displayColors">
+                                <label class="cardLabel firstPart" for="cardBusinessSecondaryColor">
+                                    Business Color 2:
+                                </label>
+                                <input class="colorInput" type="color" id="cardBusinessSecondaryColor" value="#ff0000">
+                            </p>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </fieldset>
+    </section>
+</body>
+</html>

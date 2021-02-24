@@ -69,11 +69,11 @@ function createSlides(JSONSlides) {
             myLink.text = "Website";
             links.push(myLink);
         }
-        if (links.length() == 3) {
+        if (links.length == 3) {
             slide.projectLink3 = links[2].link;
             slide.projectLink3Text = links[2].text;
         }
-        if (links.length() >= 2) {
+        if (links.length >= 2) {
             slide.projectLink2 = links[1].link;
             slide.projectLink2Text = links[1].text;
         }

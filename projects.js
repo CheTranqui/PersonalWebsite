@@ -24,5 +24,5 @@ function getProjects() {
 
 function createSlides(JSONSlides) {
     slide0.projectTitle = JSONSlides[0]["projectTitle"];
-    console.log(slide1.projectTitle);
+    console.log(slide0.projectTitle);
 }

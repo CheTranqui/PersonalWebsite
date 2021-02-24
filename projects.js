@@ -25,7 +25,7 @@ function getProjects() {
 }
 
 function createSlides(JSONSlides) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 2; i++) {
         console.log(JSONSlides);
         let slide = [];
         slide.projectTitle = JSONSlides["Projects"][i].projectTitle;
@@ -40,38 +40,32 @@ function createSlides(JSONSlides) {
             myLink.text = "Github";
             links.push(myLink);
         }
-        console.log(links);
         if (JSONSlides["Projects"][i].projectLinkToYouTube != null) {
             let myLink = [];
             myLink.link = JSONSlides["Projects"][i].projectLinkToYouTube;
             myLink.text = "YouTube";
             links.push(myLink);
         }
-        console.log(links);
         if (JSONSlides["Projects"][i].projectLinkToSteam != null) {
             let myLink = [];
             myLink.link = JSONSlides["Projects"][i].projectLinkToSteam;
             myLink.text = "Steam";
-            links.push(myLink);
         }
         console.log(links);
         if (JSONSlides["Projects"][i].projectLinkToDownload != null) {
             let myLink = [];
             myLink.link = JSONSlides["Projects"][i].projectLinkToDownload;
             myLink.text = "Download";
-            links.push(myLink);
         }
         if (JSONSlides["Projects"][i].projectLinkToGithubIO != null) {
             let myLink = [];
             myLink.link = JSONSlides["Projects"][i].projectLinkToGithubIO;
             myLink.text = "GithubIO";
-            links.push(myLink);
         }
         if (JSONSlides["Projects"][i].projectLinkToWebsite != null) {
             let myLink = [];
             myLink.link = JSONSlides["Projects"][i].projectLinkToWebsite;
             myLink.text = "Website";
-            links.push(myLink);
         }
         if (links.length == 3) {
             slide.projectLink3 = links[2].link;

@@ -37,9 +37,9 @@ function createSlides(JSONSlides) {
             links.push(myLink);
         }
         console.log(links);
-        if (JSONSlides["Projects"][i].projectLinkToYoutube != null) {
+        if (JSONSlides["Projects"][i].projectLinkToYouTube != null) {
             const myLink = [];
-            myLink.link = JSONSlides["Projects"][i].projectLinkToYoutube;
+            myLink.link = JSONSlides["Projects"][i].projectLinkToYouTube;
             myLink.text = "YouTube";
             links.push(myLink);
         }
@@ -69,12 +69,15 @@ function createSlides(JSONSlides) {
             myLink.text = "Website";
             links.push(myLink);
         }
+        if (links.length() == 3) {
+            slide.projectLink3 = links[2].link;
+            slide.projectLink3Text = links[2].text;
+        }
+        if (links.length() >= 2) {
+            slide.projectLink2 = links[1].link;
+            slide.projectLink2Text = links[1].text;
+        }
         slide.projectLink1 = links[0].link;
         slide.projectLink1Text = links[0].text;
-        slide.projectLink2 = links[1].link;
-        slide.projectLink2Text = links[1].text;
-        slide.projectLink3 = links[2].link;
-        slide.projectLink3Text = links[2].text;
-        console.log(slide);
     }
 }

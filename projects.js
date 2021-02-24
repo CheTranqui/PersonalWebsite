@@ -21,11 +21,13 @@ function getProjects() {
 }
 
 function createSlides(JSONSlides) {
+    console.log(JSONSlides);
     const slide = [];
     slide.projectTitle = JSONSlides["Projects"][i].projectTitle;
     slide.projectImage = JSONSlides["Projects"][i].projectImage;
     slide.projectDescription = JSONSlides["Projects"][i].projectDescription;
     slide.projectLesson = JSONSlides["Projects"][i].projectLesson;
+    console.log(slide);
     const links = [];
     if (JSONSlides["Projects"][i].projectToGithub != null) {
         const myLink = [];

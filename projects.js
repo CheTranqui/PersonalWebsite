@@ -5,6 +5,10 @@
 
 function $(id) { return document.getElementById(id); }
 
+window.onload = function(){
+    getProjects();
+}
+
 const track = $('carouselTrack');
 const slides = [];
 
@@ -12,7 +16,7 @@ function getProjects() {
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            const projectsArray = JSON.parse(this.responseText);
+            let projectsArray = JSON.parse(this.responseText);
             createSlides(projectsArray);
         }
     };
@@ -23,48 +27,48 @@ function getProjects() {
 function createSlides(JSONSlides) {
     for (const i = 0; i < 3; i++) {
         console.log(JSONSlides);
-        const slide = [];
+        let slide = [];
         slide.projectTitle = JSONSlides["Projects"][i].projectTitle;
         slide.projectImage = JSONSlides["Projects"][i].projectImage;
         slide.projectDescription = JSONSlides["Projects"][i].projectDescription;
         slide.projectLesson = JSONSlides["Projects"][i].projectLesson;
         console.log(slide);
-        const links = [];
+        let links = [];
         if (JSONSlides["Projects"][i].projectLinkToGithub != null) {
-            const myLink = [];
+            let myLink = [];
             myLink.link = JSONSlides["Projects"][i].projectLinkToGithub;
             myLink.text = "Github";
             links.push(myLink);
         }
         console.log(links);
         if (JSONSlides["Projects"][i].projectLinkToYouTube != null) {
-            const myLink = [];
+            let myLink = [];
             myLink.link = JSONSlides["Projects"][i].projectLinkToYouTube;
             myLink.text = "YouTube";
             links.push(myLink);
         }
         console.log(links);
         if (JSONSlides["Projects"][i].projectLinkToSteam != null) {
-            const myLink = [];
+            let myLink = [];
             myLink.link = JSONSlides["Projects"][i].projectLinkToSteam;
             myLink.text = "Steam";
             links.push(myLink);
         }
         console.log(links);
         if (JSONSlides["Projects"][i].projectLinkToDownload != null) {
-            const myLink = [];
+            let myLink = [];
             myLink.link = JSONSlides["Projects"][i].projectLinkToDownload;
             myLink.text = "Download";
             links.push(myLink);
         }
         if (JSONSlides["Projects"][i].projectLinkToGithubIO != null) {
-            const myLink = [];
+            let myLink = [];
             myLink.link = JSONSlides["Projects"][i].projectLinkToGithubIO;
             myLink.text = "GithubIO";
             links.push(myLink);
         }
         if (JSONSlides["Projects"][i].projectLinkToWebsite != null) {
-            const myLink = [];
+            let myLink = [];
             myLink.link = JSONSlides["Projects"][i].projectLinkToWebsite;
             myLink.text = "Website";
             links.push(myLink);
@@ -79,5 +83,6 @@ function createSlides(JSONSlides) {
         }
         slide.projectLink1 = links[0].link;
         slide.projectLink1Text = links[0].text;
+        slides.push(slide);
     }
 }

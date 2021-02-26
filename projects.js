@@ -121,18 +121,18 @@ function createSlides(JSONSlides) {
         loadSlide(currentSlide);
     }
 
-    function loadSlide(slide) {
-        $("projectTitle").innerHTML = slide.projectTitle;
-        $("projectImage").src = slide.projectImage.src;
-        $("projectDescription").innerHTML = slide.projectDescription;
-        $("projectLesson").innerHTML = slide.projectLesson;
-        $("projectLink1").href = slide.projectLink1;
-        $("projectLink1").innerHTML = slide.projectLink1Text;
-        $("projectLink2").href = slide.projectLink2;
-        $("projectLink2").innerHTML = slide.projectLink2Text;
+    function loadSlide(slideNumber) {
+        $("projectTitle").innerHTML = slides[slideNumber].projectTitle;
+        $("projectImage").src = slides[slideNumber].projectImage.src;
+        $("projectDescription").innerHTML = slides[slideNumber].projectDescription;
+        $("projectLesson").innerHTML = slides[slideNumber].projectLesson;
+        $("projectLink1").href = slides[slideNumber].projectLink1;
+        $("projectLink1").innerHTML = slides[slideNumber].projectLink1Text;
+        $("projectLink2").href = slides[slideNumber].projectLink2;
+        $("projectLink2").innerHTML = slides[slideNumber].projectLink2Text;
         if (slide.projectLink3) {
-            $("projectLink3").href = slide.projectLink3;
-            $("projectLink3").innerHTML = slide.projectLink3Text;
+            $("projectLink3").href = slides[slideNumber].projectLink3;
+            $("projectLink3").innerHTML = slides[slideNumber].projectLink3Text;
             $("projectLink3").style.display = "block";
         }
         else {

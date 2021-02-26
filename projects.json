@@ -14,7 +14,7 @@
     },
     {
       "projectTitle": "Estate Management App",
-      "projectImage": "EstateMgmtPreview.jpg",
+      "projectImageFile": "EstateMgmtPreview.jpg",
       "projectDescription": "In Spring of 2019 my uncle passed away. To assist my father with his estate work I built him a simple website that he could run locally to track his tasks, contacts, goods, and properties. This work forced me to put into practice what I had learned from my informal study via <a class='inlineLink' href='https://www.freecodecamp.org' target='_blank'>freeCodeCamp.org</a> and <a class='inlineLink' href='https://github.com/webdevandres' target='_blank'>a friend's</a> informal mentorship.",
       "projectLesson": "This was my first real experience with DOM manipulation. It uses LocalStorage for persistence and it was exciting to be able to use data from one form ('Contacts') to populate the dropdown of another ('Buyer' field in 'Properties'). It was also interesting to work with my dad as my client for the project. The Print page was a result of him asking how he can access the information while working at the farm or with the Realtor, for instance.",
       "projectLinkToGithub": "https://github.com/CheTranqui/Estate-Management",

@@ -7,16 +7,16 @@ function $(id) { return document.getElementById(id); }
 
 window.onload = function(){
     getProjects();
+    const track = $('carouselTrack');
+    const slides = [];
+    const nextButton = $('carouselRightButton');
+    const previousButton = $('carouselLeftButton');
+    const carouselNav = $('carouselNav');
+    const carouselIndicators = Array.from(carouselNav.children);
+    const slideWidth = $('projectContainer').width;
 }
 
-const track = $('carouselTrack');
-const slides = [];
-const nextButton = $('carouselRightButton');
-const previousButton = $('carouselLeftButton');
-const carouselNav = $('carouselNav');
-const carouselIndicators = Array.from(carouselNav.children);
-const slideWidth = $('projectContainer').width;
-
+let currentSlide = 0;
 
 function getProjects() {
     const xmlhttp = new XMLHttpRequest();
@@ -100,5 +100,45 @@ function createSlides(JSONSlides) {
     
     //With only 3 or 4 slides, all images should be preloaded.
     //if we go over that, keep only the current and 1 or 2 to each side loaded.
+
+    function getNextSlide(event) {
+        if (event.target.matches("carouselLeftButton")){
+            if (currentSlide == 0) {
+                currentSlide = slides.length;
+            }
+            else {
+                currentSlide--;
+            }
+        }
+        if (event.target.matches("carouselRightButton")) {
+            if (currentSlide == slides.length) {
+                currentSlide = 0;
+            }
+            else {
+                currentSlide++;
+            }
+        }
+        loadSlide(currentSlide);
+    }
+
+    function loadSlide(slide) {
+        $("projectTitle").innerHTML = slide.projectTitle;
+        $("projectImage").src = slide.projectImage.src;
+        $("projectDescription").innerHTML = slide.projectDescription;
+        $("projectLesson").innerHTML = slide.projectLesson;
+        $("projectLink1").href = slide.projectLink1;
+        $("projectLink1").innerHTML = slide.projectLink1Text;
+        $("projectLink2").href = slide.projectLink2;
+        $("projectLink2").innerHTML = slide.projectLink2Text;
+        if (slide.projectLink3) {
+            $("projectLink3").href = slide.projectLink3;
+            $("projectLink3").innerHTML = slide.projectLink3Text;
+            $("projectLink3").style.display = "block";
+        }
+        else {
+            $("projectLink3").style.display = "none";
+        }
+    }
+
 }
 

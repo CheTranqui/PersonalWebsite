@@ -14,7 +14,7 @@ const track = $('carouselTrack');
 const slides = [];
 const nextButton = $('carouselRightButton');
 const previousButton = $('carouselLeftButton');
-const carouselIndicators = Array($('bottomButton1'), $('bottomButton2'),$('bottomButton3');
+const carouselIndicators = [$('bottomButton1'), $('bottomButton2'), $('bottomButton3')];
 const slideWidth = $('projectContainer').width;
 
 let currentSlide = 0;

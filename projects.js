@@ -90,7 +90,7 @@ function createSlides(JSONSlides) {
     function getImage(slide) {
         fetch('images/projectImages/' + slide.projectImageFile)
             .then(response => {
-                slide.projectImage = response;
+                slide.projectImage = URL.createObjectURL(response.blob());
             }).catch(error => {
                 return console.log(error)
             });

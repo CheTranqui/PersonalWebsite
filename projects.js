@@ -130,7 +130,7 @@ function createSlides(JSONSlides) {
         $("projectLink1").innerHTML = slides[slideNumber].projectLink1Text;
         $("projectLink2").href = slides[slideNumber].projectLink2;
         $("projectLink2").innerHTML = slides[slideNumber].projectLink2Text;
-        if (slide.projectLink3) {
+        if (slides[slideNumber].projectLink3) {
             $("projectLink3").href = slides[slideNumber].projectLink3;
             $("projectLink3").innerHTML = slides[slideNumber].projectLink3Text;
             $("projectLink3").style.display = "block";

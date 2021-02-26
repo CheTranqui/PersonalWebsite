@@ -5,16 +5,10 @@
 
 function $(id) { return document.getElementById(id); }
 
-const track;
-const slides;
-const nextButton;
-const previousButton;
-const carouselNav;
-const carouselIndicators;
-const slideWidth;
-
 window.onload = function(){
     getProjects();
+}
+
 const track = $('carouselTrack');
 const slides = [];
 const nextButton = $('carouselRightButton');
@@ -22,7 +16,6 @@ const previousButton = $('carouselLeftButton');
 const carouselNav = $('carouselNav');
 const carouselIndicators = Array.from(carouselNav.children);
 const slideWidth = $('projectContainer').width;
-}
 
 
 function getProjects() {

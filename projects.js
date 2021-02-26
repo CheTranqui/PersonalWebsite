@@ -11,6 +11,12 @@ window.onload = function(){
 
 const track = $('carouselTrack');
 const slides = [];
+const nextButton = $('carouselRightButton');
+const previousButton = $('carouselLeftButton');
+const carouselNav = $('carouselNav');
+const carouselIndicators = Array.from(carouselNav.children);
+const slideWidth = $('projectContainer').width;
+
 
 function getProjects() {
     const xmlhttp = new XMLHttpRequest();
@@ -29,7 +35,7 @@ function createSlides(JSONSlides) {
         console.log(JSONSlides);
         let slide = [];
         slide.projectTitle = JSONSlides["Projects"][i].projectTitle;
-        slide.projectImage = JSONSlides["Projects"][i].projectImage;
+        slide.projectImageFile = JSONSlides["Projects"][i].projectImageFile;
         slide.projectDescription = JSONSlides["Projects"][i].projectDescription;
         slide.projectLesson = JSONSlides["Projects"][i].projectLesson;
         console.log(slide);
@@ -67,7 +73,7 @@ function createSlides(JSONSlides) {
             myLink.link = JSONSlides["Projects"][i].projectLinkToWebsite;
             myLink.text = "Website";
         }
-        if (links.length == 3) {
+        if (links.length >= 3) {
             slide.projectLink3 = links[2].link;
             slide.projectLink3Text = links[2].text;
         }
@@ -78,5 +84,19 @@ function createSlides(JSONSlides) {
         slide.projectLink1 = links[0].link;
         slide.projectLink1Text = links[0].text;
         slides.push(slide);
+        getImage(slide);
     }
+
+    function getImage(slide) {
+        fetch('images/projectImages/' + slide.projectImageFile)
+            .then(response => {
+                slide.projectImage = response;
+            }).catch(error => {
+                return console.log(error)
+            });
+    }
+    
+    //With only 3 or 4 slides, all images should be preloaded.
+    //if we go over that, keep only the current and 1 or 2 to each side loaded.
 }
+

@@ -7,8 +7,8 @@ function $(id) { return document.getElementById(id); }
 
 window.onload = function () {
     getProjects();
-    $('carouselRightButton').addEventListener(click, getNextSlide);
-    $('carouselLeftButton').addEventListener(click, getPreviousSlide);
+    $('carouselRightButton').addEventListener("click", getNextSlide);
+    $('carouselLeftButton').addEventListener("click", getPreviousSlide);
 }
 
 const carouselNav = $('carouselNav');

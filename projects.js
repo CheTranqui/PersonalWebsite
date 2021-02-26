@@ -84,6 +84,7 @@ function createSlides(JSONSlides) {
         slides.push(slide);
         getImage(slide);
     }
+}
 
     function getImage(slide) {
         fetch('images/projectImages/' + slide.projectImageFile)
@@ -138,6 +139,4 @@ function createSlides(JSONSlides) {
             $("projectLink3").style.display = "none";
         }
     }
-
-}
 

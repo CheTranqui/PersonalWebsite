@@ -5,17 +5,17 @@
 
 function $(id) { return document.getElementById(id); }
 
-window.onload = function(){
+window.onload = function () {
     getProjects();
+    $('carouselRightButton').addEventListener(click, getNextSlide);
+    $('carouselLeftButton').addEventListener(click, getPreviousSlide);
 }
 
 const carouselNav = $('carouselNav');
 const track = $('carouselTrack');
 const slides = [];
-const nextButton = $('carouselRightButton');
-const previousButton = $('carouselLeftButton');
 const carouselIndicators = [$('bottomButton1'), $('bottomButton2'), $('bottomButton3')];
-const slideWidth = $('projectContainer').width;
+//const slideWidth = $('projectContainer').width;
 
 let currentSlide = 0;
 
@@ -95,29 +95,27 @@ function createSlides(JSONSlides) {
                 image.classList.add("projectImage");
                 slide.projectImage = image;
             }).catch(error => {
-                return console.log(error)
+                return console.log(error);
             });
     }
     
-    //With only 3 or 4 slides, all images should be preloaded.
-    //if we go over that, keep only the current and 1 or 2 to each side loaded.
 
-    function getNextSlide(event) {
-        if (event.target.matches("carouselLeftButton")){
-            if (currentSlide == 0) {
-                currentSlide = slides.length;
-            }
-            else {
-                currentSlide--;
-            }
+    function getPreviousSlide() {
+        if (currentSlide == 0) {
+            currentSlide = slides.length;
         }
-        if (event.target.matches("carouselRightButton")) {
-            if (currentSlide == slides.length) {
-                currentSlide = 0;
-            }
-            else {
-                currentSlide++;
-            }
+        else {
+            currentSlide--;
+        }
+        loadSlide(currentSlide);
+    }
+
+    function getNextSlide() {
+        if (currentSlide == slides.length) {
+            currentSlide = 0;
+        }
+        else {
+            currentSlide++;
         }
         loadSlide(currentSlide);
     }

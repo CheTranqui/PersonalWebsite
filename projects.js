@@ -5,10 +5,16 @@
 
 function $(id) { return document.getElementById(id); }
 
+const track;
+const slides;
+const nextButton;
+const previousButton;
+const carouselNav;
+const carouselIndicators;
+const slideWidth;
+
 window.onload = function(){
     getProjects();
-}
-
 const track = $('carouselTrack');
 const slides = [];
 const nextButton = $('carouselRightButton');
@@ -16,6 +22,7 @@ const previousButton = $('carouselLeftButton');
 const carouselNav = $('carouselNav');
 const carouselIndicators = Array.from(carouselNav.children);
 const slideWidth = $('projectContainer').width;
+}
 
 
 function getProjects() {
@@ -32,13 +39,11 @@ function getProjects() {
 
 function createSlides(JSONSlides) {
     for (let i = 0; i < 2; i++) {
-        console.log(JSONSlides);
         let slide = [];
         slide.projectTitle = JSONSlides["Projects"][i].projectTitle;
         slide.projectImageFile = JSONSlides["Projects"][i].projectImageFile;
         slide.projectDescription = JSONSlides["Projects"][i].projectDescription;
         slide.projectLesson = JSONSlides["Projects"][i].projectLesson;
-        console.log(slide);
         let links = [];
         if (JSONSlides["Projects"][i].projectLinkToGithub != null) {
             let myLink = [];
@@ -57,7 +62,6 @@ function createSlides(JSONSlides) {
             myLink.link = JSONSlides["Projects"][i].projectLinkToSteam;
             myLink.text = "Steam";
         }
-        console.log(links);
         if (JSONSlides["Projects"][i].projectLinkToDownload != null) {
             let myLink = [];
             myLink.link = JSONSlides["Projects"][i].projectLinkToDownload;
@@ -89,8 +93,13 @@ function createSlides(JSONSlides) {
 
     function getImage(slide) {
         fetch('images/projectImages/' + slide.projectImageFile)
-            .then(response => {
-                slide.projectImage = URL.createObjectURL(response.blob());
+            .then(response => response.blob())
+            .then(blob => {
+                const objectURL = URL.createObjectURL(blob);
+                const image = new Image();
+                image.src = objectURL;
+                image.classList.add("projectImage");
+                slide.projectImage = image;
             }).catch(error => {
                 return console.log(error)
             });

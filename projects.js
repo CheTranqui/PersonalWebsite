@@ -36,7 +36,7 @@ function getProjects() {
 
 //parses the projectsArray into a slide object
 function createSlides(JSONSlides) {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < JSONSlides["Projects"].length; i++) {
         let slide = [];
         slide.projectTitle = JSONSlides["Projects"][i].projectTitle;
         slide.projectImageFile = JSONSlides["Projects"][i].projectImageFile;

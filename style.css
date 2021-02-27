@@ -42,7 +42,8 @@
     }
 
     body {
-        margin: 1rem;
+        width: 90%;
+        margin: 0 auto;
         background-color: var(--color-primaryBackground);
         color: var(--color-primaryText);
         font-size: 1.5rem;
@@ -332,7 +333,7 @@
 
     body {
         font-size: 1.2rem;
-        margin: 2rem;
+/*        margin: 2rem;*/
     }
 
     a {
@@ -535,7 +536,7 @@
         background: var(--color-secondaryBackground);
         display: flex;
         justify-content: center;
-        padding: 1rem 0 0.75rem 0;
+        padding: 0.5rem 0 1.5rem 0;
     }
 
     .carouselBottomButton {

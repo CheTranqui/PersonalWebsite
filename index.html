@@ -12,6 +12,7 @@
     <title>CheTranqui HQ</title>
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="mainPage.js"></script>
+    <script type="text/javascript" src="projects.js"></script>
     <meta name="viewport" content="width=device-width" />
 </head>
 <body>
@@ -94,6 +95,77 @@
                 </p>
             </section>
         </article>
+
+        <article class="primaryProjectsArticle">
+            <h1>
+                Noteworthy Projects
+            </h1>
+            <p class="projectIntro" id="projectIntro">
+                Each of the following projects were substantial in my learning along the way to becoming a Software Developer and I am excited to share them with you!
+            </p>
+            <section class="projectsMain" alt="Carousel containing programming projects">
+                <div class="carousel">
+                    <button class="carouselSideButton carouselLeftButton" id="carouselLeftButton">
+                        <
+                    </button>
+                    <div class="carouselTrackContainer">
+                        <ul class="carouselTrack">
+                            <li class="carouselSlide">
+                                <!--each article will be defined in JS-->
+                                <article class="projectContainer" id="projectContainer">
+                                    <section class="projectPreview" id="projectPreview">
+                                        <figure>
+                                            <figcaption class="projectCaption" id="projectCaption">
+                                                <h1 id="projectTitle">
+                                                    The Martian Tribune
+                                                </h1>
+                                            </figcaption>
+                                            <img class="projectImage" id="projectImage" src="images/projectImages/MartianTribunePreview.jpg" />
+                                        </figure>
+                                    </section>
+                                    <section class="projectDescriptionSection" id="projectDescriptionSection">
+                                        <p class="projectText" id="projectDescription">
+                                            In 2018
+                                            <a class="inlineLink" href="https://www.haemimontgames.com/" target="_blank">
+                                                Haemimont Games
+                                            </a>
+                                            released a game called Surviving Mars. I wanted the colonists to have a more personal feel, so I trusted that I learned enough in making the drafting minigame and made my first ever mod: The Martian Tribune. It presents stories that my team and I wrote to the player every three in-game days and each story was seleted dynamically based upon the current state of the game.
+                                        </p>
+                                        <h2 class="projectLessonTitle">
+                                            What I Learned
+                                        </h2>
+                                        <p class="projectText" id="projectLesson">
+                                            As Project Lead I recruited a second author and later brought a professional programmer on board to refactor my original code (what is currently on GitHub is her refactoring). This was an awesome experience in just how challenging, rewarding, and diverse the development experience is when seeing a project through from start to finish.
+                                        </p>
+                                    </section>
+                                    <section class="projectLinks" id="projectLinks">
+                                        <a class="projectLink" id="projectLink1" href="https://github.com/CheTranqui/Surviving-Mars-Martian-Tribune" target="_blank">
+                                            GitHub
+                                        </a>
+                                        <a class="projectLink" id="projectLink2" href="https://www.youtube.com/watch?v=QJvOHWFPZ_Y&ab_channel=CheTranqui" target="_blank">
+                                            Video
+                                        </a>
+                                        <a class="projectLink" id="projectLink3" href="https://steamcommunity.com/sharedfiles/filedetails/?id=1376913896" target="_blank">
+                                            Steam
+                                        </a>
+                                    </section>
+                                </article>
+                                <div class="carouselNav">
+                                    <button class="carouselBottomButton currentSlide" id="bottomButton1"></button>
+                                    <button class="carouselBottomButton" id="bottomButton2"></button>
+                                    <button class="carouselBottomButton" id="bottomButton3"></button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="carouselSideButton carouselRightButton" id="carouselRightButton">
+                        >
+                    </button>
+                    <!--need a number of buttons equal to the number of slides / may want image preview?-->
+                </div>
+            </section>
+        </article>
+
         <section id="inspiration">
             <h1>What Inspired Me To Become A Developer</h1>
             <div id="myInspirationProjects">

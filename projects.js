@@ -112,7 +112,7 @@ function createSlides(JSONSlides) {
 //these two functions manage the slide number to be loaded
     function getPreviousSlide() {
         if (currentSlide == 0) {
-            currentSlide = slides.length;
+            currentSlide = (slides.length - 1 );
         }
         else {
             currentSlide--;
@@ -121,7 +121,7 @@ function createSlides(JSONSlides) {
     }
 
     function getNextSlide() {
-        if (currentSlide == slides.length) {
+        if (currentSlide == (slides.length - 1)) {
             currentSlide = 0;
         }
         else {

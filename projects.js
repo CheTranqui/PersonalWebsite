@@ -17,12 +17,10 @@ window.onload = function () {
     //activate carousel functions
     $('carouselRightButton').addEventListener("click", getNextSlide);
     $('carouselLeftButton').addEventListener("click", getPreviousSlide);
-    carouselIndicators.push('bottomButton1', $('bottomButton2'), $('bottomButton3'));
+    carouselIndicators.push($('bottomButton1'), $('bottomButton2'), $('bottomButton3'));
     carouselIndicators.forEach(function (indicator, index) {
         indicator.addEventListener("click", function () {
-            loadSlide(index);
-        });
-    });
+            loadSlide(index);})});
 }
 
 //getProjects acquires the project text/info from the JSON

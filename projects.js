@@ -4,6 +4,12 @@
 // Goal: manage project switching as a result of buttons and scrolling
 
 function $(id) { return document.getElementById(id); }
+const carouselNav = $('carouselNav');
+const track = $('carouselTrack');
+const slides = [];
+const carouselIndicators = [];
+let currentSlide = 0;
+//const slideWidth = $('projectContainer').width;
 
 window.onload = function () {
     //once page is loaded, get project info separately from server
@@ -11,20 +17,13 @@ window.onload = function () {
     //activate carousel functions
     $('carouselRightButton').addEventListener("click", getNextSlide);
     $('carouselLeftButton').addEventListener("click", getPreviousSlide);
-    const carouselIndicators = [$('bottomButton1'), $('bottomButton2'), $('bottomButton3')];
+    carouselIndicators = [$('bottomButton1'), $('bottomButton2'), $('bottomButton3')];
     carouselIndicators.forEach(function (indicator, index) {
         indicator.addEventListener("click", function () {
             loadSlide(index);
         });
     });
 }
-
-const carouselNav = $('carouselNav');
-const track = $('carouselTrack');
-const slides = [];
-//const slideWidth = $('projectContainer').width;
-
-let currentSlide = 0;
 
 //getProjects acquires the project text/info from the JSON
 function getProjects() {

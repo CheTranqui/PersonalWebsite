@@ -11,15 +11,17 @@ window.onload = function () {
     //activate carousel functions
     $('carouselRightButton').addEventListener("click", getNextSlide);
     $('carouselLeftButton').addEventListener("click", getPreviousSlide);
-    carouselIndicators.foreach(function(){
-        indicator.addEventListener("click", loadSlide(index));
+    const carouselIndicators = [$('bottomButton1'), $('bottomButton2'), $('bottomButton3')];
+    carouselIndicators.forEach(function (indicator, index) {
+        indicator.addEventListener("click", function () {
+            loadSlide(index);
+        });
     });
 }
 
 const carouselNav = $('carouselNav');
 const track = $('carouselTrack');
 const slides = [];
-const carouselIndicators = [$('bottomButton1'), $('bottomButton2'), $('bottomButton3')];
 //const slideWidth = $('projectContainer').width;
 
 let currentSlide = 0;
@@ -135,6 +137,7 @@ function createSlides(JSONSlides) {
 
     //swaps in the new slide's info
     function loadSlide(slideNumber) {
+        currentSlide = slideNumber;
         $("projectTitle").innerHTML = slides[slideNumber].projectTitle;
         $("projectImage").src = slides[slideNumber].projectImage.src;
         $("projectDescription").innerHTML = slides[slideNumber].projectDescription;

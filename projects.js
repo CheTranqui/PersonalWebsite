@@ -157,5 +157,13 @@ function createSlides(JSONSlides) {
         else {
             $("projectLink3").style.display = "none";
         }
+        updateIndicators(slideNumber);
+}
+
+function updateIndicators(slideNumber) {
+    carouselIndicators.forEach(indicator, index){
+        indicator.classList.remove(".currentSlide");
     }
+    carouselIndicators[slideNumber].classList.add(".currentSlide");
+}
 

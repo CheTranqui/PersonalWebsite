@@ -481,7 +481,7 @@
     }
 
     .projectIntro{
-        padding-bottom: 3rem;
+        padding-bottom: 1.5rem;
     }
 
     .carousel{
@@ -550,7 +550,7 @@
     }
 
     .currentSlide {
-        background: rgba(255,255,255,0.6);
+        background: var(--color-primaryTitle);
     }
 
     .projectContainer{

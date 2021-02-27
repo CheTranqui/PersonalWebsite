@@ -11,6 +11,9 @@ window.onload = function () {
     //activate carousel functions
     $('carouselRightButton').addEventListener("click", getNextSlide);
     $('carouselLeftButton').addEventListener("click", getPreviousSlide);
+    carouselIndicators.foreach(function(){
+        indicator.addEventListener("click", loadSlide(index));
+    });
 }
 
 const carouselNav = $('carouselNav');

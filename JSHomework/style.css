@@ -2,6 +2,8 @@ body{
     position: relative;
     background-color: darkslategray;
     color: rgb(219, 245, 248);
+    width: 90%;
+    margin: auto;
 }
 
 .text{

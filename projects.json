@@ -4,7 +4,7 @@
       "projectTitle": "The Martian Tribune",
       "projectImageFile": "MartianTribunePreview.jpg",
       "projectDescription": "In 2018 <a class='inlineLink' href='https://www.haemimontgames.com/' target='_blank'>Haemimont Games</a> released a game called Surviving Mars. I wanted the colonists to have a more personal feel, so I trusted that I had learned enough in making the drafting minigame and made my first ever mod: The Martian Tribune. It presents stories that my team and I wrote to the player every three in-game days and each story was selected dynamically based upon the current state of the game.",
-      "projectLesson": "As Project Lead I recruited a second author and later brought on a professional programmer to refactor my original code (what is currently on GitHub is her refactoring). This was an awesome experience in just how challenging, rewarding, and diverse the dvelopment experience is when seeing a project through from start to finish.",
+      "projectLesson": "As Project Lead I recruited a second author and later brought on a professional programmer to refactor my original code (what is currently on GitHub is her refactoring). This was an awesome experience in just how challenging, rewarding, and diverse the development experience is when seeing a project through from start to finish.",
       "projectLinkToGithub": "https://github.com/CheTranqui/Surviving-Mars-Martian-Tribune",
       "projectLinkToYouTube": "https://www.youtube.com/watch?v=QJvOHWFPZ_Y&ab_channel=CheTranqui",
       "projectLinkToSteam": "https://steamcommunity.com/sharedfiles/filedetails/?id=1376913896",
@@ -15,7 +15,7 @@
     {
       "projectTitle": "Estate Management App",
       "projectImageFile": "EstateMgmtPreview.jpg",
-      "projectDescription": "In Spring of 2019 my uncle passed away. To assist my father with his estate work I built him a simple website that he could run locally to track his tasks, contacts, goods, and properties. This work forced me to put into practice what I had learned from my informal study via <a class='inlineLink' href='https://www.freecodecamp.org' target='_blank'>freeCodeCamp.org</a> and <a class='inlineLink' href='https://github.com/webdevandres' target='_blank'>a friend's</a> informal mentorship.",
+      "projectDescription": "In Spring of 2020 my uncle passed away. To assist my father with his estate work I built him a simple website that he could run locally to track his tasks, contacts, goods, and properties. This work forced me to put into practice what I had learned from my informal study via <a class='inlineLink' href='https://www.freecodecamp.org' target='_blank'>freeCodeCamp.org</a> and <a class='inlineLink' href='https://github.com/webdevandres' target='_blank'>a friend's</a> informal mentorship.",
       "projectLesson": "This was my first real experience with DOM manipulation. It uses LocalStorage for persistence and it was exciting to be able to use data from one form ('Contacts') to populate the dropdown of another ('Buyer' field in 'Properties'). It was also interesting to work with my dad as my client for the project. The Print page was a result of him asking how he can access the information while working at the farm or with the Realtor, for instance.",
       "projectLinkToGithub": "https://github.com/CheTranqui/Estate-Management",
       "projectLinkToYouTube": "https://youtu.be/jQxiyXLbtPI",
@@ -23,6 +23,18 @@
       "projectLinkToDownload": null,
       "projectLinkToGithubIO": "https://chetranqui.github.io/Estate-Management/",
       "projectLinkToWebsite": null
+    }
+    {
+      "projectTitle": "JavaScript Practice Page",
+      "projectImageFile": "JavaScriptPreview.jpg",
+      "projectDescription": "In the Fall of 2019 I decided to pursue test my resolve and see how well I would take to the experience of programming. <a class='inlineLink' href='https://github.com/webdevandres' target='_blank'>A friend</a> took me on as his mentee and guided me through learning the basics of front end devleopment while I worked my way through <a class='inlineLink' href='https://www.freecodecamp.org' target='_blank'>freeCodeCamp's</a> coursework. This page is the final project associated with my initial introduction to JavaScript at the time.",
+      "projectLesson": "I found that I have an aptitude for programming, am able to readily grasp the concepts presented, and that despite the occasional challenge that may stump me initially, I have the patience and determination to push through and still find the experience of problem solving and learning enjoyable. It is because of this experience that I decided to pursue a degree and new career in Software Development. I owe Andres a great debt of gratitude for his influence and encouragement.",
+      "projectLinkToGithub": null,
+      "projectLinkToYouTube": null,
+      "projectLinkToSteam": null,
+      "projectLinkToDownload": null,
+      "projectLinkToGithubIO": null,
+      "projectLinkToWebsite": "JSHomework/JSHomework.html"
     }
   ]
 }

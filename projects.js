@@ -161,9 +161,9 @@ function createSlides(JSONSlides) {
 }
 
 function updateIndicators(slideNumber) {
-    carouselIndicators.forEach(indicator, index){
+    carouselIndicators.forEach(function(indicator){
         indicator.classList.remove(".currentSlide");
-    }
+    });
     carouselIndicators[slideNumber].classList.add(".currentSlide");
 }
 

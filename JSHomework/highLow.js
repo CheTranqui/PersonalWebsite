@@ -24,11 +24,8 @@ function highLowGuess(){
     let yourGuess = parseInt(yourGuessText);
     highLowCount += 1;
     $('highLowResultCount').innerHTML = highLowCount;
-<<<<<<< Updated upstream
+
     if (yourGuess > 10 || yourGuess < 1 || yourGuess.toString() == "NaN") {
-=======
-    if (yourGuess > 10 || yourGuess < 1 || yourGuess == NaN) {
->>>>>>> Stashed changes
         highLowError()
     }
     else{

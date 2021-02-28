@@ -18,11 +18,11 @@ function highLowError(){
 
 function highLowGuess(){
     event.preventDefault();
-    let yourGuessText = document.getElementById('highLowInput').value;
+    let yourGuessText = $('highLowInput').value;
     let yourGuess = parseInt(yourGuessText);
     highLowCount += 1;
-    document.getElementById('highLowResultCount').innerHTML = highLowCount;
-    if (yourGuess > 10 || yourGuess < 1){
+    $('highLowResultCount').innerHTML = highLowCount;
+    if (yourGuess > 10 || yourGuess < 1 || yourGuess.toString() == "NaN") {
         highLowError()
     }
     else{

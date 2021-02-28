@@ -51,9 +51,10 @@ function highLowGuess(){
 function highLowPlayAgain(){
     event.preventDefault();
     setHighLowNumber();
-    $('highLowFieldset').style.background = "rgb(40, 68, 68)";
+    $('highLowFieldset').style.background = "rgb(55, 56, 56)";
     $('highLowResultFeedback').innerHTML = "";
     $('highLowResultFeedback').style.color = "silver";
     highLowCount = 0;
     $('highLowResultCount').innerHTML = highLowCount;
+    $('highLowInput').value = "";
 }

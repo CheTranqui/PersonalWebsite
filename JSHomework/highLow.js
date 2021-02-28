@@ -1,6 +1,8 @@
+function $(id) { return document.getElementById(id);}
+
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('highLowGuessBtn').addEventListener('click', highLowGuess);
-    document.getElementById('highLowPlayAgainBtn').addEventListener('click', highLowPlayAgain);
+    $('highLowGuessBtn').addEventListener('click', highLowGuess);
+    $('highLowPlayAgainBtn').addEventListener('click', highLowPlayAgain);
     setHighLowNumber();
 });
 
@@ -22,24 +24,28 @@ function highLowGuess(){
     let yourGuess = parseInt(yourGuessText);
     highLowCount += 1;
     $('highLowResultCount').innerHTML = highLowCount;
+<<<<<<< Updated upstream
     if (yourGuess > 10 || yourGuess < 1 || yourGuess.toString() == "NaN") {
+=======
+    if (yourGuess > 10 || yourGuess < 1 || yourGuess == NaN) {
+>>>>>>> Stashed changes
         highLowError()
     }
     else{
         if (yourGuess > highLowNumber){
-            document.getElementById('highLowResultFeedback').innerHTML = "Over";
-            document.getElementById('highLowResultFeedback').style.color = "rgb(241, 68, 15)";
+            $('highLowResultFeedback').innerHTML = "Over";
+            $('highLowResultFeedback').style.color = "rgb(241, 68, 15)";
         }
         else if (yourGuess < highLowNumber){
-            document.getElementById('highLowResultFeedback').innerHTML = "Under";
-            document.getElementById('highLowResultFeedback').style.color = "rgb(15, 215, 241)";
+            $('highLowResultFeedback').innerHTML = "Under";
+            $('highLowResultFeedback').style.color = "rgb(15, 215, 241)";
         }
         else{
-            document.getElementById('highLowResultFeedback').innerHTML = "Congratulations! " + yourGuess + " is the number!";
-            document.getElementById('highLowResultFeedback').style.color = "silver";
-            document.getElementById('highLowFieldset').style.background = "linear-gradient(-45deg, red, orange, yellow, green, blue, indigo, violet)";
-            document.getElementById('highLowResultLabel').style.background = "rgb(40, 68, 68)";
-            document.getElementById('highLowCountLabel').style.background = "rgb(40, 68, 68)";
+            $('highLowResultFeedback').innerHTML = "Congratulations! " + yourGuess + " is the number!";
+            $('highLowResultFeedback').style.color = "silver";
+            $('highLowFieldset').style.background = "linear-gradient(-45deg, red, orange, yellow, green, blue, indigo, violet)";
+            $('highLowResultLabel').style.background = "rgb(40, 68, 68)";
+            $('highLowCountLabel').style.background = "rgb(40, 68, 68)";
         }
     }
 }
@@ -48,9 +54,9 @@ function highLowGuess(){
 function highLowPlayAgain(){
     event.preventDefault();
     setHighLowNumber();
-    document.getElementById('highLowFieldset').style.background = "rgb(40, 68, 68)";
-    document.getElementById('highLowResultFeedback').innerHTML = "";
-    document.getElementById('highLowResultFeedback').style.color = "silver";
+    $('highLowFieldset').style.background = "rgb(40, 68, 68)";
+    $('highLowResultFeedback').innerHTML = "";
+    $('highLowResultFeedback').style.color = "silver";
     highLowCount = 0;
-    document.getElementById('highLowResultCount').innerHTML = highLowCount;
+    $('highLowResultCount').innerHTML = highLowCount;
 }

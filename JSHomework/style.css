@@ -135,6 +135,7 @@ section:before {
 }
 
 .comparisonContainer{
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -170,8 +171,7 @@ section:before {
     padding: 1em 0 1em 0;
     width: 5em;
     position: absolute;
-    top: 3em;
-    left: 16.75em;
+    left: 19.2rem;
     background-color: rgb(93, 32, 32);
     margin: 0;
     width: 10em;
@@ -435,6 +435,7 @@ legend{
 }
 
 .displayLine{
+    height: 0.2rem;
     margin: 0.25em;
 }
 

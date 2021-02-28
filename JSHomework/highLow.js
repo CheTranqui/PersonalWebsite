@@ -41,8 +41,8 @@ function highLowGuess(){
             $('highLowResultFeedback').innerHTML = "Congratulations! " + yourGuess + " is the number!";
             $('highLowResultFeedback').style.color = "silver";
             $('highLowFieldset').style.background = "linear-gradient(-45deg, red, orange, yellow, green, blue, indigo, violet)";
-            $('highLowResultLabel').style.background = "rgb(40, 68, 68)";
-            $('highLowCountLabel').style.background = "rgb(40, 68, 68)";
+            $('highLowResultLabel').style.background = "rgb(55, 56, 56)";
+            $('highLowCountLabel').style.background = "rgb(55, 56, 56)";
         }
     }
 }

@@ -60,11 +60,21 @@
     main {
         padding-top: 0.05rem;
         background-color: var(--color-secondaryBackground);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
     }
 
     article {
         text-align: center;
         padding: 2rem 0 2rem 0;
+        height: auto;
+    }
+
+    #introductionArticle,
+    #primaryProjectsArticle,
+    #inspiration{
+        display: block;
     }
 
     a {
@@ -340,8 +350,7 @@
     }
 
     .projectsMain {
-        display: block;
-        height: auto;
+        height: 100%;
     }
 
     .carousel {
@@ -358,8 +367,8 @@
 
 /*    carousel height is critical to adjust at 350px*/
 @media only screen and (min-width: 350px) {
-    .carousel{
-        height: 1500px;
+    .carousel {
+        height: 1375px;
     }
 }
 
@@ -409,6 +418,7 @@
 
     .projectContainer {
         width: auto;
+        margin: auto;
     }
 
     .projectContainer p {
@@ -437,10 +447,15 @@
     }
 
     .projectContainer section figure img {
-        align-self: center;
-        height: 20rem;
+        height: 15rem;
         width: 100%;
         object-fit: scale-down;
+        transition: transform .5s ease;
+    }
+
+    .projectContainer section figure img:hover,
+    .projectContainer section figure img:focus {
+        transform: scale(1.2);
     }
 
     .projectContainer .projectDescriptionSection {
@@ -468,12 +483,8 @@
 
 @media only screen and (min-width: 450px){
 
-    .projectContainer projectPreview {
-        height: 35rem;
-    }
-
     .carousel{
-        height: 1200px;
+        height: 1075px;
     }
 
     .projectContainer .projectLinks {
@@ -484,217 +495,231 @@
         margin: 0 2rem 1rem 2rem;
     }
 }
-/*==================================
+
+@media only screen and (min-width: 600px) {
+
+    .carousel {
+        height: 900px;
+    }
+}
+    /*==================================
        Primary Document Styles - Desktop
   Everything here is for over 795 pixels wide
     ====================================*/
-@media only screen and (min-width: 795px) {
+    @media only screen and (min-width: 795px) {
 
-    header {
-        font-size: 1.5rem;
-    }
-
-    h1 {
-        font-size: 2.25rem;
-    }
-
-    body {
-        font-size: 1.2rem;
-        /*        margin: 2rem;*/
-    }
-
-    a {
-        font-size: 1rem;
-    }
-
-        a:hover, a:focus {
-            font-size: 1.1rem;
+        header {
+            font-size: 1.5rem;
         }
-    /*==================================
+
+        h1 {
+            font-size: 2.25rem;
+        }
+
+        body {
+            font-size: 1.2rem;
+            /*        margin: 2rem;*/
+        }
+
+        a {
+            font-size: 1rem;
+        }
+
+            a:hover, a:focus {
+                font-size: 1.1rem;
+            }
+        /*==================================
            NavBar Styling - Desktop
     ====================================*/
-    /*==================================
+        /*==================================
      NavBar: Social Media Dropdown - Desktop
     ====================================*/
-    .socialMediaDropdownBackground {
-        max-width: 6rem;
-    }
-
-    .socialMediaDropdownLink {
-        font-size: 0.9rem;
-    }
-
-        .socialMediaDropdownLink:hover, .socialMediaDropdownLink:focus {
-            font-size: 1.05rem;
+        .socialMediaDropdownBackground {
+            max-width: 6rem;
         }
 
-    /*==================================
+        .socialMediaDropdownLink {
+            font-size: 0.9rem;
+        }
+
+            .socialMediaDropdownLink:hover, .socialMediaDropdownLink:focus {
+                font-size: 1.05rem;
+            }
+
+        /*==================================
     NavBar: Right-side Nav Menu - Desktop
     ====================================*/
-    .navLink p, .navLink {
-        font-size: 1.5rem;
-    }
-
-        .navLink p:hover, .navLink:focus {
-            font-size: 1.7rem;
+        .navLink p, .navLink {
+            font-size: 1.5rem;
         }
-    /*==================================
+
+            .navLink p:hover, .navLink:focus {
+                font-size: 1.7rem;
+            }
+
+        /*==================================
         Introduction Styles - Desktop
     ====================================*/
-    .introductionArticle {
-        width: 80%;
-        height: auto;
-        margin: 0 10% 0 10%;
-    }
-
-    #introductionTitleSection {
-    }
-
-    /*==================================
-        Inspiration Styles - Desktop
-    ====================================*/
-    #myInspirationProjects {
-        grid-template-columns: 33% 33% 33%;
-        grid-template-rows: auto auto auto;
-        grid-gap: 1rem 1rem;
-    }
-
-    #inspirationOne {
-        grid-column: 1;
-    }
-
-    #inspirationTwo {
-        grid-column: 2;
-    }
-
-    #inspirationThree {
-        grid-column: 3;
-    }
-
-    .inspirationPreview {
-        grid-row: 1;
-    }
-
-    .inspirationDescription {
-        grid-row: 2;
-    }
-
-    .inspirationLinks {
-        grid-row: 3;
-        border-bottom: none;
-    }
-
-    .inspirationProject {
-        height: auto;
-    }
-
-    .inspirationPreview {
-        text-align: center;
-    }
-
-        .inspirationPreview figure {
-            height: auto;
+        .introductionArticle {
             width: 80%;
+            height: auto;
             margin: 0 10% 0 10%;
         }
 
-    .inspirationImage {
-        border: 1rem solid var(--color-primaryBackground);
-    }
-
-        .inspirationImage:hover {
-            transform: scale(2);
+        #introductionTitleSection {
         }
 
-    .inspirationCaption {
-        font-size: 1.65rem;
-        margin-bottom: 0.5rem;
-    }
+        /*==================================
+        Inspiration Styles - Desktop
+    ====================================*/
+        #myInspirationProjects {
+            grid-template-columns: 33% 33% 33%;
+            grid-template-rows: auto auto auto;
+            grid-gap: 1rem 1rem;
+        }
 
-    .inspirationText {
-        margin-bottom: 0.5rem;
-    }
+        #inspirationOne {
+            grid-column: 1;
+        }
 
-    /*==================================
+        #inspirationTwo {
+            grid-column: 2;
+        }
+
+        #inspirationThree {
+            grid-column: 3;
+        }
+
+        .inspirationPreview {
+            grid-row: 1;
+        }
+
+        .inspirationDescription {
+            grid-row: 2;
+        }
+
+        .inspirationLinks {
+            grid-row: 3;
+            border-bottom: none;
+        }
+
+        .inspirationProject {
+            height: auto;
+        }
+
+        .inspirationPreview {
+            text-align: center;
+        }
+
+            .inspirationPreview figure {
+                height: auto;
+                width: 80%;
+                margin: 0 10% 0 10%;
+            }
+
+        .inspirationImage {
+            border: 1rem solid var(--color-primaryBackground);
+        }
+
+            .inspirationImage:hover,
+            .inspirationImage:focus {
+                transform: scale(2);
+            }
+
+        .inspirationCaption {
+            font-size: 1.65rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .inspirationText {
+            margin-bottom: 0.5rem;
+        }
+
+        /*==================================
            carousel project 800+ pixels
     ====================================*/
 
 
-    .carousel {
-        height: 875px;
-        width: 80%;
-        max-width: 800px;
-    }
+        .carousel {
+            height: 875px;
+            width: 80%;
+            max-width: 800px;
+        }
 
-    .carouselSideButton {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255,255,255,0.3);
-    }
+        .carouselSideButton {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.3);
+        }
 
-    #carouselLeftButton {
-        left: -1rem;
-    }
+        #carouselLeftButton {
+            left: -1rem;
+        }
 
-    #carouselRightButton {
-        right: -1rem;
-    }
+        #carouselRightButton {
+            right: -1rem;
+        }
 
-    .carouselNav {
-        background: var(--color-secondaryBackground);
-        display: flex;
-        justify-content: center;
-        padding: 0.5rem 0 0 0;
-    }
+        .carouselNav {
+            background: var(--color-secondaryBackground);
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem 0 0 0;
+        }
 
-    .carouselBottomButton {
-        display: inline-block;
-        border: 0;
-        border-radius: 50%;
-        width: 0.7rem;
-        height: 0.8rem;
-        background: rgba(255,255,255,0.3);
-        margin: 0 1rem 0 1rem;
-        cursor: pointer;
-    }
+        .carouselBottomButton {
+            display: inline-block;
+            border: 0;
+            border-radius: 50%;
+            width: 0.7rem;
+            height: 0.8rem;
+            background: rgba(255,255,255,0.3);
+            margin: 0 1rem 0 1rem;
+            cursor: pointer;
+        }
 
-    .currentSlide {
-        background: var(--color-primaryTitle);
-    }
+        .currentSlide {
+            background: var(--color-primaryTitle);
+        }
 
-    .projectContainer projectPreview {
-        height: 35rem;
-    }
+        .projectContainer projectPreview {
+            height: 35rem;
+        }
 
-    .projectContainer section figure img {
-        align-self: center;
-        height: 25rem;
-        width: auto;
-        object-fit: cover;
+        .projectContainer section figure img {
+            align-self: center;
+            height: 25rem;
+            width: auto;
+            object-fit: cover;
+        }
+
+            .projectContainer section figure img:hover,
+            .projectContainer section figure img:focus {
+                transform: scale(1.5);
+            }
     }
-}
 
     /*==================================
            special media query cases
     ====================================*/
-    
-@media only screen and (min-width: 1285px) {
-    .inspirationImage:hover {
-        transform: scale(1.7);
-    }
-}
 
-@media only screen and (max-width: 405px){
-    .navBar p{
-        font-size: 1.1rem;
+    @media only screen and (min-width: 1285px) {
+        .inspirationImage:hover {
+            transform: scale(1.7);
+        }
     }
 
-    .navBar p:hover {
-        font-size: 1.15rem;
+    @media only screen and (max-width: 405px) {
+        .navBar p {
+            font-size: 1.1rem;
+        }
+
+            .navBar p:hover {
+                font-size: 1.15rem;
+            }
     }
-}
-    
+
     /*==================================
                MartianTribuneStories
         ====================================*/

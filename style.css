@@ -719,9 +719,14 @@
     }
 
     /*==================================
-               MartianTribuneStories
-        ====================================*/
+        MartianTribuneStories & footer
+     ====================================*/
     .afterThought {
         font-size: 1rem;
         color: var(--color-fadedText);
+    }
+
+    .CSSValidator a img {
+        max-height: 1.3rem;
+        max-width: 4rem;
     }

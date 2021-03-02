@@ -333,6 +333,133 @@
         display: none;
     }
 
+/*==================================
+           Projects.html page from 450px to 800px
+    ====================================*/
+
+    .inlineLink {
+        color: var(--color-inlineLinks);
+        text-decoration: none;
+    }
+
+    .projectsMain {
+        display: block;
+    }
+
+    .carousel {
+        position: relative;
+        height: 1200px;
+        width: 95%;
+        max-width: 800px;
+        margin: auto;
+        padding-bottom: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .carouselTrackContainer {
+        position: relative;
+        height: 100%;
+    }
+
+    .carouselTrack {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .carouselSlide {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .carouselSideButton {
+        position: absolute;
+        top: 30%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.3);
+        padding: 0;
+        border: 0;
+        width: 1.8rem;
+        cursor: pointer;
+        font-size: 2.5rem;
+        text-shadow: 0 3px #123;
+        z-index: 1;
+    }
+
+    #carouselLeftButton {
+        left: 0rem;
+    }
+
+    #carouselRightButton {
+        right: 0rem;
+    }
+
+    .carouselBottomButton {
+        display: none;
+    }
+
+    .projectContainer {
+        width: auto;
+    }
+
+    .projectContainer p {
+        margin: 0;
+    }
+
+    .projectContainer h2 {
+        color: var(--color-primaryTitle);
+        margin: 1rem 0 1rem 0;
+    }
+
+    .projectContainer projectPreview {
+        height: 35rem;
+    }
+
+    .projectContainer section figure {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+    }
+
+    .projectContainer section figure figcaption h1 {
+        width: 100%;
+    }
+
+    .projectContainer section figure img {
+        align-self: center;
+        height: 20rem;
+        width: 100%;
+        object-fit: scale-down;
+    }
+
+    .projectContainer .projectDescriptionSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .projectContainer .projectLinks {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .projectContainer .projectLink {
+        margin: 0 2rem 1rem 2rem;
+    }
+
+    .projectLink {
+        display: block;
+    }
+
     /*==================================
        Primary Document Styles - Desktop
   Everything here is for over 795 pixels wide
@@ -464,6 +591,65 @@
     .inspirationText {
         margin-bottom: 0.5rem;
     }
+
+    /*==================================
+           carousel project 800+ pixels
+    ====================================*/
+    
+
+    .carousel {
+        height: 875px;
+        width: 80%;
+        max-width: 800px;
+    }
+
+    .carouselSideButton {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.3);
+    }
+
+    #carouselLeftButton {
+        left: -1rem;
+    }
+
+    #carouselRightButton {
+        right: -1rem;
+    }
+
+    .carouselNav {
+        background: var(--color-secondaryBackground);
+        display: flex;
+        justify-content: center;
+        padding: 0.5rem 0 0 0;
+    }
+
+    .carouselBottomButton {
+        display: inline-block;
+        border: 0;
+        border-radius: 50%;
+        width: 0.7rem;
+        height: 0.8rem;
+        background: rgba(255,255,255,0.3);
+        margin: 0 1rem 0 1rem;
+        cursor: pointer;
+    }
+
+    .currentSlide {
+        background: var(--color-primaryTitle);
+    }
+
+    .projectContainer projectPreview {
+        height: 35rem;
+    }
+
+    .projectContainer section figure img {
+        align-self: center;
+        height: 25rem;
+        width: auto;
+        object-fit: cover;
+    }
 }
 
     /*==================================
@@ -486,152 +672,6 @@
     }
 }
     
-
-    /*==================================
-           Projects.html page
-    ====================================*/
-
-    .inlineLink {
-        color: var(--color-inlineLinks);
-        text-decoration: none;
-    }
-
-    .projectsMain{
-        display: block;
-    }
-
-    .carousel{
-        position: relative;
-        height: 875px;
-        width: 80%;
-        max-width: 800px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .carouselTrackContainer{
-        position: relative;
-        height: 100%;
-
-    }
-
-    .carouselTrack{
-        padding: 0;
-        margin: 0;
-        list-style: none;
-    }
-
-    .carouselSlide {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-    }
-
-    .carouselSideButton {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255,255,255,0.3);
-        padding: 0;
-        border: 0;
-        width: 1.8rem;
-        cursor: pointer;
-        font-size: 2.5rem;
-        text-shadow: 0 3px #123;
-        z-index: 1;
-    }
-
-    #carouselLeftButton{
-        left: 0rem;
-    }
-
-    #carouselRightButton {
-        right: 0rem;
-    }
-
-    .carouselNav{
-        background: var(--color-secondaryBackground);
-        display: flex;
-        justify-content: center;
-        padding: 0.5rem 0 0 0;
-    }
-
-    .carouselBottomButton {
-        border: 0;
-        border-radius: 50%;
-        width: 0.7rem;
-        height: 0.8rem;
-        background: rgba(255,255,255,0.3);
-        margin: 0 1rem 0 1rem;
-        cursor: pointer;
-    }
-
-    .currentSlide {
-        background: var(--color-primaryTitle);
-    }
-
-    .projectContainer{
-        width: auto;
-    }
-
-    .projectContainer p {
-        margin: 0;
-    }
-
-    .projectContainer h2 {
-        color: var(--color-primaryTitle);
-        margin: 1rem 0 1rem 0;
-    }
-
-    .projectContainer projectPreview{
-        height:35rem;
-    }
-
-    .projectContainer section figure {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        margin: 0;
-    }
-
-    .projectContainer section figure figcaption h1 {
-        width: 100%;
-    }
-
-    .projectContainer section figure img{
-        align-self: center;
-        height: 25rem;
-        width: auto;
-        object-fit: cover;
-    }
-
-    .projectContainer .projectDescriptionSection {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 1rem;
-        text-align: center;
-    }
-
-    .projectContainer .projectLinks {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .projectContainer .projectLink{
-        margin: 0 2rem 1rem 2rem;
-    }
-
-    .projectLink{
-        display: block;
-    }
-
-
     /*==================================
                MartianTribuneStories
         ====================================*/

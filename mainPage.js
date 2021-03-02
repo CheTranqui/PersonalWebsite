@@ -17,7 +17,6 @@ window.onclick = function (event) {
     if (!event.target.matches(".socialMediaLinkText")) {
         $("socialMediaDropdownDiv").classList.remove("show");
     }
-    console.log(`MouseX: ${event.clientX} //  MouseY: ${event.clientY}`);
 }
 
 window.onmousemove = function (e) {
@@ -34,7 +33,7 @@ function getCurrentTime() {
 
 function drawingLoop(e) {
     clearCanvas();
-    setInterval(drawLines(getMouseCoord(e)), 250);
+    drawLines(getMouseCoord(e));
 }
 
 
@@ -55,8 +54,8 @@ function drawLines(coord) {
             ctx.strokeStyle = "#38a2c2";
             ctx.lineWidth = 1;
             ctx.globalCompositeOperation = 'destination-over';
-            ctx.moveTo(0 + offset, 0 + offset);
-            ctx.quadraticCurveTo(coord.X, coord.Y + offset, rect.width + offset, 0 + offset);
+            ctx.moveTo(0, 0 + offset);
+            ctx.quadraticCurveTo(coord.X, coord.Y + 50, rect.width, 0 + offset);
             ctx.stroke();
         }
     }

@@ -11,7 +11,6 @@
     <meta charset="utf-8" />
     <title>CheTranqui HQ</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer type="text/javascript" src="mainPage.js"></script>
     <script defer type="text/javascript" src="projects.js"></script>
     <meta name="viewport" content="width=device-width" />
@@ -21,11 +20,11 @@
         <div id="navContainer">
             <nav class="navBar" id="socialMediaNavBar">
                 <div id="socialMediaDisplay" alt="Social Media Links">
-                    <a onclick="socialMediaDropdownExpander()" href="" class="navLink" id="socialMediaDropdownLink">
+                    <button onclick="socialMediaDropdownExpander()" href="" class="navLink" id="socialMediaDropdownLink" tabindex="1" alt="Social Media Links Dropdown">
                         <p class="navText socialMediaLinkText">
                             CheMedia
                         </p>
-                    </a>
+                    </button>
                     <div class="socialMedia socialMediaDropdownBackground" id="socialMediaDropdownDiv">
                         <ul class="navList" id="socialMediaDropdownList">
                             <li class="socialMediaDropdownItem">
@@ -65,25 +64,18 @@
             <nav class="navBar" id="navMenu">
                 <ul class="navList" id="navMenuList">
                     <li class="navMenuItem">
-                        <a class="navLink" href="mailto:chetranqui@gmail.com">
+                        <button class="navLink" href="mailto:chetranqui@gmail.com" tabindex="2" alt="Email me">
                             <p class="navText">
                                 Contact
                             </p>
-                        </a>
+                        </button>
                     </li>
-                    <!--<li class="navMenuItem">
-                            <a class="navLink" href="projects.html">
-                                <p class="navText">
-                                    Projects
-                                </p>
-                            </a>
-                        </li>-->
                 </ul>
             </nav>
         </div> <!--closing nav container-->
     </header>
     <main id="main">
-        <canvas id="drawingBoard"></canvas>
+        <!--<canvas id="drawingBoard"></canvas>-->
             <article class="introductionArticle">
                 <section class="introductionSection" id="introductionTitleSection">
                     <h1 class="introductionTitle">
@@ -92,7 +84,7 @@
                 </section>
                 <section class="introductionSection" id="introductionTextSection">
                     <p class="introductionText">
-                        I'm Chaz, known across the web as CheTranqui, I began this journey into Software Development informally in 2017 with the goal of improving player's experience in Heroes of the Storm and have since discovered that this remains my primary driver: I strive to improve the end-user experience through thoughtful feature design and creating meaningful interaction.
+                        I'm Chaz, known across the web as CheTranqui<a href="#footerNotes" class="superScript inlineLink"><sup>1</sup></a>. I began this journey into Software Development informally in 2017 with the goal of improving player's experience in Heroes of the Storm and have since discovered that this remains my primary driver: I strive to improve the end-user experience through thoughtful feature design and creating meaningful interaction.
                     </p>
                 </section>
             </article>
@@ -106,7 +98,7 @@
                 </p>
                 <section class="projectsMain" alt="Carousel containing programming projects">
                     <div class="carousel">
-                        <button class="carouselSideButton carouselLeftButton" id="carouselLeftButton"><</button>
+                        <button class="carouselSideButton carouselLeftButton" id="carouselLeftButton" tabindex="3" alt="Load previous project"><</button>
                         <div class="carouselTrackContainer">
                             <ul class="carouselTrack">
                                 <li class="carouselSlide">
@@ -150,14 +142,14 @@
                                         </section>
                                     </div>
                                     <div class="carouselNav">
-                                        <button class="carouselBottomButton currentSlide" id="bottomButton1"></button>
-                                        <button class="carouselBottomButton" id="bottomButton2"></button>
-                                        <button class="carouselBottomButton" id="bottomButton3"></button>
+                                        <button class="carouselBottomButton currentSlide" id="bottomButton1" tabindex="4" alt="First project link"></button>
+                                        <button class="carouselBottomButton" id="bottomButton2" tabindex="5" alt="Second project link"></button>
+                                        <button class="carouselBottomButton" id="bottomButton3" tabindex="6" alt="Third project link"></button>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                        <button class="carouselSideButton carouselRightButton" id="carouselRightButton">></button>
+                        <button class="carouselSideButton carouselRightButton" id="carouselRightButton" tabindex="7" alt="Load next project">></button>
                         <!--need a number of buttons equal to the number of slides / may want image preview?-->
                     </div>
                 </section>
@@ -181,13 +173,13 @@
                             </p>
                         </section>
                         <section class="inspirationLinks">
-                            <a class="inspirationLink inspirationLinkToGitHub" href="https://github.com/CheTranqui/HotS-Drafting-Minigame" target="_blank">
+                            <a class="inspirationLink inspirationLinkToGitHub" href="https://github.com/CheTranqui/HotS-Drafting-Minigame" target="_blank" tabindex="8" alt="Project's GitHub link">
                                 GitHub
                             </a>
-                            <a class="inspirationLink inspirationLinkToVideo hidden">
+                            <a class="inspirationLink inspirationLinkToVideo hidden" tabindex="9" alt="Project's YouTube link">
                                 Video
                             </a>
-                            <a class="inspirationLink inspirationLinkToProject" href="https://drive.google.com/file/d/1fdf6VtAxig_gEylEyDo641TbCXmTWLDF/view" target="_blank">
+                            <a class="inspirationLink inspirationLinkToProject" href="https://drive.google.com/file/d/1fdf6VtAxig_gEylEyDo641TbCXmTWLDF/view" target="_blank" tabindex="10" alt="Project Download link">
                                 Download
                             </a>
                         </section>
@@ -207,10 +199,10 @@
                             </p>
                         </section>
                         <section class="inspirationLinks">
-                            <a class="inspirationLink inspirationLinkToGitHub" href="https://elanthipedia.play.net/Go_Anywhere_*KS*_(script)" target="_blank">
+                            <a class="inspirationLink inspirationLinkToGitHub" href="https://elanthipedia.play.net/Go_Anywhere_*KS*_(script)" target="_blank" tabindex="11" alt="Script link">
                                 "Go" Script
                             </a>
-                            <a class="inspirationLink inspirationLinkToGitHub" href="https://elanthipedia.play.net/User:KASHNA" target="_blank">
+                            <a class="inspirationLink inspirationLinkToGitHub" href="https://elanthipedia.play.net/User:KASHNA" target="_blank" tabindex="12" alt="Link to more of my Dragonrealms scripts">
                                 More Scripts
                             </a>
                         </section>
@@ -230,10 +222,10 @@
                             </p>
                         </section>
                         <section class="inspirationLinks">
-                            <a class="inspirationLink inspirationLinkToGitHub" href="https://empiresandpuzzles.fandom.com/wiki/Home" target="_blank">
+                            <a class="inspirationLink inspirationLinkToGitHub" href="https://empiresandpuzzles.fandom.com/wiki/Home" target="_blank" tabindex="13" alt="Wiki Link">
                                 E&P Wiki
                             </a>
-                            <a class="inspirationLink inspirationLinkToVideo" href="https://empiresandpuzzles.fandom.com/wiki/Hero_Information" target="_blank">
+                            <a class="inspirationLink inspirationLinkToVideo" href="https://empiresandpuzzles.fandom.com/wiki/Hero_Information" target="_blank" tabindex="14" alt="Link to my favorite page: Hero Information">
                                 Hero Info
                             </a>
                         </section>
@@ -242,6 +234,12 @@
             </section>
     </main>
     <footer>
+        <h2 class="afterThought" id="footerNotes">
+            Notes:
+        </h2>
+        <p class="afterThought" id="footerNote1">
+            1:  "¡Che, tranqui!" is a common phrase heard on the streets of Argentina on a daily basis. "Che" is a way to call out to another person in the same way as we use "Dude" or "Bro" here in the United States. "Tranqui" is a command, short for "tranquilo" meaning relax or chill. I've combined the two into an idiomatic expression to imply my goal to be a chill, relaxed guy.
+        </p>
     </footer>
 </body>
 </html>

@@ -132,7 +132,7 @@ function createSlides(JSONSlides) {
         loadSlide(currentSlide);
     }
 
-    //swaps in the new slide's info
+    //loads new slide's info into browser elements
     function loadSlide(slideNumber) {
         currentSlide = slideNumber;
         $("projectTitle").innerHTML = slides[slideNumber].projectTitle;
@@ -141,6 +141,7 @@ function createSlides(JSONSlides) {
         $("projectLesson").innerHTML = slides[slideNumber].projectLesson;
         $("projectLink1").href = slides[slideNumber].projectLink1;
         $("projectLink1").innerHTML = slides[slideNumber].projectLink1Text;
+     //some projects have fewer links - this manages their loading and display
         if (slides[slideNumber].projectLink2) {
             $("projectLink2").href = slides[slideNumber].projectLink2;
             $("projectLink2").innerHTML = slides[slideNumber].projectLink2Text;
@@ -160,6 +161,7 @@ function createSlides(JSONSlides) {
         updateIndicators(slideNumber);
 }
 
+//resets the bottom buttons to highlight the one associated with this slide
 function updateIndicators(slideNumber) {
     carouselIndicators.forEach(function(indicator){
         indicator.classList.remove("currentSlide");

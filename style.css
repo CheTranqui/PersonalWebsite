@@ -333,10 +333,10 @@
         display: none;
     }
 
-/*==================================
-           Projects.html page from 450px to 800px
-    ====================================*/
 
+/*=======================================
+       Projects.html page from 250px to 450px+
+    =========================================*/
     .inlineLink {
         color: var(--color-inlineLinks);
         text-decoration: none;
@@ -348,7 +348,7 @@
 
     .carousel {
         position: relative;
-        height: 1200px;
+        height: 1800px;
         width: 95%;
         max-width: 800px;
         margin: auto;
@@ -416,7 +416,7 @@
     }
 
     .projectContainer projectPreview {
-        height: 35rem;
+        height: 45rem;
     }
 
     .projectContainer section figure {
@@ -449,18 +449,36 @@
     .projectContainer .projectLinks {
         display: flex;
         flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .projectContainer .projectLink {
+        margin: 0 0.35rem 0.5rem 0.35rem;
+    }
+
+   .projectLink {
+        display: block;
+    }
+
+
+@media only screen and (min-width: 450px){
+    .projectContainer projectPreview {
+        height: 35rem;
+    }
+
+    .carousel{
+        height: 1200px;
+    }
+
+    .projectContainer .projectLinks {
         justify-content: center;
     }
 
     .projectContainer .projectLink {
         margin: 0 2rem 1rem 2rem;
     }
-
-    .projectLink {
-        display: block;
-    }
-
-    /*==================================
+}
+/*==================================
        Primary Document Styles - Desktop
   Everything here is for over 795 pixels wide
     ====================================*/
@@ -476,16 +494,16 @@
 
     body {
         font-size: 1.2rem;
-/*        margin: 2rem;*/
+        /*        margin: 2rem;*/
     }
 
     a {
         font-size: 1rem;
     }
 
-    a:hover, a:focus {
-        font-size: 1.1rem;
-    }
+        a:hover, a:focus {
+            font-size: 1.1rem;
+        }
     /*==================================
            NavBar Styling - Desktop
     ====================================*/
@@ -500,20 +518,20 @@
         font-size: 0.9rem;
     }
 
-    .socialMediaDropdownLink:hover, .socialMediaDropdownLink:focus {
-        font-size: 1.05rem;
-    }
+        .socialMediaDropdownLink:hover, .socialMediaDropdownLink:focus {
+            font-size: 1.05rem;
+        }
 
     /*==================================
     NavBar: Right-side Nav Menu - Desktop
     ====================================*/
-    .navLink p, .navLink{
+    .navLink p, .navLink {
         font-size: 1.5rem;
     }
 
-    .navLink p:hover, .navLink:focus{
-        font-size: 1.7rem;
-    }
+        .navLink p:hover, .navLink:focus {
+            font-size: 1.7rem;
+        }
     /*==================================
         Introduction Styles - Desktop
     ====================================*/
@@ -524,7 +542,6 @@
     }
 
     #introductionTitleSection {
-        
     }
 
     /*==================================
@@ -569,19 +586,19 @@
         text-align: center;
     }
 
-    .inspirationPreview figure {
-        height: auto;
-        width: 80%;
-        margin: 0 10% 0 10%;
-    }
+        .inspirationPreview figure {
+            height: auto;
+            width: 80%;
+            margin: 0 10% 0 10%;
+        }
 
     .inspirationImage {
         border: 1rem solid var(--color-primaryBackground);
     }
 
-    .inspirationImage:hover {
-        transform: scale(2);
-    }
+        .inspirationImage:hover {
+            transform: scale(2);
+        }
 
     .inspirationCaption {
         font-size: 1.65rem;
@@ -595,7 +612,7 @@
     /*==================================
            carousel project 800+ pixels
     ====================================*/
-    
+
 
     .carousel {
         height: 875px;

@@ -60,9 +60,6 @@
     main {
         padding-top: 0.05rem;
         background-color: var(--color-secondaryBackground);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
     }
 
     article {

@@ -43,11 +43,18 @@
 
     body {
         width: 90%;
-        margin: 0 auto;
+        margin: auto;
         background-color: var(--color-primaryBackground);
         color: var(--color-primaryText);
         font-size: 1.5rem;
         font-family: var(--ff-primaryFont);
+    }
+
+    canvas{
+        position: absolute;
+        height: 100%;
+        width: 90%;
+        margin: auto;
     }
 
     main {
@@ -69,6 +76,10 @@
         font-size: 1.5rem;
     }
 
+    button{
+        padding: 0;
+        margin: 0;
+    }
 
     /*==================================
                NavBar Styling
@@ -524,17 +535,21 @@
         top: 50%;
         transform: translateY(-50%);
         background: rgba(255,255,255,0.3);
+        padding: 0;
         border: 0;
+        width: 1.8rem;
         cursor: pointer;
-        font-size: 2rem;
+        font-size: 2.5rem;
+        text-shadow: 0 3px #123;
+        z-index: 1;
     }
 
     #carouselLeftButton{
-        left: -2.5rem;
+        left: 0rem;
     }
 
     #carouselRightButton {
-        right: -2.5rem;
+        right: 0rem;
     }
 
     .carouselNav{

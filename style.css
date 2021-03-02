@@ -216,10 +216,6 @@
             Inspiration Styles
     ====================================*/
 
-    #inspiration {
-        
-    }
-
     #myInspirationProjects {
         text-align: center;
         display: grid;
@@ -337,6 +333,7 @@
 /*=======================================
        Projects.html page from 250px to 450px+
     =========================================*/
+
     .inlineLink {
         color: var(--color-inlineLinks);
         text-decoration: none;
@@ -344,6 +341,7 @@
 
     .projectsMain {
         display: block;
+        height: auto;
     }
 
     .carousel {
@@ -356,7 +354,15 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        flex-wrap: wrap;
     }
+
+/*    carousel height is critical to adjust at 350px*/
+@media only screen and (min-width: 350px) {
+    .carousel{
+        height: 1500px;
+    }
+}
 
     .carouselTrackContainer {
         position: relative;
@@ -462,6 +468,7 @@
 
 
 @media only screen and (min-width: 450px){
+
     .projectContainer projectPreview {
         height: 35rem;
     }

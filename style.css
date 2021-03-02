@@ -362,10 +362,10 @@
         justify-content: center;
     }
 
-/*    carousel height is critical to adjust at 340px+*/
-@media only screen and (min-width: 340px) {
+/*    carousel height is critical to adjust at 350px+*/
+@media only screen and (min-width: 350px) {
     .carousel {
-        height: 1375px;
+        height: 1450px;
     }
 }
 

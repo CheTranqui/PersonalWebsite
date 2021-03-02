@@ -346,7 +346,7 @@
 
     .carousel {
         position: relative;
-        height: 1800px;
+        height: 1875px;
         width: 95%;
         max-width: 800px;
         margin: auto;
@@ -354,7 +354,6 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        flex-wrap: wrap;
     }
 
 /*    carousel height is critical to adjust at 350px*/

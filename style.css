@@ -450,11 +450,6 @@
         transition: transform .5s ease;
     }
 
-    .projectContainer section figure img:hover,
-    .projectContainer section figure img:focus {
-        transform: scale(1.2);
-    }
-
     .projectContainer .projectDescriptionSection {
         display: flex;
         flex-direction: column;
@@ -522,10 +517,11 @@
             font-size: 1rem;
         }
 
-            a:hover, a:focus {
-                font-size: 1.1rem;
-            }
-        /*==================================
+        a:hover, a:focus {
+            font-size: 1.1rem;
+        }
+
+     /*==================================
            NavBar Styling - Desktop
     ====================================*/
         /*==================================
@@ -539,22 +535,22 @@
             font-size: 0.9rem;
         }
 
-            .socialMediaDropdownLink:hover, .socialMediaDropdownLink:focus {
-                font-size: 1.05rem;
-            }
+        .socialMediaDropdownLink:hover, .socialMediaDropdownLink:focus {
+            font-size: 1.05rem;
+        }
 
-        /*==================================
+    /*==================================
     NavBar: Right-side Nav Menu - Desktop
     ====================================*/
         .navLink p, .navLink {
             font-size: 1.5rem;
         }
 
-            .navLink p:hover, .navLink:focus {
-                font-size: 1.7rem;
-            }
+        .navLink p:hover, .navLink:focus {
+            font-size: 1.7rem;
+        }
 
-        /*==================================
+    /*==================================
         Introduction Styles - Desktop
     ====================================*/
         .introductionArticle {
@@ -566,7 +562,7 @@
         #introductionTitleSection {
         }
 
-        /*==================================
+    /*==================================
         Inspiration Styles - Desktop
     ====================================*/
         #myInspirationProjects {
@@ -608,20 +604,20 @@
             text-align: center;
         }
 
-            .inspirationPreview figure {
-                height: auto;
-                width: 80%;
-                margin: 0 10% 0 10%;
-            }
+        .inspirationPreview figure {
+            height: auto;
+            width: 80%;
+            margin: 0 10% 0 10%;
+        }
 
         .inspirationImage {
             border: 1rem solid var(--color-primaryBackground);
         }
 
-            .inspirationImage:hover,
-            .inspirationImage:focus {
-                transform: scale(2);
-            }
+        .inspirationImage:hover,
+        .inspirationImage:focus {
+            transform: scale(2);
+        }
 
         .inspirationCaption {
             font-size: 1.65rem;
@@ -690,11 +686,6 @@
             width: auto;
             object-fit: cover;
         }
-
-            .projectContainer section figure img:hover,
-            .projectContainer section figure img:focus {
-                transform: scale(1.5);
-            }
     }
 
     /*==================================

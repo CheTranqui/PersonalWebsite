@@ -11,8 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width" />
-    <meta name="keywords"
-        content="HTML, CSS, JavaScript, C#, software development, Che Tranqui, CheTranqui, programming" />
+    <meta name="keywords" content="HTML, CSS, JavaScript, C#, software development, Che Tranqui, CheTranqui, programming" />
     <meta name="description" content="Software projects developed by CheTranqui." />
     <meta name="author" content="CheTranqui" />
     <meta property="og:image" content="https://www.chetranqui.com/images/MartianTribune-Small.jpg" />
@@ -31,11 +30,9 @@
         <div id="navContainer">
             <nav class="navBar" id="socialMediaNavBar">
                 <div id="socialMediaDisplay" alt="Social Media Links">
-                    <button onclick="socialMediaDropdownExpander()" href="" class="navLink" id="socialMediaDropdownLink"
+                    <button onclick="socialMediaDropdownExpander()" class="navLink socialMediaDropdownButton" id="socialMediaDropdownLink"
                         tabindex="1" alt="Social Media Links Dropdown">
-                        <p class="navText socialMediaLinkText">
-                            CheMedia
-                        </p>
+                        CheMedia
                     </button>
                     <div class="socialMedia socialMediaDropdownBackground" id="socialMediaDropdownDiv">
                         <ul class="navList" id="socialMediaDropdownList">
@@ -95,11 +92,9 @@
             <nav class="navBar" id="navMenu">
                 <ul class="navList" id="navMenuList">
                     <li class="navMenuItem">
-                        <button class="navLink" href="mailto:chetranqui@gmail.com" tabindex="2" alt="Email me">
-                            <p class="navText">
-                                Contact
-                            </p>
-                        </button>
+                        <a class="navLink emailMe" tabindex="2" alt="Email me" href="mailto:chetranqui@gmail.com">
+                            Contact Me
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -135,82 +130,89 @@
             <section class="projectsMain" alt="Carousel containing programming projects">
                 <div class="carousel">
                     <button class="carouselSideButton carouselLeftButton" id="carouselLeftButton" tabindex="3"
-                        alt="Load previous project">&#10094;
+                        alt="Load previous project">
+                        <p>
+                            &#10094;
+                        </p>
                     </button>
-                            <div class="carouselTrackContainer">
-                                <ul class="carouselTrack">
-                                    <li class="carouselSlide">
-                                        <!--each article will be defined in JS-->
-                                        <div class="projectContainer" id="projectContainer">
-                                            <section class="projectPreview" id="projectPreview">
-                                                <figure>
-                                                    <figcaption class="projectCaption" id="projectCaption">
-                                                        <h1 id="projectTitle">
-                                                            The Martian Tribune
-                                                        </h1>
-                                                    </figcaption>
-                                                    <img class="projectImage" id="projectImage"
-                                                        src="images/projectImages/MartianTribunePreview.jpg" />
-                                                </figure>
-                                            </section>
-                                            <section class="projectDescriptionSection" id="projectDescriptionSection">
-                                                <p class="projectText" id="projectDescription">
-                                                    In 2018
-                                                    <a class="inlineLink" href="https://www.haemimontgames.com/"
-                                                        target="_blank">
-                                                        Haemimont Games
-                                                    </a>
-                                                    released a game called Surviving Mars. I wanted the colonists to
-                                                    have a more personal feel, so I trusted that I learned enough in
-                                                    making the drafting minigame and made my first ever mod: The Martian
-                                                    Tribune. It presents stories that my team and I wrote to the player
-                                                    every three in-game days and each story was seleted dynamically
-                                                    based upon the current state of the game.
-                                                </p>
-                                                <h2 class="projectLessonTitle">
-                                                    What I Learned
-                                                </h2>
-                                                <p class="projectText" id="projectLesson">
-                                                    As Project Lead I recruited a second author and later brought a
-                                                    professional programmer on board to refactor my original code (what
-                                                    is currently on GitHub is her refactoring). This was an awesome
-                                                    experience in just how challenging, rewarding, and diverse the
-                                                    development experience is when seeing a project through from start
-                                                    to finish.
-                                                </p>
-                                            </section>
-                                            <section class="projectLinks" id="projectLinks">
-                                                <a class="projectLink" id="projectLink1"
-                                                    href="https://github.com/CheTranqui/Surviving-Mars-Martian-Tribune"
-                                                    target="_blank">
-                                                    GitHub
-                                                </a>
-                                                <a class="projectLink" id="projectLink2"
-                                                    href="https://www.youtube.com/watch?v=QJvOHWFPZ_Y&ab_channel=CheTranqui"
-                                                    target="_blank">
-                                                    Video
-                                                </a>
-                                                <a class="projectLink" id="projectLink3"
-                                                    href="https://steamcommunity.com/sharedfiles/filedetails/?id=1376913896"
-                                                    target="_blank">
-                                                    Steam
-                                                </a>
-                                            </section>
-                                        </div>
-                                        <div class="carouselNav">
-                                            <button class="carouselBottomButton currentSlide" id="bottomButton1"
-                                                tabindex="4" alt="First project link"></button>
-                                            <button class="carouselBottomButton" id="bottomButton2" tabindex="5"
-                                                alt="Second project link"></button>
-                                            <button class="carouselBottomButton" id="bottomButton3" tabindex="6"
-                                                alt="Third project link"></button>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <button class="carouselSideButton carouselRightButton" id="carouselRightButton" tabindex="7"
-                                alt="Load next project">&#10095;</button>
-                            <!--need a number of buttons equal to the number of slides / may want image preview?-->
+                    <div class="carouselTrackContainer">
+                        <ul class="carouselTrack">
+                            <li class="carouselSlide">
+                                <!--each project in projectContainer will be defined in JS-->
+                                <div class="projectContainer" id="projectContainer">
+                                    <section class="projectPreview" id="projectPreview">
+                                        <figure>
+                                            <figcaption class="projectCaption" id="projectCaption">
+                                                <h1 id="projectTitle">
+                                                    The Martian Tribune
+                                                </h1>
+                                            </figcaption>
+                                            <img class="projectImage" id="projectImage"
+                                                    src="images/projectImages/MartianTribunePreview.jpg" />
+                                        </figure>
+                                    </section>
+                                    <section class="projectDescriptionSection" id="projectDescriptionSection">
+                                        <p class="projectText" id="projectDescription">
+                                            In 2018
+                                            <a class="inlineLink" href="https://www.haemimontgames.com/"
+                                                target="_blank">
+                                                Haemimont Games
+                                            </a>
+                                            released a game called Surviving Mars. I wanted the colonists to
+                                            have a more personal feel, so I trusted that I learned enough in
+                                            making the drafting minigame and made my first ever mod: The Martian
+                                            Tribune. It presents stories that my team and I wrote to the player
+                                            every three in-game days and each story was seleted dynamically
+                                            based upon the current state of the game.
+                                        </p>
+                                        <h2 class="projectLessonTitle">
+                                            What I Learned
+                                        </h2>
+                                        <p class="projectText" id="projectLesson">
+                                            As Project Lead I recruited a second author and later brought a
+                                            professional programmer on board to refactor my original code (what
+                                            is currently on GitHub is her refactoring). This was an awesome
+                                            experience in just how challenging, rewarding, and diverse the
+                                            development experience is when seeing a project through from start
+                                            to finish.
+                                        </p>
+                                    </section>
+                                    <section class="projectLinks" id="projectLinks">
+                                        <a class="projectLink" id="projectLink1"
+                                            href="https://github.com/CheTranqui/Surviving-Mars-Martian-Tribune"
+                                            target="_blank">
+                                            GitHub
+                                        </a>
+                                        <a class="projectLink" id="projectLink2"
+                                            href="https://www.youtube.com/watch?v=QJvOHWFPZ_Y&ab_channel=CheTranqui"
+                                            target="_blank">
+                                            Video
+                                        </a>
+                                        <a class="projectLink" id="projectLink3"
+                                            href="https://steamcommunity.com/sharedfiles/filedetails/?id=1376913896"
+                                            target="_blank">
+                                            Steam
+                                        </a>
+                                    </section>
+                                </div>
+                                <!--need a number of buttons equal to the number of slides / may want image preview?-->
+                                <div class="carouselNav">
+                                    <button class="carouselBottomButton currentSlide" id="bottomButton1"
+                                            tabindex="4" alt="First project link"></button>
+                                    <button class="carouselBottomButton" id="bottomButton2" tabindex="5"
+                                            alt="Second project link"></button>
+                                    <button class="carouselBottomButton" id="bottomButton3" tabindex="6"
+                                            alt="Third project link"></button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="carouselSideButton carouselRightButton" id="carouselRightButton" tabindex="7"
+                                alt="Load next project">
+                        <p>
+                            &#10095;
+                        </p>
+                    </button>
                 </div>
             </section>
         </article>

@@ -75,13 +75,6 @@
         font-size: 1.5rem;
     }
 
-    button {
-        display: flex;
-        height: auto;
-        padding: 0.5rem;
-        margin: 0;
-    }
-
 
     /*==================================
                NavBar Styling
@@ -103,10 +96,20 @@
     }
 
     .navLink {
+        display: flex;
+        color: var(--color-primaryTitle);
+        font-family: var(--ff-accentFont);
+        height: auto;
+        padding: 0.1rem 0.5rem 0.3rem 0.5rem;
+        margin: 0;
         background: var(--color-primaryBackground);
         border: 2px solid var(--color-links);
         border-radius: 10%;
-        color: var(--color-primaryTitle);
+        outline: none;
+    }
+
+    .emailMe {
+        text-decoration: none;
     }
 
     .navBar p {
@@ -114,8 +117,8 @@
         font-size: 1.7rem;
     }
 
-    .navLink p:hover, .navLink:focus {
-        font-size: 1.95rem;
+    .navLink:hover, .navLink:focus {
+        font-size: 1.7rem;
     }
 /*==================================
         NavBar: Social Media Dropdown
@@ -128,7 +131,6 @@
 
     #socialMediaDisplay {
         margin: 0 0.5rem 0 0.5rem;
-     
     }
 
     .socialMediaDropdownBackground {
@@ -388,16 +390,20 @@
     }
 
     .carouselSideButton {
+        display: flex;
+        justify-content: center;
         position: absolute;
         top: 30%;
         transform: translateY(-50%);
         background: rgba(255,255,255,0.3);
-        padding: 0;
+        padding: 0 0 0.3rem 0;
         border: 0;
-        width: 1.8rem;
-        cursor: pointer;
+        width: 1.5ch;
+        height: 1.8ch;
+        align-items: center;
         font-size: 2.5rem;
         text-shadow: 0 3px #123;
+        cursor: pointer;
         z-index: 1;
     }
 

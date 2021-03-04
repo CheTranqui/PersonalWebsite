@@ -10,7 +10,7 @@ function socialMediaDropdownExpander() {
 
 //click anywhere to collapse the social media dropdown
 window.onclick = function (event) {
-    if (!event.target.matches(".socialMediaLinkText")) {
+    if (!event.target.matches(".socialMediaDropdownButton")) {
         $("socialMediaDropdownDiv").classList.remove("show");
     }
 }

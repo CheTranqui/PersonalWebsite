@@ -29,9 +29,9 @@
     <header>
         <div id="navContainer">
             <nav class="navBar" id="socialMediaNavBar">
-                <div id="socialMediaDisplay" alt="Social Media Links">
+                <div id="socialMediaDisplay">
                     <button onclick="socialMediaDropdownExpander()" class="navLink socialMediaDropdownButton" id="socialMediaDropdownLink"
-                        tabindex="1" alt="Social Media Links Dropdown">
+                        tabindex="1">
                         CheMedia
                     </button>
                     <div class="socialMedia socialMediaDropdownBackground" id="socialMediaDropdownDiv">
@@ -42,7 +42,7 @@
                                     target="_blank">
                                     <img class="socialMediaDropdownImage socialMediaDropdownGitHub"
                                         id="socialMediaDropdownGitHubImage"
-                                        src="images/socialMediaIcons/GitHub-Mark-Light-120px-plus.png" />
+                                        src="images/socialMediaIcons/GitHub-Mark-Light-120px-plus.png" alt="Github Icon" />
                                     <span class="socialMediaDropdownText" id="socialMediaGitHubText">GitHub</span>
                                 </a>
                             </li>
@@ -51,7 +51,7 @@
                                     href="https://www.youtube.com/channel/UC43wbpw02ZIYkhes0O70IVg" target="_blank">
                                     <img class="socialMediaDropdownImage socialMediaDropdownYT"
                                         id="socialMediaDropdownYTImage"
-                                        src="images/socialMediaIcons/youtube_social_icon_red.png" />
+                                        src="images/socialMediaIcons/youtube_social_icon_red.png" alt="YouTube Icon" />
                                     <span class="socialMediaDropdownText" id="socialMediaYTText">YouTube</span>
                                 </a>
                             </li>
@@ -61,7 +61,7 @@
                                     target="_blank">
                                     <img class="socialMediaDropdownImage socialMediaDropdownTwitch"
                                         id="socialMediaDropdownTwitchImage"
-                                        src="images/socialMediaIcons/TwitchGlitchPurple.png" />
+                                        src="images/socialMediaIcons/TwitchGlitchPurple.png" alt="Twitch Icon" />
                                     <span class="socialMediaDropdownText" id="socialMediaTwitchText">Twitch</span>
                                 </a>
                             </li>
@@ -71,7 +71,7 @@
                                     target="_blank">
                                     <img class="socialMediaDropdownImage socialMediaDropdownTwitter"
                                         id="socialMediaDropdownTwitterImage"
-                                        src="images/socialMediaIcons/2021 Twitter logo - white.png" />
+                                        src="images/socialMediaIcons/2021 Twitter logo - white.png" alt="Twitter Icon" />
                                     <span class="socialMediaDropdownText" id="socialMediaTwitterText">Twitter</span>
                                 </a>
                             </li>
@@ -81,7 +81,7 @@
                                     href="https://www.linkedin.com/in/chaz-peterson-1a8751142/" target="_blank">
                                     <img class="socialMediaDropdownImage socialMediaDropdownLinkedIn"
                                         id="socialMediaDropdownLinkedInImage"
-                                        src="images/socialMediaIcons/LI-In-Bug.png" />
+                                        src="images/socialMediaIcons/LI-In-Bug.png" alt="LinkedIn Icon" />
                                     <span class="socialMediaDropdownText" id="socialMediaLinkedInText">LinkedIn</span>
                                 </a>
                             </li>
@@ -92,7 +92,7 @@
             <nav class="navBar" id="navMenu">
                 <ul class="navList" id="navMenuList">
                     <li class="navMenuItem">
-                        <a class="navLink emailMe" tabindex="2" alt="Email me" href="mailto:chetranqui@gmail.com">
+                        <a class="navLink emailMe" tabindex="2" href="mailto:chetranqui@gmail.com">
                             Contact Me
                         </a>
                     </li>
@@ -127,13 +127,12 @@
             <p class="projectIntro" id="projectIntro">
                 The following projects were substantial in my learning along the way to becoming a Software Developer:
             </p>
-            <section class="projectsMain" alt="Carousel containing programming projects">
+            <section class="projectsMain">
                 <div class="carousel">
-                    <button class="carouselSideButton carouselLeftButton" id="carouselLeftButton" tabindex="3"
-                        alt="Load previous project">
-                        <p>
+                    <button class="carouselSideButton carouselLeftButton" id="carouselLeftButton" tabindex="3">
+                        <span>
                             &#10094;
-                        </p>
+                        </span>
                     </button>
                     <div class="carouselTrackContainer">
                         <ul class="carouselTrack">
@@ -148,7 +147,8 @@
                                                 </h1>
                                             </figcaption>
                                             <img class="projectImage" id="projectImage"
-                                                    src="images/projectImages/MartianTribunePreview.jpg" />
+                                                 src="images/projectImages/MartianTribunePreview.jpg" 
+                                                 alt="Project preview image"/>
                                         </figure>
                                     </section>
                                     <section class="projectDescriptionSection" id="projectDescriptionSection">
@@ -198,20 +198,17 @@
                                 <!--need a number of buttons equal to the number of slides / may want image preview?-->
                                 <div class="carouselNav">
                                     <button class="carouselBottomButton currentSlide" id="bottomButton1"
-                                            tabindex="4" alt="First project link"></button>
-                                    <button class="carouselBottomButton" id="bottomButton2" tabindex="5"
-                                            alt="Second project link"></button>
-                                    <button class="carouselBottomButton" id="bottomButton3" tabindex="6"
-                                            alt="Third project link"></button>
+                                            tabindex="4"></button>
+                                    <button class="carouselBottomButton" id="bottomButton2" tabindex="5"></button>
+                                    <button class="carouselBottomButton" id="bottomButton3" tabindex="6"></button>
                                 </div>
                             </li>
                         </ul>
                     </div>
-                    <button class="carouselSideButton carouselRightButton" id="carouselRightButton" tabindex="7"
-                                alt="Load next project">
-                        <p>
+                    <button class="carouselSideButton carouselRightButton" id="carouselRightButton" tabindex="7">
+                        <span>
                             &#10095;
-                        </p>
+                        </span>
                     </button>
                 </div>
             </section>
@@ -240,17 +237,15 @@
                     </section>
                     <section class="inspirationLinks">
                         <a class="inspirationLink inspirationLinkToGitHub"
-                            href="https://github.com/CheTranqui/HotS-Drafting-Minigame" target="_blank" tabindex="8"
-                            alt="Project's GitHub link">
+                            href="https://github.com/CheTranqui/HotS-Drafting-Minigame" target="_blank" tabindex="8">
                             GitHub
                         </a>
-                        <a class="inspirationLink inspirationLinkToVideo hidden" tabindex="9"
-                            alt="Project's YouTube link">
+                        <a class="inspirationLink inspirationLinkToVideo hidden" tabindex="9">
                             Video
                         </a>
                         <a class="inspirationLink inspirationLinkToProject"
                             href="https://drive.google.com/file/d/1fdf6VtAxig_gEylEyDo641TbCXmTWLDF/view"
-                            target="_blank" tabindex="10" alt="Project Download link">
+                            target="_blank" tabindex="10">
                             Download
                         </a>
                     </section>
@@ -277,13 +272,11 @@
                     </section>
                     <section class="inspirationLinks">
                         <a class="inspirationLink inspirationLinkToGitHub"
-                            href="https://elanthipedia.play.net/Go_Anywhere_*KS*_(script)" target="_blank" tabindex="11"
-                            alt="Script link">
+                            href="https://elanthipedia.play.net/Go_Anywhere_*KS*_(script)" target="_blank" tabindex="11">
                             "Go" Script
                         </a>
                         <a class="inspirationLink inspirationLinkToGitHub"
-                            href="https://elanthipedia.play.net/User:KASHNA" target="_blank" tabindex="12"
-                            alt="Link to more of my Dragonrealms scripts">
+                            href="https://elanthipedia.play.net/User:KASHNA" target="_blank" tabindex="12">
                             More Scripts
                         </a>
                     </section>
@@ -310,13 +303,12 @@
                     </section>
                     <section class="inspirationLinks">
                         <a class="inspirationLink inspirationLinkToGitHub"
-                            href="https://empiresandpuzzles.fandom.com/wiki/Home" target="_blank" tabindex="13"
-                            alt="Wiki Link">
+                            href="https://empiresandpuzzles.fandom.com/wiki/Home" target="_blank" tabindex="13">
                             E&P Wiki
                         </a>
                         <a class="inspirationLink inspirationLinkToVideo"
                             href="https://empiresandpuzzles.fandom.com/wiki/Hero_Information" target="_blank"
-                            tabindex="14" alt="Link to my favorite page: Hero Information">
+                            tabindex="14">
                             Hero Info
                         </a>
                     </section>

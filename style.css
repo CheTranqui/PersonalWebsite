@@ -50,6 +50,8 @@
     }
 
     main {
+        display: flex;
+        flex-direction: column;
         padding-top: 0.05rem;
         background-color: var(--color-secondaryBackground);
     }
@@ -227,61 +229,17 @@
 
     #myInspirationProjects {
         text-align: center;
-        display: grid;
+        display: flex;
+        flex-direction: column;
         justify-content: space-evenly;
         align-content: center;
-        grid-template-columns: auto;
-        grid-template-rows: auto auto auto auto auto auto auto auto auto;
-        column-gap: normal;
-    }
-
-    #inspirationOne .inspirationPreview {
-        grid-column: 1;
-        grid-row: 1;
-    }
-
-    #inspirationOne .inspirationDescription {
-        grid-column: 1;
-        grid-row: 2;
-    }
-
-    #inspirationOne .inspirationLinks {
-        grid-column: 1;
-        grid-row: 3;
-    }
-
-    #inspirationTwo .inspirationPreview {
-        grid-column: 1;
-        grid-row: 4;
-    }
-
-    #inspirationTwo .inspirationDescription {
-        grid-column: 1;
-        grid-row: 5;
-    }
-
-    #inspirationTwo .inspirationLinks {
-        grid-column: 1;
-        grid-row: 6;
-    }
-
-    #inspirationThree .inspirationPreview {
-        grid-column: 1;
-        grid-row: 7;
-    }
-
-    #inspirationThree .inspirationDescription {
-        grid-column: 1;
-        grid-row: 8;
-    }
-
-    #inspirationThree .inspirationLinks {
-        grid-column: 1;
-        grid-row: 9;
+        flex: 1 1 0;
+        grid-gap: 2rem;
     }
 
     .inspirationProject {
         height: auto;
+        width: 100%;
         align-self: start;
         text-align: center;
         margin: 0.2rem 1rem 0.2rem 1rem;
@@ -354,22 +312,14 @@
 
     .carousel {
         position: relative;
-        height: 1875px;
+        height: auto;
         width: 95%;
         max-width: 800px;
         margin: auto;
-        padding-bottom: 2.5rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-
-/*    carousel height is critical to adjust at 350px+*/
-@media only screen and (min-width: 350px) {
-    .carousel {
-        height: 1450px;
-    }
-}
 
     .carouselTrackContainer {
         position: relative;
@@ -383,7 +333,6 @@
     }
 
     .carouselSlide {
-        position: absolute;
         top: 0;
         bottom: 0;
         width: 100%;
@@ -481,10 +430,6 @@
 
 @media only screen and (min-width: 450px){
 
-    .carousel{
-        height: 1075px;
-    }
-
     .projectContainer .projectLinks {
         justify-content: center;
     }
@@ -494,12 +439,6 @@
     }
 }
 
-@media only screen and (min-width: 600px) {
-
-    .carousel {
-        height: 900px;
-    }
-}
     /*==================================
        Primary Document Styles - Desktop
   Everything here is for over 795 pixels wide
@@ -516,7 +455,6 @@
 
         body {
             font-size: 1.2rem;
-            /*        margin: 2rem;*/
         }
 
         a {
@@ -572,34 +510,7 @@
         Inspiration Styles - Desktop
     ====================================*/
         #myInspirationProjects {
-            grid-template-columns: 33% 33% 33%;
-            grid-template-rows: auto auto auto;
-            grid-gap: 1rem 1rem;
-        }
-
-        #inspirationOne {
-            grid-column: 1;
-        }
-
-        #inspirationTwo {
-            grid-column: 2;
-        }
-
-        #inspirationThree {
-            grid-column: 3;
-        }
-
-        .inspirationPreview {
-            grid-row: 1;
-        }
-
-        .inspirationDescription {
-            grid-row: 2;
-        }
-
-        .inspirationLinks {
-            grid-row: 3;
-            border-bottom: none;
+            flex-direction: row;
         }
 
         .inspirationProject {

@@ -3,6 +3,8 @@
 
 function $(id) { return document.getElementById(id); }
 
+
+//handles the CheMedia dropdown
 function socialMediaDropdownExpander() {
     event.preventDefault();
     $("socialMediaDropdownDiv").classList.toggle("show");

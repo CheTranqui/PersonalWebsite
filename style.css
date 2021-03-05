@@ -12,7 +12,6 @@
     --color-secondaryBackground: #222;
     --color-accentBackground: #333;
     --color-primaryTitle: #38a2c2;
-    --color-secondaryTitle: #38a2c2;
     --color-primaryText: #f0f8ff;
     --color-buttonBackground: #27048e;
     --color-fadedText: #808080;
@@ -31,13 +30,21 @@
         background-color: var(--color-secondaryBackground);
     }
 
-    h1 {
+    h1, h2 {
         text-align: center;
         color: var(--color-primaryTitle);
-        font-size: 2rem;
-        text-shadow: 3px 3px black;
         font-family: var(--ff-accentFont);
         margin: 1.5rem 0.5rem 1rem 0.5rem;
+    }
+
+    h1 {
+        font-size: 2.7rem;
+        text-shadow: 2px 0 var(--color-buttonBackground);
+    }
+
+    h2 {
+        font-size: 2rem;
+        text-shadow: 3px 3px black;
     }
 
     body {
@@ -58,14 +65,17 @@
 
     article {
         text-align: center;
-        padding: 2rem 0 2rem 0;
         height: auto;
+        width: 95%;
+        margin: auto;
+        padding: 1rem 0 1rem 0;
     }
 
     #introductionArticle,
     #primaryProjectsArticle,
     #inspiration{
         display: block;
+        align-content: center;
     }
 
     a {
@@ -76,7 +86,6 @@
     a:hover, a:focus {
         font-size: 1.5rem;
     }
-
 
     /*==================================
                NavBar Styling
@@ -89,45 +98,45 @@
         height: 1.3rem;
         padding-top: 0.5rem;
         padding-bottom: 0.75rem;
+        margin: 0;
     }
 
     .navBar {
         display: flex;
         width: auto;
-        margin-top: 0;
+        margin: 0;
     }
 
     .navLink {
         display: flex;
+        flex-wrap: nowrap;
         color: var(--color-primaryTitle);
         font-family: var(--ff-accentFont);
         height: auto;
-        padding: 0.1rem 0.5rem 0.3rem 0.5rem;
+        padding: 0.1rem 0.1rem 0.3rem 0.1rem;
         margin: 0;
         background: var(--color-primaryBackground);
         border: 2px solid var(--color-links);
         border-radius: 10%;
         outline: none;
+        font-size: 1.0rem;
+        cursor: pointer;
     }
 
     .emailMe {
         text-decoration: none;
-    }
-
-    .navBar p {
-        margin: 0.4rem 0 0 0;
-        font-size: 1.7rem;
+        text-wrap:none;
     }
 
     .navLink:hover, .navLink:focus {
-        font-size: 1.7rem;
+        font-size: 1.15rem;
     }
 /*==================================
         NavBar: Social Media Dropdown
     ====================================*/
     .navList {
         list-style-type: none;
-        padding-left: 0.5rem;
+        padding-left: 0.2rem;
         margin: 0 0 0 0;
     }
 
@@ -192,7 +201,6 @@
 
     #navMenuList {
         width: 100%;
-        margin: 0 0.5rem 0 0.5rem;
     }
 
     .navMenuItem {
@@ -228,21 +236,17 @@
     ====================================*/
 
     #myInspirationProjects {
-        text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        align-content: center;
         flex: 1 1 0;
-        grid-gap: 2rem;
+        text-align: center;
+        margin: auto;
     }
 
     .inspirationProject {
         height: auto;
-        width: 100%;
-        align-self: start;
         text-align: center;
-        margin: 0.2rem 1rem 0.2rem 1rem;
     }
 
     .inspirationPreview figure {
@@ -251,16 +255,12 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-content: center;
     }
 
     .inspirationImage {
-        grid-column: 1;
-        grid-row: 1;
         max-width: 100%;
         height: auto;
-        align-self: center;
-        border: 1.5rem solid var(--color-primaryBackground);
-        border-bottom: 0;
         transition: transform .5s ease;
     }
 
@@ -269,16 +269,18 @@
     }
 
     .inspirationCaption {
-        grid-column: 1;
-        grid-row: 2;
         align-self: center;
         font-size: 2.25rem;
         color: var(--color-secondaryTitle);
         font-family: var(--ff-accentFont);
     }
 
-    .inspirationText {
-        margin: 0.5rem 0 0.5rem 0;
+    .inspirationDescription{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.75rem;
+        text-align: center;
     }
 
     .inspirationLinks {
@@ -343,14 +345,12 @@
         justify-content: center;
         position: absolute;
         top: 30%;
-        transform: translateY(-50%);
         background: rgba(255,255,255,0.3);
         padding: 0 0 0.3rem 0;
         border: 0;
-        width: 1.5ch;
-        height: 1.8ch;
-        align-items: center;
-        font-size: 2.5rem;
+        width: 1.3ch;
+        height: auto;
+        font-size: 2rem;
         text-shadow: 0 3px #123;
         cursor: pointer;
         z-index: 1;
@@ -378,7 +378,6 @@
     }
 
     .projectContainer h2 {
-        color: var(--color-primaryTitle);
         margin: 1rem 0 1rem 0;
     }
 
@@ -394,7 +393,7 @@
         margin: 0;
     }
 
-    .projectContainer section figure figcaption h1 {
+    .projectContainer section figure figcaption h2 {
         width: 100%;
     }
 
@@ -409,7 +408,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 1rem;
+        padding: 0.5rem;
         text-align: center;
     }
 
@@ -430,6 +429,19 @@
 
 @media only screen and (min-width: 450px){
 
+    .navList {
+        padding-left: 0.5rem;
+    }
+
+    .navLink {
+        font-size: 1.3rem;
+        padding: 0.1rem 0.5rem 0.3rem 0.5rem;
+    }
+
+    .navLink:hover, .navLink:focus{
+        font-size: 1.6rem;
+    }
+
     .projectContainer .projectLinks {
         justify-content: center;
     }
@@ -447,10 +459,6 @@
 
         header {
             font-size: 1.5rem;
-        }
-
-        h1 {
-            font-size: 2.25rem;
         }
 
         body {
@@ -509,12 +517,17 @@
     /*==================================
         Inspiration Styles - Desktop
     ====================================*/
+
         #myInspirationProjects {
             flex-direction: row;
+            width: 98%;
+
         }
 
         .inspirationProject {
+            align-content: flex-start;
             height: auto;
+            margin: 0.2rem 1rem 0.2rem 1rem;
         }
 
         .inspirationPreview {
@@ -523,8 +536,8 @@
 
         .inspirationPreview figure {
             height: auto;
-            width: 80%;
-            margin: 0 10% 0 10%;
+            width: 95%;
+            margin: auto;
         }
 
         .inspirationImage {
@@ -558,6 +571,9 @@
 
         .carouselSideButton {
             position: absolute;
+            font-size: 2.5rem;
+            width: 1.5ch;
+            height: auto;
             top: 50%;
             transform: translateY(-50%);
             background: rgba(255,255,255,0.3);
@@ -629,6 +645,7 @@
         MartianTribuneStories & footer
      ====================================*/
     .afterThought {
+        text-align: left;
         font-size: 1rem;
         color: var(--color-fadedText);
     }

@@ -9,7 +9,6 @@ const track = $('carouselTrack');
 const slides = [];
 const carouselIndicators = [];
 let currentSlide = 0;
-//const slideWidth = $('projectContainer').width;
 
 window.onload = function () {
     //once page is loaded, get project info separately from server
@@ -44,6 +43,7 @@ function createSlides(JSONSlides) {
         slide.projectImageFile = JSONSlides["Projects"][i].projectImageFile;
         slide.projectDescription = JSONSlides["Projects"][i].projectDescription;
         slide.projectLesson = JSONSlides["Projects"][i].projectLesson;
+        //which links are present is variable - the following maps them
         let links = [];
         if (JSONSlides["Projects"][i].projectLinkToGithub != null) {
             let myLink = [];
@@ -81,6 +81,7 @@ function createSlides(JSONSlides) {
             myLink.text = "Website";
             links.push(myLink);
         }
+        // inserts the first 3 links (if they exist) - assumes there's always at least 1
         if (links.length >= 3) {
             slide.projectLink3 = links[2].link;
             slide.projectLink3Text = links[2].text;
@@ -91,6 +92,7 @@ function createSlides(JSONSlides) {
         }
         slide.projectLink1 = links[0].link;
         slide.projectLink1Text = links[0].text;
+
         slides.push(slide);
         getImage(slide);
     }

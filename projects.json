@@ -3,8 +3,8 @@
     {
       "projectTitle": "The Martian Tribune",
       "projectImageFile": "MartianTribunePreview.jpg",
-      "projectDescription": "In 2018 <a class='inlineLink' href='https://www.haemimontgames.com/' target='_blank'>Haemimont Games</a> released a game called Surviving Mars. I wanted the colonists to have a more personal feel, so I trusted that I had learned enough in making the drafting minigame and made my first ever mod: The Martian Tribune. It presents stories that my team and I wrote to the player every three in-game days and each story was selected dynamically based upon the current state of the game.",
-      "projectLesson": "As Project Lead I recruited a second author and later brought on a professional programmer to refactor my original code (what is currently on GitHub is her refactoring). This was an awesome experience in just how challenging, rewarding, and diverse the development experience is when seeing a project through from start to finish.",
+      "projectDescription": "In 2018 <a class='inlineLink' href='https://www.haemimontgames.com/' target='_blank'>Haemimont Games</a> released a game called Surviving Mars. I wanted the colonists to have a more personal feel, so I trusted that I'd learned enough in making the drafting minigame and made my first ever mod: The Martian Tribune. It presents stories that my team and I wrote to the player every three in-game days. Stories are selected dynamically based upon the current state of the game.",
+      "projectLesson": "As Project Lead I recruited a second author and later brought on a professional programmer to refactor my original LUA code (what is currently on GitHub is her refactoring). This was an awesome experience in just how challenging, rewarding, and diverse the development experience is when seeing a project through from start to finish.",
       "projectLinkToGithub": "https://github.com/CheTranqui/Surviving-Mars-Martian-Tribune",
       "projectLinkToYouTube": "https://www.youtube.com/watch?v=QJvOHWFPZ_Y&ab_channel=CheTranqui",
       "projectLinkToSteam": "https://steamcommunity.com/sharedfiles/filedetails/?id=1376913896",

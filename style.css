@@ -118,7 +118,7 @@
         background: var(--color-primaryBackground);
         border: 2px solid var(--color-links);
         border-radius: 10%;
-        outline: none;
+        outline-color: var(--color-links);
         font-size: 1.0rem;
         cursor: pointer;
     }

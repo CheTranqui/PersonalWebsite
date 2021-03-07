@@ -16,3 +16,13 @@ window.onclick = function (event) {
         $("socialMediaDropdownDiv").classList.remove("show");
     }
 }
+
+//carousel side buttons get centered to the image and match height on load and resize
+window.onload = resizeButtons();
+window.onresize = resizeButtons;
+
+function resizeButtons() {
+    let idealButtonHeight = $("projectImage").height;
+    $("carouselRightButton").style.height = idealButtonHeight + "px";
+    $("carouselLeftButton").style.height = idealButtonHeight + "px";
+}

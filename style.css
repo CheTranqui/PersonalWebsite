@@ -8,15 +8,15 @@
     ====================================*/
 
 :root {
-    --color-primaryBackground: #123;
-    --color-secondaryBackground: #222;
-    --color-accentBackground: #333;
+    --color-primaryBackground: #fff;
+    --color-secondaryBackground: #eee;
     --color-primaryTitle: #38a2c2;
-    --color-primaryText: #f0f8ff;
-    --color-buttonBackground: #27048e;
-    --color-fadedText: #808080;
-    --color-links: #1ec8af;
-    --color-inlineLinks: #9CFFDE;
+    --color-primaryText: #123;
+    --color-fadedText: #666;
+    --color-links: #01afa7;
+    --color-inlineLinks: #01c8bf;
+    --color-carouselButtons: rgba(200,200,200,0.8);
+    --color-carouselButtonText: darkgray;
     --ff-primaryFont: 'Times New Roman';
     --ff-accentFont: 'Palatino Linotype';
 }
@@ -44,7 +44,7 @@
 
     h2 {
         font-size: 2rem;
-        text-shadow: 3px 3px black;
+        text-shadow: 1px 2px black;
     }
 
     body {
@@ -97,7 +97,7 @@
         background: var(--color-primaryBackground);
         width: 100%;
         height: auto;
-        padding-top: 0.5rem;
+        padding-top: 0.65rem;
         padding-bottom: 0.75rem;
         margin: 0;
     }
@@ -115,12 +115,10 @@
         color: var(--color-primaryTitle);
         font-family: var(--ff-accentFont);
         height: auto;
-/*        padding: 0.1rem 0.1rem 0.3rem 0.1rem;*/
         margin: 0;
         background-size: 100% 200%;
         background-image: linear-gradient(180deg, var(--color-primaryBackground) 50%, var(--color-primaryTitle) 50%);
         border: 0;
-        /*border-radius: 10%;*/
         outline-color: var(--color-links);
         font-size: 1.0rem;
         cursor: pointer;
@@ -129,12 +127,17 @@
 
     .navLink:hover {
         font-size: 1.0rem;
-        color: var(--color-primaryText);
+        color: #fff;
         background-position: 0 100%;
     }
 
+    .navMenuItem{
+        padding: 0;
+    }
 
     .emailMe {
+        padding-right: 0.3rem;
+        padding-left: 0.3rem;
         text-decoration: none;
     }
 
@@ -149,6 +152,68 @@
         text-wrap: normal;
         word-wrap: normal;
         z-index: 2;
+    }
+
+    .modeContainer {
+        position: absolute;
+        top: 0.25rem;
+        right: 0;
+        padding-right: 5%;
+        width: 90%;
+        margin: auto;
+    }
+
+    .modeLabel {
+        position: relative;
+        float: right;
+        top: 0;
+        right: 2.4rem;
+        height: 1rem;
+        width: 4.5rem;
+        font-size: 0.75rem;
+        color: var(--color-primaryTitle);
+    }
+
+    .modeLabel input {
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        height: 0.7rem;
+        width: 2rem;
+        position: absolute;
+        cursor: pointer;
+        top: 0.17rem;
+        right: -2rem;
+        background-color: var(--color-carouselButtons);
+        transition: .3s;
+        border-radius: 0.4rem;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 0.5rem;
+        width: 0.5rem;
+        left: 4px;
+        bottom: 2px;
+        background-color: var(--color-fadedText);
+        transition: .3s;
+        border-radius: 40%;
+    }
+
+    .modeLabel input:checked + .slider {
+        background-color: var(--color-primaryTitle);
+    }
+
+    .modeLabel input:focus + .slider {
+        box-shadow: 0 0 1px var(--color-primaryTitle);
+    }
+
+    .modeLabel input:checked + .slider:before {
+        background-color: var(--color-secondaryBackground);
+        transform: translateX(1rem);
     }
 
 /*==================================
@@ -369,12 +434,13 @@
         justify-content: center;
         position: absolute;
         bottom: 0;
-        background: rgba(255,255,255,0.3);
         padding: 0 0 0.3rem 0;
         border: 0;
         width: 1.3ch;
         align-items: center;
         font-size: 2rem;
+        background: var(--color-carouselButtons);
+        color: var(--color-carouselButtonText);
         text-shadow: 0 3px #123;
         cursor: pointer;
         z-index: 1;
@@ -511,13 +577,13 @@
            NavBar Styling - Desktop
     ====================================*/
     #navContainer {
-        padding: 0.25rem 0.5rem 0.5rem 0.5rem;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
         width: auto;
     }
 
-        /*==================================
+    /*======================================
      NavBar: Social Media Dropdown - Desktop
-    ====================================*/
+    =======================================*/
         .socialMediaDropdownBackground {
             max-width: 6rem;
         }
@@ -539,6 +605,10 @@
 
         .navLink:hover, .navLink:focus {
             font-size: 1.5rem;
+        }
+
+        .modeContainer{
+            padding-right: calc(5% + 0.5rem);
         }
 
     /*==================================
@@ -597,7 +667,7 @@
             margin: 0.5rem 0 0.5rem 0;
         }
 
-        /*==================================
+    /*==================================
            carousel project 800+ pixels
     ====================================*/
 
@@ -612,7 +682,6 @@
             font-size: 2.5rem;
             width: 1.5ch;
             align-items: center;
-            background: rgba(255,255,255,0.3);
         }
 
         #carouselLeftButton {
@@ -636,7 +705,7 @@
             border-radius: 50%;
             width: 0.7rem;
             height: 0.8rem;
-            background: rgba(255,255,255,0.3);
+            background: var(--color-carouselButtons);
             margin: 0 1rem 0 1rem;
             cursor: pointer;
         }
@@ -673,6 +742,7 @@
     .afterThought {
         text-align: left;
         font-size: 1rem;
+        text-shadow: none;
         color: var(--color-fadedText);
     }
 

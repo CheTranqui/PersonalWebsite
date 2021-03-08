@@ -90,6 +90,8 @@ function updateColorScheme() {
         root.style.setProperty('--color-inlineLinks', '#01c8bf');
         root.style.setProperty('--color-carouselButtons', 'rgba(200,200,200,0.6)');
         root.style.setProperty('--color-carouselButtonText', 'darkgray');
+        $("socialMediaDropdownTwitterImage").src = "images/socialMediaIcons/2021-Twitter-logo-blue.png";
+        $("socialMediaDropdownGitHubImage").src = "images/socialMediaIcons/GitHub-Mark-120px-plus.png";
     }
     else {
         //dark mode colors
@@ -102,5 +104,7 @@ function updateColorScheme() {
         root.style.setProperty('--color-inlineLinks', '#9CFFDE');
         root.style.setProperty('--color-carouselButtons', 'rgba(255,255,255,0.3)');
         root.style.setProperty('--color-carouselButtonText', 'black');
+        $("socialMediaDropdownTwitterImage").src = "images/socialMediaIcons/2021-Twitter-logo-white.png";
+        $("socialMediaDropdownGitHubImage").src = "images/socialMediaIcons/GitHub-Mark-Light-120px-plus.png";
     }
 }

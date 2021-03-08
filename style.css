@@ -180,11 +180,11 @@
     }
 
     .slider {
-        height: 0.7rem;
+        height: 0.75rem;
         width: 2rem;
         position: absolute;
         cursor: pointer;
-        top: 0.17rem;
+        top: 0.18rem;
         right: -2rem;
         background-color: var(--color-carouselButtons);
         transition: .3s;

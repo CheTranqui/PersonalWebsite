@@ -34,6 +34,7 @@ function resizeButtons() {
 function copyEmail() {
     event.preventDefault();
     contactCount++
+    //1st click = notify and copy text, 2nd click opens mail app - but only on desktop
     if (contactCount % 2 == 1 && $("navContainer").offsetWidth > 800) {
         //confirm permission to write to clipboard
         navigator.permissions.query({ name: "clipboard-write" }).then(result => {
@@ -41,6 +42,7 @@ function copyEmail() {
             if (result.state == "granted" || result.state == "prompt") {
                 navigator.clipboard.writeText("chetranqui@gmail.com").then(function () {
                     displayCopyPrompt();
+                    //if not on desktop, then always open mail app
                 }).catch(function () {
                     openMailTo();
                 });

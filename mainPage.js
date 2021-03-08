@@ -34,7 +34,7 @@ function resizeButtons() {
 function copyEmail() {
     event.preventDefault();
     contactCount++
-    if (contactCount % 2 == 1) {
+    if (contactCount % 2 == 1 && $("navContainer".offsetWidth < 800)) {
         //confirm permission to write to clipboard
         navigator.permissions.query({ name: "clipboard-write" }).then(result => {
             //if so copy email address and let user know
@@ -42,16 +42,20 @@ function copyEmail() {
                 navigator.clipboard.writeText("chetranqui@gmail.com").then(function () {
                     displayCopyPrompt();
                 }).catch(function () {
-                    //otherwise do nothing
+                    openMailTo();
                 });
             }
         })
     }
     else {
-        let mail = document.createElement("a");
-        mail.href = "mailto:chetranqui@gmail.com";
-        mail.click();
+        openMailTo();
     }
+}
+
+function openMailTo() {
+    let mail = document.createElement("a");
+    mail.href = "mailto:chetranqui@gmail.com";
+    mail.click();
 }
 
 function displayCopyPrompt() {

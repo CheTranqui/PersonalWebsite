@@ -127,7 +127,7 @@
         transition: background-position 0.5s;
     }
 
-    .navLink:hover, .navLink:focus {
+    .navLink:hover {
         font-size: 1.0rem;
         color: var(--color-primaryText);
         background-position: 0 100%;

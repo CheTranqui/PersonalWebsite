@@ -34,7 +34,7 @@ function resizeButtons() {
 function copyEmail() {
     event.preventDefault();
     contactCount++
-    if (contactCount % 2 == 1 && $("navContainer".offsetWidth < 800)) {
+    if (contactCount % 2 == 1 && $("navContainer").offsetWidth > 800) {
         //confirm permission to write to clipboard
         navigator.permissions.query({ name: "clipboard-write" }).then(result => {
             //if so copy email address and let user know

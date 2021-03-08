@@ -103,6 +103,7 @@
     }
 
     .navBar {
+        position: relative;
         display: flex;
         width: auto;
         margin: 0;
@@ -135,6 +136,18 @@
 
     .emailMe {
         text-decoration: none;
+    }
+
+    #copyNotification{
+        float: none;
+        position: absolute;
+        top: 3.25rem;
+        display: none;
+        font-size: small;
+        text-align: center;
+        text-wrap: normal;
+        word-wrap: normal;
+        z-index: 2;
     }
 
 /*==================================

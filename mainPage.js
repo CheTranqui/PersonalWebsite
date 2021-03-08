@@ -51,7 +51,7 @@ function displayCopyPrompt() {
     $("copyNotification").style.left = "" + leftOffset + "px";
     $("copyNotification").style.transform = "translateX(-40%)";
     $("copyNotification").style.display = "inline";
-    hideElement($("copyNotification"), 3000);
+    hideElement($("copyNotification"), 4000);
 }
 
 // wait before hiding results screen

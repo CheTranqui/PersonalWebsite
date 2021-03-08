@@ -18,8 +18,9 @@ window.onclick = function (event) {
 }
 
 //carousel side buttons get centered to the image and match height on load and resize
-window.onload = resizeButtons();
 window.onresize = resizeButtons;
+
+document.addEventListener('DOMContentLoaded', resizeButtons());
 
 function resizeButtons() {
     let idealButtonHeight = $("projectImage").height;

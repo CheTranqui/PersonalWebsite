@@ -191,7 +191,7 @@
         border-radius: 0.4rem;
     }
 
-    .slider:before {
+    .slider::before {
         position: absolute;
         content: "";
         height: 0.5rem;

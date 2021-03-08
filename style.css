@@ -143,6 +143,7 @@
         position: absolute;
         top: 3.25rem;
         display: none;
+        background: var(--color-secondaryBackground);
         font-size: small;
         text-align: center;
         text-wrap: normal;

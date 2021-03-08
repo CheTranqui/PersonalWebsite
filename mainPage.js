@@ -2,13 +2,7 @@
 // Alias:  CheTranqui
 
 function $(id) { return document.getElementById(id); }
-
-
-//handles the CheMedia dropdown
-function socialMediaDropdownExpander() {
-    event.preventDefault();
-    $("socialMediaDropdownDiv").classList.toggle("show");
-}
+let contactCount = 0;
 
 //click anywhere to collapse the social media dropdown
 window.onclick = function (event) {
@@ -17,13 +11,19 @@ window.onclick = function (event) {
     }
 }
 
-//carousel side buttons get centered to the image and match height on load and resize
-window.onresize = resizeButtons;
-
 document.addEventListener('DOMContentLoaded', () => {
     resizeButtons();
     $("emailMeLink").addEventListener("click", copyEmail);
 });
+
+//handles the CheMedia dropdown
+function socialMediaDropdownExpander() {
+    event.preventDefault();
+    $("socialMediaDropdownDiv").classList.toggle("show");
+}
+
+//carousel side buttons get centered to the image and match height on load and resize
+window.onresize = resizeButtons;
 
 function resizeButtons() {
     let idealButtonHeight = $("projectImage").height;
@@ -32,17 +32,26 @@ function resizeButtons() {
 }
 
 function copyEmail() {
-    //confirm permission to write to clipboard
-    navigator.permissions.query({ name: "clipboard-write" }).then(result => {
-        //if so copy email address and let user know
-        if (result.state == "granted" || result.state == "prompt") {
-            navigator.clipboard.writeText("chetranqui@gmail.com").then(function () {
-                displayCopyPrompt();
-            }).catch(function() {
-                //otherwise do nothing
-            });
-        }
-    })
+    event.preventDefault();
+    contactCount++
+    if (contactCount % 2 == 1) {
+        //confirm permission to write to clipboard
+        navigator.permissions.query({ name: "clipboard-write" }).then(result => {
+            //if so copy email address and let user know
+            if (result.state == "granted" || result.state == "prompt") {
+                navigator.clipboard.writeText("chetranqui@gmail.com").then(function () {
+                    displayCopyPrompt();
+                }).catch(function () {
+                    //otherwise do nothing
+                });
+            }
+        })
+    }
+    else {
+        let mail = document.createElement("a");
+        mail.href = "mailto:chetranqui@gmail.com";
+        mail.click();
+    }
 }
 
 function displayCopyPrompt() {
@@ -51,7 +60,7 @@ function displayCopyPrompt() {
     $("copyNotification").style.left = "" + leftOffset + "px";
     $("copyNotification").style.transform = "translateX(-40%)";
     $("copyNotification").style.display = "inline";
-    hideElement($("copyNotification"), 4000);
+    hideElement($("copyNotification"), 3000);
 }
 
 // wait before hiding results screen

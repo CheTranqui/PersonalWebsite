@@ -81,6 +81,7 @@
     a {
         color: var(--color-links);
         font-size: 1.3rem;
+        transition: font-size, 0.2s ease-in-out;
     }
 
     a:hover, a:focus {
@@ -587,6 +588,7 @@
         .socialMediaDropdownBackground {
             max-width: 6rem;
         }
+
 
         .socialMediaDropdownLink {
             font-size: 0.9rem;

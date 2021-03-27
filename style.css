@@ -11,11 +11,12 @@
     --color-primaryBackground: #fff;
     --color-secondaryBackground: #eee;
     --color-primaryTitle: #38a2c2;
+    --color-primaryTitleShadow: rgba(56, 162, 194, 1);
     --color-primaryText: #123;
     --color-fadedText: #666;
     --color-links: #01afa7;
-    --color-inlineLinks: #01c8bf;
-    --color-carouselButtons: rgba(200,200,200,0.8);
+    --color-linksShadow: rgba(1, 175, 167, 0.8);
+    --color-carouselButtons: rgba(200,200,200,0.6);
     --color-carouselButtonText: darkgray;
     --ff-primaryFont: 'Times New Roman';
     --ff-accentFont: 'Palatino Linotype';
@@ -132,7 +133,7 @@
         background-position: 0 100%;
     }
 
-    .navMenuItem{
+    .navMenuItem {
         padding: 0;
     }
 
@@ -380,10 +381,20 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        margin: auto;
+        width: 80%;
     }
 
-    .inspirationLink {
-        margin: 0.5rem 1rem 0.5rem 1rem;
+    .inspirationLinks .inspirationLink {
+        margin: 0.3rem;
+        font-size: 0.8rem;
+        height: auto;
+        /* see the rest below at ".projectLink, .inspirationLink" */
+    }
+
+    .inspirationLinks .inspirationLink:hover{
+        cursor: pointer;
+        font-size: 0.9rem;
     }
 
     .hidden {
@@ -518,9 +529,20 @@
         margin: 0 0.35rem 0.5rem 0.35rem;
     }
 
-   .projectLink {
+    .projectLink, .inspirationLink {
         display: block;
+        height: 1.15rem;
+        padding-right: 0.3rem;
+        padding-left: 0.3rem;
+        text-decoration: none;
+        font-size: 1.0rem;
+        color: #fff;
+        background: var(--color-primaryTitle);
+        box-shadow: 2px 2px 2px var(--color-primaryTitleShadow);
+        border: 2px solid var(--color-primaryTitleShadow);
+        border-radius: 5%;
     }
+
 @media only screen and (min-width: 300px) {
     .navLink {
         font-size: 1.1rem;

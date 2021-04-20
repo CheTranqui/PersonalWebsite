@@ -24,6 +24,7 @@ function socialMediaDropdownExpander() {
 }
 
 //carousel side buttons get centered to the image and match height on load and resize
+window.onload = resizeButtons;
 window.onresize = resizeButtons;
 
 function resizeButtons() {

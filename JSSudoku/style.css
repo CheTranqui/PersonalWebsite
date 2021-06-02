@@ -1,0 +1,34 @@
+/*
+    Author: Chaz Peterson
+    Alias:  CheTranqui
+*/
+
+/*==================================
+            Primary Document Styles
+====================================*/
+
+:root {
+    --color-primaryBackground: #fff;
+    --color-secondaryBackground: #eee;
+    --color-primaryTitle: #38a2c2;
+    --color-primaryTitleShadow: rgba(56, 162, 194, 1);
+    --color-primaryText: #123;
+    --color-fadedText: #666;
+    --color-links: #01afa7;
+    --color-linksShadow: rgba(1, 175, 167, 0.8);
+    --color-carouselButtons: rgba(200,200,200,0.6);
+    --color-carouselButtonText: darkgray;
+    --ff-primaryFont: 'Times New Roman';
+    --ff-accentFont: 'Palatino Linotype';
+}
+
+body {
+    width: 90%;
+    margin: 1rem auto 2rem auto;
+    background-color: var(--color-primaryBackground);
+    color: var(--color-primaryText);
+    font-size: 1.5rem;
+    font-family: var(--ff-primaryFont);
+}
+
+

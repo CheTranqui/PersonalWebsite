@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+    Author: Chaz Peterson
+    Alias:  CheTranqui
+    Site:  www.CheTranqui.com
+    Purpose:  An awesome personalized sudoku
+-->
+<html lang="en">
+<head>
+    <meta name="author" content="CheTranqui" />
+    <title>CheSudoku</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer type="text/javascript" src="sudoku.js"></script>
+    <script type="text/javascript" src="/../colors.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1>
+            CheSudoku
+        </h1>
+    </header>
+    <main>
+        <h2>
+            <span id="sudokuTitleLeft">
+                Difficulty: <span id="sudokuDifficulty"></span>
+            </span>
+            <span id="sudokuTitleRight">
+                Time: <span id="sudokuTime"></span>
+            </span>
+        </h2>
+        <article>
+            <table class="board">
+                <tr class="sudokuRow" id="r1">
+                    <td class="sudokuCell row1 col1" id="r1c1"></td>
+                    <td class="sudokuCell row1 col2" id="r1c2"></td>
+                    <td class="sudokuCell row1 col3" id="r1c3"></td>
+                    <td class="sudokuCell row1 col4" id="r1c4"></td>
+                    <td class="sudokuCell row1 col5" id="r1c5"></td>
+                    <td class="sudokuCell row1 col6" id="r1c6"></td>
+                    <td class="sudokuCell row1 col7" id="r1c7"></td>
+                    <td class="sudokuCell row1 col8" id="r1c8"></td>
+                    <td class="sudokuCell row1 col9" id="r1c9"></td>
+                </tr>
+                <tr class="sudokuRow" id="r2">
+                    <td class="sudokuCell row2 col1" id="r2c1"></td>
+                    <td class="sudokuCell row2 col2" id="r2c2"></td>
+                    <td class="sudokuCell row2 col3" id="r2c3"></td>
+                    <td class="sudokuCell row2 col4" id="r2c4"></td>
+                    <td class="sudokuCell row2 col5" id="r2c5"></td>
+                    <td class="sudokuCell row2 col6" id="r2c6"></td>
+                    <td class="sudokuCell row2 col7" id="r2c7"></td>
+                    <td class="sudokuCell row2 col8" id="r2c8"></td>
+                    <td class="sudokuCell row2 col9" id="r2c9"></td>
+                </tr>
+                <tr class="sudokuRow" id="r3">
+                    <td class="sudokuCell row3 col1" id="r3c1"></td>
+                    <td class="sudokuCell row3 col2" id="r3c2"></td>
+                    <td class="sudokuCell row3 col3" id="r3c3"></td>
+                    <td class="sudokuCell row3 col4" id="r3c4"></td>
+                    <td class="sudokuCell row3 col5" id="r3c5"></td>
+                    <td class="sudokuCell row3 col6" id="r3c6"></td>
+                    <td class="sudokuCell row3 col7" id="r3c7"></td>
+                    <td class="sudokuCell row3 col8" id="r3c8"></td>
+                    <td class="sudokuCell row3 col9" id="r3c9"></td>
+                </tr>
+                <tr class="sudokuRow" id="r4">
+                    <td class="sudokuCell row4 col1" id="r4c1"></td>
+                    <td class="sudokuCell row4 col2" id="r4c2"></td>
+                    <td class="sudokuCell row4 col3" id="r4c3"></td>
+                    <td class="sudokuCell row4 col4" id="r4c4"></td>
+                    <td class="sudokuCell row4 col5" id="r4c5"></td>
+                    <td class="sudokuCell row4 col6" id="r4c6"></td>
+                    <td class="sudokuCell row4 col7" id="r4c7"></td>
+                    <td class="sudokuCell row4 col8" id="r4c8"></td>
+                    <td class="sudokuCell row4 col9" id="r4c9"></td>
+                </tr>
+                <tr class="sudokuRow" id="r5">
+                    <td class="sudokuCell row5 col1" id="r5c1"></td>
+                    <td class="sudokuCell row5 col2" id="r5c2"></td>
+                    <td class="sudokuCell row5 col3" id="r5c3"></td>
+                    <td class="sudokuCell row5 col4" id="r5c4"></td>
+                    <td class="sudokuCell row5 col5" id="r5c5"></td>
+                    <td class="sudokuCell row5 col6" id="r5c6"></td>
+                    <td class="sudokuCell row5 col7" id="r5c7"></td>
+                    <td class="sudokuCell row5 col8" id="r5c8"></td>
+                    <td class="sudokuCell row5 col9" id="r5c9"></td>
+                </tr>
+                <tr class="sudokuRow" id="r6">
+                    <td class="sudokuCell row6 col1" id="r6c1"></td>
+                    <td class="sudokuCell row6 col2" id="r6c2"></td>
+                    <td class="sudokuCell row6 col3" id="r6c3"></td>
+                    <td class="sudokuCell row6 col4" id="r6c4"></td>
+                    <td class="sudokuCell row6 col5" id="r6c5"></td>
+                    <td class="sudokuCell row6 col6" id="r6c6"></td>
+                    <td class="sudokuCell row6 col7" id="r6c7"></td>
+                    <td class="sudokuCell row6 col8" id="r6c8"></td>
+                    <td class="sudokuCell row6 col9" id="r6c9"></td>
+                </tr>
+                <tr class="sudokuRow" id="r7">
+                    <td class="sudokuCell row7 col1" id="r7c1"></td>
+                    <td class="sudokuCell row7 col2" id="r7c2"></td>
+                    <td class="sudokuCell row7 col3" id="r7c3"></td>
+                    <td class="sudokuCell row7 col4" id="r7c4"></td>
+                    <td class="sudokuCell row7 col5" id="r7c5"></td>
+                    <td class="sudokuCell row7 col6" id="r7c6"></td>
+                    <td class="sudokuCell row7 col7" id="r7c7"></td>
+                    <td class="sudokuCell row7 col8" id="r7c8"></td>
+                    <td class="sudokuCell row7 col9" id="r7c9"></td>
+                </tr>
+                <tr class="sudokuRow" id="r8">
+                    <td class="sudokuCell row8 col1" id="r8c1"></td>
+                    <td class="sudokuCell row8 col2" id="r8c2"></td>
+                    <td class="sudokuCell row8 col3" id="r8c3"></td>
+                    <td class="sudokuCell row8 col4" id="r8c4"></td>
+                    <td class="sudokuCell row8 col5" id="r8c5"></td>
+                    <td class="sudokuCell row8 col6" id="r8c6"></td>
+                    <td class="sudokuCell row8 col7" id="r8c7"></td>
+                    <td class="sudokuCell row8 col8" id="r8c8"></td>
+                    <td class="sudokuCell row8 col9" id="r8c9"></td>
+                </tr>
+                <tr class="sudokuRow" id="r9">
+                    <td class="sudokuCell row9 col1" id="r9c1"></td>
+                    <td class="sudokuCell row9 col2" id="r9c2"></td>
+                    <td class="sudokuCell row9 col3" id="r9c3"></td>
+                    <td class="sudokuCell row9 col4" id="r9c4"></td>
+                    <td class="sudokuCell row9 col5" id="r9c5"></td>
+                    <td class="sudokuCell row9 col6" id="r9c6"></td>
+                    <td class="sudokuCell row9 col7" id="r9c7"></td>
+                    <td class="sudokuCell row9 col8" id="r9c8"></td>
+                    <td class="sudokuCell row9 col9" id="r9c9"></td>
+                </tr>
+            </table>
+        </article>
+    </main>
+
+</body>
+</html>

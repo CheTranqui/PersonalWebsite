@@ -79,33 +79,16 @@ function hideElement(element, ms) {
 }
 
 function updateColorScheme() {
-    const root = document.documentElement;
     if ($("modeCheckbox").checked == false) {
-        //light mode colors
-        root.style.setProperty('--color-primaryBackground', '#fff');
-        root.style.setProperty('--color-secondaryBackground', '#eee');
-        root.style.setProperty('--color-primaryTitle', '#38a2c2');
-        root.style.setProperty('--color-primaryText', '#123');
-        root.style.setProperty('--color-fadedText', '#666');
-        root.style.setProperty('--color-links', '#01afa7');
-        root.style.setProperty('--color-inlineLinks', '#01c8bf');
-        root.style.setProperty('--color-carouselButtons', 'rgba(200,200,200,0.6)');
-        root.style.setProperty('--color-carouselButtonText', 'darkgray');
+        // adjust two social media icons
         $("socialMediaDropdownTwitterImage").src = "images/socialMediaIcons/2021-Twitter-logo-blue.png";
         $("socialMediaDropdownGitHubImage").src = "images/socialMediaIcons/GitHub-Mark-120px-plus.png";
+        activateLightMode();
     }
     else {
-        //dark mode colors
-        root.style.setProperty('--color-primaryBackground', '#123');
-        root.style.setProperty('--color-secondaryBackground', '#222');
-        root.style.setProperty('--color-primaryTitle', '#38a2c2');
-        root.style.setProperty('--color-primaryText', '#f0f8ff');
-        root.style.setProperty('--color-fadedText', '#808080');
-        root.style.setProperty('--color-links', '#1ec8af');
-        root.style.setProperty('--color-inlineLinks', '#9CFFDE');
-        root.style.setProperty('--color-carouselButtons', 'rgba(255,255,255,0.3)');
-        root.style.setProperty('--color-carouselButtonText', 'black');
+        // adjust two social media icons
         $("socialMediaDropdownTwitterImage").src = "images/socialMediaIcons/2021-Twitter-logo-white.png";
         $("socialMediaDropdownGitHubImage").src = "images/socialMediaIcons/GitHub-Mark-Light-120px-plus.png";
+        activateDarkMode();
     }
 }

@@ -15,7 +15,7 @@ const board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 
-//window.onload = init();
+window.onload = init();
 
 function init() {
     activateDarkMode();

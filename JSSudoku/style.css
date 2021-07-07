@@ -31,4 +31,39 @@ body {
     font-family: var(--ff-primaryFont);
 }
 
+.col2, .col5{
+    border-right: 2px solid var(--color-carouselButtons);
+    border-top: unset;
+    border-left: unset;
+    border-bottom: unset;
+}
 
+.row2, .row5{
+    border-bottom: 2px solid var(--color-carouselButtons);
+    border-top: unset;
+    border-left: unset;
+    border-right: unset;
+}
+
+#r2c2, #r2c5, #r5c2, #r5c5{
+    border-right: 2px solid var(--color-carouselButtons);
+    border-bottom: 2px solid var(--color-carouselButtons);
+    border-top: unset;
+    border-left: unset;
+}
+
+tr{
+    line-height: 1rem;
+    font-size: 1.4rem;
+}
+
+td{
+    padding: 0.2rem;
+}
+
+.sudokuButton{
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--color-primaryTitle);
+    background-color: var(--color-secondaryBackground);
+}

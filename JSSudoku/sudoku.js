@@ -24,9 +24,14 @@ let squareNine = [];
 window.onload = init();
 function init() {
     activateDarkMode();
+    loadNewSudoku();
+}
+
+function loadNewSudoku(){
     //do
     //{
     clearBoard();
+    removeHighlight();
     generateBoard();
     //}while (!validBoard());
     loadValuesIntoCells();
@@ -42,12 +47,12 @@ function clearBoard() {
 
 function generateBoard() {
     // setting up the first square - this is our baseline for the puzzle.
-    let squareOne = determineFirstSquare();
+    let squareOne = determineSquareOne();
     assignBoardValues(squareOne, 1);
     // need to follow up first square with squares 2 and 3
-    let squareTwo = determineSecondSquare(squareOne);
+    let squareTwo = determineSquareTwo(squareOne);
     assignBoardValues(squareTwo, 2);
-    let squareThree = determineThirdSquare();
+    let squareThree = determineSquareThree();
     assignBoardValues(squareThree, 3);
     // then squares 4 and 7... this will finish the top row and left column of squares.
     let squareFour = determineSquareFour(squareOne);
@@ -55,30 +60,17 @@ function generateBoard() {
     let squareSeven = determineSquareSeven();
     assignBoardValues(squareSeven, 7);
     // squares 5, 6, 8, and 9 are all highly complex, requiring horizontal and vertical matching
-    // these must be completed together as they are highly interdependent
-    // validCompletion will confirm that they work and backtrack a solution until they do
-    // failsafe kills loop after 23 failed attempts
-    let validCompletion = false;
-    let finalFourSquaresAttempts = 0;
     
-    // do{
-        squareFive = determineSquareFive();
-        squareSix = determineSquareSix();
-        squareEight = determineSquareEight();
-        squareNine = determineSquareNine();
-        // if (check(squareNine)){
-        //     if (check(squareEight)){
-        //         if (check(squareSix)){
-        //             if (check(squareFive)){
-        //                 validCompletion = true;
-        //             }
-        //         }
-        //     }
-        // }
-    // } while (!validCompletion || finalFourSquaresAttempts == 23);
+    let squareFive = determineSquareFive();
     assignBoardValues(squareFive, 5);
+
+    let squareSix = determineSquareSix();
     assignBoardValues(squareSix, 6);
+
+    let squareEight = determineSquareEight(8);
     assignBoardValues(squareEight, 8);
+
+    let squareNine = determineSquareNine(9);
     assignBoardValues(squareNine, 9);
     
     loadValuesIntoCells();
@@ -89,43 +81,9 @@ function generateBoard() {
 // the switches determine the 1st cell of the square and assigns
 // square values into the board
 function assignBoardValues(squareValues, squareNumber){
-    let row = 0;
-    let column = 0;
-    switch (squareNumber){
-        case 1:
-        case 2:
-        case 3:
-            row = 0;
-            break;
-        case 4:
-        case 5:
-        case 6:
-            row = 3;
-            break;
-        case 7:
-        case 8:
-        case 9:
-            row = 6;
-            break;
-    }
-    switch (squareNumber){
-        case 1:
-        case 4:
-        case 7:
-            column = 0;
-            break;
-        case 2:
-        case 5:
-        case 8:
-            column = 3;
-            break;
-        case 3:
-        case 6:
-        case 9:
-            column = 6;
-            break;
-    }
-    console.log("Square " + squareNumber + " begins at:  Row " + row + "  |  Column: " + column);
+    let startingPosition = getSquareStartingPosition(squareNumber);
+    let row = startingPosition[0];
+    let column = startingPosition[1];
     board[row][column] = squareValues[0];
     board[row][column+1] = squareValues[1];
     board[row][column+2] = squareValues[2];
@@ -137,7 +95,53 @@ function assignBoardValues(squareValues, squareNumber){
     board[row+2][column+2] = squareValues[8];
 }
 
-function determineFirstSquare() {
+function getSquareStartingPosition(squareNumber){
+    let row = 0;
+    let column = 0;
+    switch (squareNumber){
+    // first three squares start at row 0
+        case 1:
+        case 2:
+        case 3:
+            row = 0;
+            break;
+    // middle three squares start at row 3
+        case 4:
+        case 5:
+        case 6:
+            row = 3;
+            break;
+    // bottom three squares start at row 6
+        case 7:
+        case 8:
+        case 9:
+            row = 6;
+            break;
+    }
+    switch (squareNumber){
+    // first column of squares is 1,4,7, they start at column 0
+        case 1:
+        case 4:
+        case 7:
+            column = 0;
+            break;
+    // middle three start at column 3
+        case 2:
+        case 5:
+        case 8:
+            column = 3;
+            break;
+    // final three on the right start at column 6
+        case 3:
+        case 6:
+        case 9:
+            column = 6;
+            break;
+    }
+    return [row, column];
+}
+
+function determineSquareOne() {
     let possibilities = [...numList];
     let squareOne = [];
     for (let i = 8; i >= 0; i--) {
@@ -168,7 +172,7 @@ function assignDestinationValues(loopConstraint, source, destination, possibilit
     return [source, destination, possibilities];
 }
 
-function determineSecondSquare(squareOne){
+function determineSquareTwo(squareOne){
     // s2 middle row = get 1 or 2 from s1 top:
     // SQUARE STATUS:  empty
     //get returns a number from 0-3 (this is how many from s1Top will be put in s2Middle)
@@ -232,7 +236,7 @@ function determineSecondSquare(squareOne){
 
 // since only the row matters at this point, we simply figure out
 // what three numbers are required to finish the row and assign them
-function determineThirdSquare(){
+function determineSquareThree(){
     let ending1 = determineRowEnding(0);
     let ending2 = determineRowEnding(1);
     let ending3 = determineRowEnding(2);
@@ -322,7 +326,7 @@ function determineSquareSeven(){
     // return array as third square
     return [ending1[0], ending2[0], ending3[0],
             ending1[1], ending2[1], ending3[1],
-            ending1[2], ending2[2], ending3[2],]
+            ending1[2], ending2[2], ending3[2],];
 }
 
 // creates a column[] based on row[i][index]
@@ -351,34 +355,153 @@ function determineColumnEnding(columnNumber){
 // squareFive is first of highly complex squares:
 
 function determineSquareFive(){
-    let squareFive = zeroOutArray();
-    // must not overlap left or top, while also leaving room for bottom and right squares
-    // give each cell of the square an array.
-    // fill each cell's array with what is permitted in each cell according to SquareFour and SquareTwo
-    
-    // remember these possibilities for potential brute force retries
+    // build an array for each cell of what could go into that particular row/column.
+    let startingPosition = getSquareStartingPosition(5);
+    let startingRow = startingPosition[0];
+    let startingColumn = startingPosition[1];
+    let columns = [];
+    let rows = [];
+    for (let i = 0; i < 3; i++){
+        columns.push(getColumnArray(startingColumn + i));
+        rows.push([...board[startingRow + i]]);
+    }
+    let cellOptions = [];
+    for (let i = 0; i < 3; i++){
+        for (let j = 0; j < 3; j++){
+            cellOptions.push(determineCellOptions(columns[j], rows[i]));
+        }
+    }
+    // select array with fewest options
+    // grab random index and place it in the cell
+    // remove that number from any other cellOptions arrays    
+    return determineSquareFromOptions(cellOptions);
+}
 
-    // check length of each array - if any are size 1, place that number and remove the number from other cell's possibilities
-    // keep doing this until there are no more size 1 arrays
-    
-    // continue to work from shortest array to longest
-    
-    return squareFive;
+function determineCellOptions(columnArray, rowArray){
+    let available = [...numList];
+    for (let k = 8; k >= 0; k--){
+        if (columnArray.includes(available[k])){
+            available.splice(k,1)
+        }
+        else if (rowArray.includes(available[k])) {    
+            available.splice(k,1)
+        }
+    }
+    return available;
+}
+
+function getOptionCount(arr){
+    return arr.length;
+}
+
+function pickNumber(optionsArray){
+    return optionsArray[getRandom(optionsArray.length)];
+}
+
+function removeNumberFromOtherOptions(numberToRemove, cellOptions){
+    for (let j = cellOptions.length-1; j >= 0; j--){
+        for (let k = cellOptions[j].length-1; k >= 0; k--){
+            if (cellOptions[j][k] == numberToRemove){
+                cellOptions[j].splice(k,1);
+            }
+        }
+    }
+    return cellOptions;
+}
+
+function getColumnArray(col){
+    arr = [];
+    for (let i = 0; i < 9; i++){
+        arr.push(board[i][col]);
+    }
+    return arr;
+}
+
+function determineSquareFromOptions(cellOptions){
+    let square = zeroOutArray();
+    let cellsToBeFilled = [0,1,2,3,4,5,6,7,8];
+    // for each cell of the square
+    for (let l = 0; l < 9; l++){
+        // start with impossibly high count
+        let lowestOptionCount = 10;
+        // initialize index variable
+        let lowestOptionIndex = 0;
+        // initialize cellToRemove - will use this to splice away from cellsToBeFilled after loop is complete
+        let cellToRemove = 0;
+        for (let m = cellsToBeFilled.length-1; m >= 0; m--){
+            // find lowest count index from remaining possibilities to be filled
+            if (getOptionCount(cellOptions[cellsToBeFilled[m]]) < lowestOptionCount){
+                lowestOptionCount = cellOptions[cellsToBeFilled[m]].length;
+                lowestOptionIndex = cellsToBeFilled[m];
+                cellToRemove = m;
+            }
+        }
+        // set square's index equal to a random number from the relevant cellOptions
+        square[lowestOptionIndex] = pickNumber(cellOptions[lowestOptionIndex]);
+        // remove the number placed from other cell's options
+        cellOptions = removeNumberFromOtherOptions(square[lowestOptionIndex], cellOptions);
+        // remove that array from cellOptions' possibilities so it only gets selected once
+        cellsToBeFilled.splice(cellToRemove,1);
+    }
+    return square;
 }
 
 function determineSquareSix(){
-    let squareSix = zeroOutArray();
-    return squareSix;
+    let row1 = getEndingForSquareSix(3);
+    let row2 = getEndingForSquareSix(4);
+    let row3 = getEndingForSquareSix(5);
+
+    return [row1[0], row1[1], row1[2],
+            row2[0], row2[1], row2[2],
+            row3[0], row3[1], row3[2]];
 }
 
+function getEndingForSquareSix(rowNumber){
+    let available = [...numList];
+    // determine what three numbers remain for 1st row of squareSix
+    for (let i = 8; i >= 0; i--){
+        if (board[rowNumber].includes(available[i])){
+            available.splice(i, 1);
+        }
+    }
+    let cellOptions = [];
+    // determine what is left that aligns with squareThree
+    for (let i = 0; i < 3; i++){
+        let column = getColumnArray(6 + i);
+        let availableCopy = [...available];
+        for (let j = 0; j < 3; j++){
+            if (column.includes(availableCopy[j])){
+                availableCopy.splice(j, 1);
+            }
+        }
+        cellOptions[i] = availableCopy;
+    }
+    let cellsToAssign = [0,1,2];
+    let row = [0,0,0];
+    for (let i = 0; i < 3; i++){
+        let shortestIndex = 0;
+        let shortestLength = 4;
+        let cellsIndex = 0;
+        for (let j = cellsToAssign.length-1; j >= 0; j--){
+            if (cellOptions[cellsToAssign[j]].length < shortestLength){
+                shortestIndex = cellsToAssign[j];
+                cellsIndex = j;
+            }
+        }
+        row[shortestIndex] = cellOptions[shortestIndex][getRandom(cellOptions[shortestIndex].length)];
+        cellsToAssign.splice(cellsIndex, 1);
+        removeNumberFromOtherOptions(row[shortestIndex], cellOptions);
+    }
+    return row;
+}
+
+
 function determineSquareEight(){
-    let squareEight = zeroOutArray();
-    return squareEight;
+    return zeroOutArray();
 }
 
 function determineSquareNine(){
-    let squareNine = zeroOutArray();
-    return squareNine;
+    return zeroOutArray();
 }
 
 function check(){
@@ -418,4 +541,40 @@ function getIdOfSudokuCell(row, column) {
 // getRandom is built to manage indexes (it's max-exclusive)
 function getRandom(max) {
     return Math.floor(Math.random() * max);
+}
+
+function highlightValues(){
+    if ($("r0c0").style.background == ""){
+        for (let i = 0; i < 9; i++) {
+            for (let j = 0; j < 9; j++) {
+                let myCellId = getIdOfSudokuCell(i, j);
+                let newColor = "black";
+                switch ($(myCellId).textContent){
+                    case "1": break;
+                    case "2": newColor = "royalblue"; break;
+                    case "3": newColor = "gray"; break;
+                    case "4": newColor = "teal"; break;
+                    case "5": newColor = "purple"; break;
+                    case "6": newColor = "darkorange"; break;
+                    case "7": newColor = "tan"; break;
+                    case "8": newColor = "lightgreen"; break;
+                    case "9": newColor = "darkgreen"; break;
+                    default: newColor = "";
+                }
+                $(myCellId).style.background = newColor;
+            }
+        }
+    }
+    else{
+        removeHighlight();
+    }
+}
+
+function removeHighlight(){
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            let myCellId = getIdOfSudokuCell(i, j);
+            $(myCellId).style.background = "";
+        }
+    }
 }

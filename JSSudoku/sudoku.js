@@ -27,14 +27,7 @@ function init() {
 }
 
 function loadNewSudoku(){
-    //do
-    //{
-    clearBoard();
-    generateBoard();
-    //}while (!validBoard());
-    loadValuesIntoCells();
-    activateHighlight();
-    getStatistics();
+    getNewBoard();
 }
 
 function clearBoard() {
@@ -45,35 +38,45 @@ function clearBoard() {
     }
 }
 
+function getNewBoard(){
+    let validBoard = false;
+    do {
+        clearBoard();
+        generateBoard();
+        validBoard = getStatistics();
+    } while (!validBoard);
+
+    loadValuesIntoCells();
+    activateHighlight();
+}
+
 function generateBoard() {
     // setting up the first square - this is our baseline for the puzzle.
     let squareOne = determineSquareOne();
     assignBoardValues(squareOne, 1);
     // need to follow up first square with squares 2 and 3
-    let squareTwo = determineSquareTwo(squareOne);
+    let squareTwo = determineSquare(2);
     assignBoardValues(squareTwo, 2);
-    let squareThree = determineSquareThree();
+    let squareThree = determineSquare(3);
     assignBoardValues(squareThree, 3);
     // then squares 4 and 7... this will finish the top row and left column of squares.
-    let squareFour = determineSquareFour(squareOne);
+    let squareFour = determineSquare(4);
     assignBoardValues(squareFour, 4);
-    let squareSeven = determineSquareSeven();
+    let squareSeven = determineSquare(7);
     assignBoardValues(squareSeven, 7);
     // squares 5, 6, 8, and 9 are all highly complex, requiring horizontal and vertical matching
     
-    let squareFive = determineSquareFive();
+    let squareFive = determineSquare(5);
     assignBoardValues(squareFive, 5);
 
-    let squareSix = determineSquareSix();
+    let squareSix = determineSquare(6);
     assignBoardValues(squareSix, 6);
 
-    let squareEight = determineSquareEight(8);
+    let squareEight = determineSquare(8);
     assignBoardValues(squareEight, 8);
 
-    let squareNine = determineSquareNine(9);
+    let squareNine = determineSquare(9);
     assignBoardValues(squareNine, 9);
-    
-    loadValuesIntoCells();
 }
 
 // squareValues must be an array of 9 numbers, squareNumber must be a number 1-9.
@@ -172,74 +175,77 @@ function randomlyAssignPossibleValues(loopConstraint, source, destination, possi
     return [source, destination, possibilities];
 }
 
-function determineSquareTwo(squareOne){
-    // s2 middle row = get 1 or 2 from s1 top:
-    // SQUARE STATUS:  empty
-    //get returns a number from 0-3 (this is how many from s1Top will be put in s2Middle)
-    const totalTopNumbersForS2Middle = getRandom(4);
-    // s1Top only contains values that need placed in s2Middle or s2Bottom
-    let s1Top = [squareOne[0], squareOne[1], squareOne[2]];      // the two arrays indicate a new, empty destination and all possibilities
-    let results = randomlyAssignPossibleValues(totalTopNumbersForS2Middle, s1Top, [0,0,0], [0,1,2]);
-    s1Top = results[0];
-    let s2Middle = results[1];
-    let s2MiddlePossibilities = results[2];
-    // whatever values are left in s2Possibilities is an unfilled index in s2Middle
+// function determineSquareTwo(squareOne){
+//     // s2 middle row = get 1 or 2 from s1 top:
+//     // SQUARE STATUS:  empty
+//     //get returns a number from 0-3 (this is how many from s1Top will be put in s2Middle)
+//     const totalTopNumbersForS2Middle = getRandom(4);
+//     // s1Top only contains values that need placed in s2Middle or s2Bottom
+//     let s1Top = [squareOne[0], squareOne[1], squareOne[2]];      // the two arrays indicate a new, empty destination and all possibilities
+//     let results = randomlyAssignPossibleValues(totalTopNumbersForS2Middle, s1Top, [0,0,0], [0,1,2]);
+//     s1Top = results[0];
+//     let s2Middle = results[1];
+//     let s2MiddlePossibilities = results[2];
+//     // whatever values are left in s2Possibilities is an unfilled index in s2Middle
     
-    // SQUARE STATUS:  top empty, middle partial, bottom empty
+//     // SQUARE STATUS:  top empty, middle partial, bottom empty
 
-    // assign remaining values in s1Top to s2Bottom      the two arrays indicate a new, empty destination and all possibilities
-    results = randomlyAssignPossibleValues(s1Top.length, s1Top, [0,0,0], [0,1,2]);
-    s1Top = results[0]; // should be empty array
-    let s2Bottom = results[1];
-    let s2BottomPossibilities = results[2];
-    // s1Top is empty
+//     // assign remaining values in s1Top to s2Bottom      the two arrays indicate a new, empty destination and all possibilities
+//     results = randomlyAssignPossibleValues(s1Top.length, s1Top, [0,0,0], [0,1,2]);
+//     s1Top = results[0]; // should be empty array
+//     let s2Bottom = results[1];
+//     let s2BottomPossibilities = results[2];
+//     // s1Top is empty
 
-    // SQUARE STATUS:  top empty, middle partial, bottom partial
+//     // SQUARE STATUS:  top empty, middle partial, bottom partial
 
-    // fill remaining spaces in Middle with s1 bottom
-    let s1Bottom = [squareOne[6], squareOne[7], squareOne[8]];
-    results = randomlyAssignPossibleValues(s2MiddlePossibilities.length, s1Bottom, s2Middle, s2MiddlePossibilities);
-    s1Bottom = results[0];
-    s2Middle = results[1]; // should be full (array length 3)
-    s2MiddlePossibilities = results[2];  // should be an empty array now
+//     // fill remaining spaces in Middle with s1 bottom
+//     let s1Bottom = [squareOne[6], squareOne[7], squareOne[8]];
+//     results = randomlyAssignPossibleValues(s2MiddlePossibilities.length, s1Bottom, s2Middle, s2MiddlePossibilities);
+//     s1Bottom = results[0];
+//     s2Middle = results[1]; // should be full (array length 3)
+//     s2MiddlePossibilities = results[2];  // should be an empty array now
 
-    // SQUARE STATUS:  top empty, middle full, bottom partial
+//     // SQUARE STATUS:  top empty, middle full, bottom partial
 
-    // any remaining s1Bottom must go into s2Top.      the two arrays indicate a new, empty destination and all possibilities
-    results = randomlyAssignPossibleValues(s1Bottom.length, s1Bottom, [0,0,0], [0,1,2]);
-    s1Bottom = results[0]; // should be empty
-    let s2Top = results[1];
-    let s2TopPossibilities = results[2];
+//     // any remaining s1Bottom must go into s2Top.      the two arrays indicate a new, empty destination and all possibilities
+//     results = randomlyAssignPossibleValues(s1Bottom.length, s1Bottom, [0,0,0], [0,1,2]);
+//     s1Bottom = results[0]; // should be empty
+//     let s2Top = results[1];
+//     let s2TopPossibilities = results[2];
 
-    // SQUARE STATUS:  top partial, middle full, bottom partial
+//     // SQUARE STATUS:  top partial, middle full, bottom partial
 
-    // fill in remaining s2Top from s1Middle
-    let s1Middle = [squareOne[3], squareOne[4], squareOne[5]];
-    results = randomlyAssignPossibleValues(s2TopPossibilities.length, s1Middle, s2Top, s2TopPossibilities);
-    s1Middle = results[0];
-    s2Top = results[1]; // should be full (array length 3)
-    s2TopPossibilities = results[2]; // should be empty
+//     // fill in remaining s2Top from s1Middle
+//     let s1Middle = [squareOne[3], squareOne[4], squareOne[5]];
+//     results = randomlyAssignPossibleValues(s2TopPossibilities.length, s1Middle, s2Top, s2TopPossibilities);
+//     s1Middle = results[0];
+//     s2Top = results[1]; // should be full (array length 3)
+//     s2TopPossibilities = results[2]; // should be empty
 
-    // SQUARE STATUS:  top full, middle full, bottom partial
+//     // SQUARE STATUS:  top full, middle full, bottom partial
 
-    // fill in remaining s2Bottom from s1Middle
-    results = randomlyAssignPossibleValues(s2BottomPossibilities.length, s1Middle, s2Bottom, s2BottomPossibilities);
-    s1Middle = results[0]; // should be empty
-    s2Bottom = results[1]; // should be full
-    s2BottomPossibilities = results[2]; // should be empty
+//     // fill in remaining s2Bottom from s1Middle
+//     results = randomlyAssignPossibleValues(s2BottomPossibilities.length, s1Middle, s2Bottom, s2BottomPossibilities);
+//     s1Middle = results[0]; // should be empty
+//     s2Bottom = results[1]; // should be full
+//     s2BottomPossibilities = results[2]; // should be empty
 
-    // squareTwo results:
-    return [s2Top[0], s2Top[1], s2Top[2],
-            s2Middle[0], s2Middle[1], s2Middle[2],
-            s2Bottom[0], s2Bottom[1], s2Bottom[2]];
-}
+//     // squareTwo results:
+//     return [s2Top[0], s2Top[1], s2Top[2],
+//             s2Middle[0], s2Middle[1], s2Middle[2],
+//             s2Bottom[0], s2Bottom[1], s2Bottom[2]];
+// }
 
 // since only the row matters at this point, we simply figure out
 // what three numbers are required to finish the row and assign them
-function determineSquareThree(){
-    let ending1 = determineRowEnding(0);
-    let ending2 = determineRowEnding(1);
-    let ending3 = determineRowEnding(2);
+function determineSquareByRowEnding(squareNumber){
+    let startingPosition = getSquareStartingPosition(squareNumber)
+    let startingRow = startingPosition[0];
+    let startingColumn = startingPosition[1];
+    let ending1 = determineRowEnding(startingRow, startingColumn);
+    let ending2 = determineRowEnding(startingRow + 1, startingColumn);
+    let ending3 = determineRowEnding(startingRow + 2, startingColumn);
     // return array as third square
     return [ending1[0], ending1[1], ending1[2],
             ending2[0], ending2[1], ending2[2],
@@ -248,81 +254,31 @@ function determineSquareThree(){
 
 // removes numbers already present in the row from possibilities
 // assigns the remaining possibilities randomly to the ending
-function determineRowEnding(row){
+function determineRowEnding(rowNumber, startingColumn){
     let possibilities = [...numList];
-    for (i = possibilities.length-1; i >= 0; i--){
-        if (board[row].includes(possibilities[i])){
+    let row = [...board[rowNumber]];
+    for (i = 8; i >= 0; i--){
+        if (row.includes(possibilities[i])){
             possibilities.splice(i,1);
         }
     }
     let ending = [];
     for (i = 3; i > 0; i--){
-        randomIndex = getRandom(i);
+        randomIndex = getRandom(possibilities.length);
         ending.push(possibilities[randomIndex]);
         possibilities.splice(randomIndex, 1);
     }
     return ending;
 }
 
-// same as determineSecondSquare, but customized for columns rather than rows
-function determineSquareFour(squareOne){
-    const totalLeftNumbersForS4Center = getRandom(4); //getRandom is max-exclusive
-    // s1Left only contains values that need placed in s4Center or s2Right
-    let s1Left = [squareOne[0], squareOne[3], squareOne[6]];
-    let results = randomlyAssignPossibleValues(totalLeftNumbersForS4Center, s1Left, [0,0,0], [0,1,2]);
-    s1Left = results[0];
-    let s4Center = results[1];
-    let s4CenterPossibilities = results[2];
-
-    // set remaining s1Left values into s4Right
-    results = randomlyAssignPossibleValues(s1Left.length, s1Left, [0,0,0], [0,1,2]);
-    s1Left = results[0]; // should be empty
-    let s4Right = results[1];
-    let s4RightPossibilities = results[2];
-    
-    // SQUARE STATUS:  s4Left is empty, s4Center is partial, s4Right is partial
-    
-    // finish filling s4Right using S1Center
-    let s1Center = [squareOne[1], squareOne[4], squareOne[7]];
-    results = randomlyAssignPossibleValues(s4RightPossibilities.length, s1Center, s4Right, s4RightPossibilities);
-    s1Center = results[0];
-    s4Right = results[1]; // should be full (array length 3)
-    s4RightPossibilities = results[2]; // should be empty
-    
-    // set remaining numbers from s1Center into s4Left
-    results = randomlyAssignPossibleValues(s1Center.length, s1Center, [0,0,0], [0,1,2]);
-    s1Center = results[0]; // should be empty
-    let s4Left = results[1];
-    let s4LeftPossibilities = results[2];
-
-    // SQUARE STATUS:  s4Left is partial, s4Center is partial, s4Right is full
-    //                 s1Left is empty, s1Center is empty, s1Right is full
-
-    // fill remaining s4Center from s1Right
-    let s1Right = [squareOne[2], squareOne[5], squareOne[8]];
-    results = randomlyAssignPossibleValues(s4CenterPossibilities.length, s1Right, s4Center, s4CenterPossibilities);
-    s1Right = results[0];
-    s4Center = results[1]; // should be full (array length 3)
-    s4CenterPossibilities = results[2]; // should be empty
-
-    // set remaining numbers from s1Right into s4Left
-    // this will fill all remaining squares for squareFour
-    results = randomlyAssignPossibleValues(s4LeftPossibilities.length, s1Right, s4Left, s4LeftPossibilities);
-    s1Right = results[0]; // should be empty
-    s4Left = results[1]; // should be full (array length 3)
-    s4LeftPossibilities = results[2]; // should be empty
-
-    // squareFour results:
-    return [s4Left[0], s4Center[0],s4Right[0],
-            s4Left[1], s4Center[1], s4Right[1],
-            s4Left[2], s4Center[2], s4Right[2]];
-}
-
 // same as determineThirdSquare, but returning columns rather than rows
-function determineSquareSeven(){
-    let ending1 = determineColumnEnding(0);
-    let ending2 = determineColumnEnding(1);
-    let ending3 = determineColumnEnding(2);
+function determineSquareByColumnEnding(squareNumber){
+    let startingPosition = getSquareStartingPosition(squareNumber)
+    let startingRow = startingPosition[0];
+    let startingColumn = startingPosition[1];
+    let ending1 = determineColumnEnding(startingRow, startingColumn);
+    let ending2 = determineColumnEnding(startingRow, startingColumn + 1);
+    let ending3 = determineColumnEnding(startingColumn + 2);
     // return array as third square
     return [ending1[0], ending2[0], ending3[0],
             ending1[1], ending2[1], ending3[1],
@@ -331,21 +287,18 @@ function determineSquareSeven(){
 
 // creates a column[] based on row[i][index]
 // returns final 3 numbers to complete 1-9 sequence for that column
-function determineColumnEnding(columnNumber){
-    let column = [];
-    for (i = 0; i < 9; i++){
-        column[i] = board[i][columnNumber];
-    }
+function determineColumnEnding(rowNumber, columnNumber){
+    let column = getColumnArray(columnNumber);
 
     let possibilities = [...numList];
-    for (i = possibilities.length-1; i >= 0; i--){
+    for (i = 8; i >= 0; i--){
         if (column.includes(possibilities[i])){
             possibilities.splice(i,1);
         }
     }
     let ending = [];
-    for (i = 3; i > 0; i--){
-        randomIndex = getRandom(i);
+    for (i = 2; i >= 0; i--){
+        randomIndex = getRandom(possibilities.length);
         ending.push(possibilities[randomIndex]);
         possibilities.splice(randomIndex, 1);
     }
@@ -354,16 +307,16 @@ function determineColumnEnding(columnNumber){
 
 // squareFive is first of highly complex squares:
 
-function determineSquareFive(){
-    let startingPosition = getSquareStartingPosition(5)
+function determineSquare(squareNumber){
+    let startingPosition = getSquareStartingPosition(squareNumber)
     let startingRow = startingPosition[0];
     let startingColumn = startingPosition[1];
     //go through same process as we did for squareTwo, but using squareTwo columns as constraints
     // to filter what can be placed where (make sure smallest set of options is assigned first)
-    let s5Options = getSquareOptions(startingRow, startingColumn);
-    let s5 = assignValuesFromOptions(s5Options);
+    let squareOptions = getSquareOptions(startingRow, startingColumn);
+    let square = assignValuesFromOptions(squareOptions);
 
-    return s5;
+    return square;
 }
 
 
@@ -432,15 +385,6 @@ function getNumberWithFewestOptions(arrayOfCellOptions, squareOptions){
     return arrayOfCellOptions[smallestIndex];
 }
 
-function removeUsedNumbers(usedNumbers, available){
-    for (k = available.length-1; k >=0; k--){
-        if (usedNumbers.includes(available[k])){
-            available.splice(k,1);
-        }
-    }
-    return available;
-}
-
 function determineCellOptions(columnArray, rowArray){
     let available = [...numList];
     for (let k = 8; k >= 0; k--){
@@ -452,14 +396,6 @@ function determineCellOptions(columnArray, rowArray){
         }
     }
     return available;
-}
-
-function getOptionCount(arr){
-    return arr.length;
-}
-
-function pickNumber(optionsArray){
-    return optionsArray[getRandom(optionsArray.length)];
 }
 
 function removeNumberFromOtherOptions(numberToRemove, cellOptions){
@@ -481,83 +417,13 @@ function getColumnArray(col){
     return arr;
 }
 
-function determineSquareFromOptions(cellOptions){
-    let square = zeroOutArray();
-    let cellsToBeFilled = [0,1,2,3,4,5,6,7,8];
-    // for each cell of the square
-    for (let l = 0; l < 9; l++){
-        // start with impossibly high count
-        let lowestOptionCount = 10;
-        // initialize index variable
-        let lowestOptionIndex = 0;
-        // initialize cellToRemove - will use this to splice away from cellsToBeFilled after loop is complete
-        let cellToRemove = 0;
-        for (let m = cellsToBeFilled.length-1; m >= 0; m--){
-            // find lowest count index from remaining possibilities to be filled
-            if (getOptionCount(cellOptions[cellsToBeFilled[m]]) < lowestOptionCount){
-                lowestOptionCount = cellOptions[cellsToBeFilled[m]].length;
-                lowestOptionIndex = cellsToBeFilled[m];
-                cellToRemove = m;
-            }
-        }
-        // set square's index equal to a random number from the relevant cellOptions
-        square[lowestOptionIndex] = pickNumber(cellOptions[lowestOptionIndex]);
-        // remove the number placed from other cell's options
-        cellOptions = removeNumberFromOtherOptions(square[lowestOptionIndex], cellOptions);
-        // remove that array from cellOptions' possibilities so it only gets selected once
-        cellsToBeFilled.splice(cellToRemove,1);
-        for (let q = 0; q < square.length; q++){
-            console.log("Square["+q+"]: = " + square[q]);
-        }
-        for (let q = cellsToBeFilled.length-1; q >= 0; q--){
-            console.log("Cells To Be Filled: " + cellsToBeFilled[q]);
-        }
-        
-    }
-    return square;
-}
-
-function determineSquareSix(){
-    let startingPosition = getSquareStartingPosition(6)
-    let startingRow = startingPosition[0];
-    let startingColumn = startingPosition[1];
-    //go through same process as we did for squareTwo, but using squareTwo columns as constraints
-    // to filter what can be placed where (make sure smallest set of options is assigned first)
-    let s6Options = getSquareOptions(startingRow, startingColumn);
-    let s6 = assignValuesFromOptions(s6Options);
-
-    return s6;
-}
-
-function determineSquareEight(){
-    let startingPosition = getSquareStartingPosition(8)
-    let startingRow = startingPosition[0];
-    let startingColumn = startingPosition[1];
-    //go through same process as we did for squareTwo, but using squareTwo columns as constraints
-    // to filter what can be placed where (make sure smallest set of options is assigned first)
-    let s8Options = getSquareOptions(startingRow, startingColumn);
-    let s8 = assignValuesFromOptions(s8Options);
-
-    return s8;
-}
-
-function determineSquareNine(){
-    let startingPosition = getSquareStartingPosition(9)
-    let startingRow = startingPosition[0];
-    let startingColumn = startingPosition[1];
-    //go through same process as we did for squareTwo, but using squareTwo columns as constraints
-    // to filter what can be placed where (make sure smallest set of options is assigned first)
-    let s9Options = getSquareOptions(startingRow, startingColumn);
-    let s9 = assignValuesFromOptions(s9Options);
-
-    return s9;
-}
 
 function getStatistics(){
     let goodBoard = true;
     for (let i = 0; i < 9; i++){
-        if (board[i].includes(0)||board[i].includes(null)){
+        if (board[i].includes(0) || board[i].includes(null)){
             goodBoard = false;
+            break;
         }
     }
     if (goodBoard){
@@ -567,6 +433,7 @@ function getStatistics(){
         badBoards++
     }
     boardPercentage = goodBoards / (goodBoards + badBoards);
+    return goodBoard;
 }
 
 

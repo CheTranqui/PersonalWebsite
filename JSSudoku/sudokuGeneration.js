@@ -28,6 +28,7 @@ function init() {
 
 function loadNewSudoku(){
     getNewBoard();
+	loadCellListeners();
 }
 
 function clearBoard() {

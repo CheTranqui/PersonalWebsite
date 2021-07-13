@@ -11,7 +11,8 @@
     <meta charset="UTF-8" />
     <title>CheSudoku</title>
     <link rel="stylesheet" href="style.css" />
-    <script defer type="text/javascript" src="sudoku.js"></script>
+    <script defer type="text/javascript" src="sudokuFeatures.js"></script>
+    <script defer type="text/javascript" src="sudokuGeneration.js"></script>
     <script type="text/javascript" src="/../colors.js"></script>
 
 </head>
@@ -41,160 +42,157 @@
         <article class="board">
             <table class="square" id="square1">
                 <tr class="sudokuRow" id="square1row1">
-                    <td class="sudokuCell row0 col0" id="r0c0"></td>
-                    <td class="sudokuCell row0 col1" id="r0c1"></td>
-                    <td class="sudokuCell row0 col2" id="r0c2"></td>
+                    <td class="sudokuCell row0 col0" id="r0c0" contenteditable></td>
+                    <td class="sudokuCell row0 col1" id="r0c1" contenteditable></td>
+                    <td class="sudokuCell row0 col2" id="r0c2" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square1row2">
-                    <td class="sudokuCell row1 col0" id="r1c0"></td>
-                    <td class="sudokuCell row1 col1" id="r1c1"></td>
-                    <td class="sudokuCell row1 col2" id="r1c2"></td>
+                    <td class="sudokuCell row1 col0" id="r1c0" contenteditable></td>
+                    <td class="sudokuCell row1 col1" id="r1c1" contenteditable></td>
+                    <td class="sudokuCell row1 col2" id="r1c2" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square1row3">
-                    <td class="sudokuCell row2 col0" id="r2c0"></td>
-                    <td class="sudokuCell row2 col1" id="r2c1"></td>
-                    <td class="sudokuCell row2 col2" id="r2c2"></td>
+                    <td class="sudokuCell row2 col0" id="r2c0" contenteditable></td>
+                    <td class="sudokuCell row2 col1" id="r2c1" contenteditable></td>
+                    <td class="sudokuCell row2 col2" id="r2c2" contenteditable></td>
                 </tr>
             </table>
             <table class="square" id="square2">
                 <tr class="sudokuRow" id="square2row1">
-                    <td class="sudokuCell row0 col3" id="r0c3"></td>
-                    <td class="sudokuCell row0 col4" id="r0c4"></td>
-                    <td class="sudokuCell row0 col5" id="r0c5"></td>
+                    <td class="sudokuCell row0 col3" id="r0c3" contenteditable></td>
+                    <td class="sudokuCell row0 col4" id="r0c4" contenteditable></td>
+                    <td class="sudokuCell row0 col5" id="r0c5" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square2row2">
-                    <td class="sudokuCell row1 col3" id="r1c3"></td>
-                    <td class="sudokuCell row1 col4" id="r1c4"></td>
-                    <td class="sudokuCell row1 col5" id="r1c5"></td>
+                    <td class="sudokuCell row1 col3" id="r1c3" contenteditable></td>
+                    <td class="sudokuCell row1 col4" id="r1c4" contenteditable></td>
+                    <td class="sudokuCell row1 col5" id="r1c5" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square2row3">
-                    <td class="sudokuCell row2 col3" id="r2c3"></td>
-                    <td class="sudokuCell row2 col4" id="r2c4"></td>
-                    <td class="sudokuCell row2 col5" id="r2c5"></td>
+                    <td class="sudokuCell row2 col3" id="r2c3" contenteditable></td>
+                    <td class="sudokuCell row2 col4" id="r2c4" contenteditable></td>
+                    <td class="sudokuCell row2 col5" id="r2c5" contenteditable></td>
                 </tr>
             </table>
             <table class="square" id="square3">
                 <tr class="sudokuRow" id="square3row1">
-                    <td class="sudokuCell row0 col6" id="r0c6"></td>
-                    <td class="sudokuCell row0 col7" id="r0c7"></td>
-                    <td class="sudokuCell row0 col8" id="r0c8"></td>
+                    <td class="sudokuCell row0 col6" id="r0c6" contenteditable></td>
+                    <td class="sudokuCell row0 col7" id="r0c7" contenteditable></td>
+                    <td class="sudokuCell row0 col8" id="r0c8" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square3row2">
-                    <td class="sudokuCell row1 col6" id="r1c6"></td>
-                    <td class="sudokuCell row1 col7" id="r1c7"></td>
-                    <td class="sudokuCell row1 col8" id="r1c8"></td>
+                    <td class="sudokuCell row1 col6" id="r1c6" contenteditable></td>
+                    <td class="sudokuCell row1 col7" id="r1c7" contenteditable></td>
+                    <td class="sudokuCell row1 col8" id="r1c8" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square3row3">
-                    <td class="sudokuCell row2 col6" id="r2c6"></td>
-                    <td class="sudokuCell row2 col7" id="r2c7"></td>
-                    <td class="sudokuCell row2 col8" id="r2c8"></td>
+                    <td class="sudokuCell row2 col6" id="r2c6" contenteditable></td>
+                    <td class="sudokuCell row2 col7" id="r2c7" contenteditable></td>
+                    <td class="sudokuCell row2 col8" id="r2c8" contenteditable></td>
                 </tr>
             </table>
             <table class="square" id="square4">
                 <tr class="sudokuRow" id="square4row1">
-                    <td class="sudokuCell row3 col0" id="r3c0"></td>
-                    <td class="sudokuCell row3 col1" id="r3c1"></td>
-                    <td class="sudokuCell row3 col2" id="r3c2"></td>
+                    <td class="sudokuCell row3 col0" id="r3c0" contenteditable></td>
+                    <td class="sudokuCell row3 col1" id="r3c1" contenteditable></td>
+                    <td class="sudokuCell row3 col2" id="r3c2" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square4row2">
-                    <td class="sudokuCell row4 col0" id="r4c0"></td>
-                    <td class="sudokuCell row4 col1" id="r4c1"></td>
-                    <td class="sudokuCell row4 col2" id="r4c2"></td>
+                    <td class="sudokuCell row4 col0" id="r4c0" contenteditable></td>
+                    <td class="sudokuCell row4 col1" id="r4c1" contenteditable></td>
+                    <td class="sudokuCell row4 col2" id="r4c2" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square4row3">
-                    <td class="sudokuCell row5 col0" id="r5c0"></td>
-                    <td class="sudokuCell row5 col1" id="r5c1"></td>
-                    <td class="sudokuCell row5 col2" id="r5c2"></td>
+                    <td class="sudokuCell row5 col0" id="r5c0" contenteditable></td>
+                    <td class="sudokuCell row5 col1" id="r5c1" contenteditable></td>
+                    <td class="sudokuCell row5 col2" id="r5c2" contenteditable></td>
                 </tr>
             </table>
             <table class="square" id="square5">
                 <tr class="sudokuRow" id="square5row1">
-                    <td class="sudokuCell row3 col3" id="r3c3"></td>
-                    <td class="sudokuCell row3 col4" id="r3c4"></td>
-                    <td class="sudokuCell row3 col5" id="r3c5"></td>
+                    <td class="sudokuCell row3 col3" id="r3c3" contenteditable></td>
+                    <td class="sudokuCell row3 col4" id="r3c4" contenteditable></td>
+                    <td class="sudokuCell row3 col5" id="r3c5" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square5row2">
-                    <td class="sudokuCell row4 col3" id="r4c3"></td>
-                    <td class="sudokuCell row4 col4" id="r4c4"></td>
-                    <td class="sudokuCell row4 col5" id="r4c5"></td>
+                    <td class="sudokuCell row4 col3" id="r4c3" contenteditable></td>
+                    <td class="sudokuCell row4 col4" id="r4c4" contenteditable></td>
+                    <td class="sudokuCell row4 col5" id="r4c5" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square5row3">
-                    <td class="sudokuCell row5 col3" id="r5c3"></td>
-                    <td class="sudokuCell row5 col4" id="r5c4"></td>
-                    <td class="sudokuCell row5 col5" id="r5c5"></td>
+                    <td class="sudokuCell row5 col3" id="r5c3" contenteditable></td>
+                    <td class="sudokuCell row5 col4" id="r5c4" contenteditable></td>
+                    <td class="sudokuCell row5 col5" id="r5c5" contenteditable></td>
                 </tr>
             </table>
             <table class="square" id="square6">
                 <tr class="sudokuRow" id="square6row1">
-                    <td class="sudokuCell row3 col6" id="r3c6"></td>
-                    <td class="sudokuCell row3 col7" id="r3c7"></td>
-                    <td class="sudokuCell row3 col8" id="r3c8"></td>
+                    <td class="sudokuCell row3 col6" id="r3c6" contenteditable></td>
+                    <td class="sudokuCell row3 col7" id="r3c7" contenteditable></td>
+                    <td class="sudokuCell row3 col8" id="r3c8" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square3row2">
-                    <td class="sudokuCell row4 col6" id="r4c6"></td>
-                    <td class="sudokuCell row4 col7" id="r4c7"></td>
-                    <td class="sudokuCell row4 col8" id="r4c8"></td>
+                    <td class="sudokuCell row4 col6" id="r4c6" contenteditable></td>
+                    <td class="sudokuCell row4 col7" id="r4c7" contenteditable></td>
+                    <td class="sudokuCell row4 col8" id="r4c8" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square3row3">
-                    <td class="sudokuCell row5 col6" id="r5c6"></td>
-                    <td class="sudokuCell row5 col7" id="r5c7"></td>
-                    <td class="sudokuCell row5 col8" id="r5c8"></td>
+                    <td class="sudokuCell row5 col6" id="r5c6" contenteditable></td>
+                    <td class="sudokuCell row5 col7" id="r5c7" contenteditable></td>
+                    <td class="sudokuCell row5 col8" id="r5c8" contenteditable></td>
                 </tr>
             </table>
             <table class="square" id="square7">
                 <tr class="sudokuRow" id="square7row1">
-                    <td class="sudokuCell row6 col0" id="r6c0"></td>
-                    <td class="sudokuCell row6 col1" id="r6c1"></td>
-                    <td class="sudokuCell row6 col2" id="r6c2"></td>
+                    <td class="sudokuCell row6 col0" id="r6c0" contenteditable></td>
+                    <td class="sudokuCell row6 col1" id="r6c1" contenteditable></td>
+                    <td class="sudokuCell row6 col2" id="r6c2" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square7row2">
-                    <td class="sudokuCell row7 col0" id="r7c0"></td>
-                    <td class="sudokuCell row7 col1" id="r7c1"></td>
-                    <td class="sudokuCell row7 col2" id="r7c2"></td>
+                    <td class="sudokuCell row7 col0" id="r7c0" contenteditable></td>
+                    <td class="sudokuCell row7 col1" id="r7c1" contenteditable></td>
+                    <td class="sudokuCell row7 col2" id="r7c2" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square7row3">
-                    <td class="sudokuCell row8 col0" id="r8c0"></td>
-                    <td class="sudokuCell row8 col1" id="r8c1"></td>
-                    <td class="sudokuCell row8 col2" id="r8c2"></td>
+                    <td class="sudokuCell row8 col0" id="r8c0" contenteditable></td>
+                    <td class="sudokuCell row8 col1" id="r8c1" contenteditable></td>
+                    <td class="sudokuCell row8 col2" id="r8c2" contenteditable></td>
                 </tr>
             </table>
             <table class="square" id="square8">
                 <tr class="sudokuRow" id="square8row1">
-                    <td class="sudokuCell row6 col3" id="r6c3"></td>
-                    <td class="sudokuCell row6 col4" id="r6c4"></td>
-                    <td class="sudokuCell row6 col5" id="r6c5"></td>
+                    <td class="sudokuCell row6 col3" id="r6c3" contenteditable></td>
+                    <td class="sudokuCell row6 col4" id="r6c4" contenteditable></td>
+                    <td class="sudokuCell row6 col5" id="r6c5" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square8row2">
-                    <td class="sudokuCell row7 col3" id="r7c3"></td>
-                    <td class="sudokuCell row7 col4" id="r7c4"></td>
-                    <td class="sudokuCell row7 col5" id="r7c5"></td>
+                    <td class="sudokuCell row7 col3" id="r7c3" contenteditable></td>
+                    <td class="sudokuCell row7 col4" id="r7c4" contenteditable></td>
+                    <td class="sudokuCell row7 col5" id="r7c5" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square8row3">
-                    <td class="sudokuCell row8 col3" id="r8c3"></td>
-                    <td class="sudokuCell row8 col4" id="r8c4"></td>
-                    <td class="sudokuCell row8 col5" id="r8c5"></td>
+                    <td class="sudokuCell row8 col3" id="r8c3" contenteditable></td>
+                    <td class="sudokuCell row8 col4" id="r8c4" contenteditable></td>
+                    <td class="sudokuCell row8 col5" id="r8c5" contenteditable></td>
                 </tr>
             </table>
             <table class="square" id="square9">
                 <tr class="sudokuRow" id="square9row1">
-                    <td class="sudokuCell row6 col6" id="r6c6"></td>
-                    <td class="sudokuCell row6 col7" id="r6c7"></td>
-                    <td class="sudokuCell row6 col8" id="r6c8"></td>
+                    <td class="sudokuCell row6 col6" id="r6c6" contenteditable></td>
+                    <td class="sudokuCell row6 col7" id="r6c7" contenteditable></td>
+                    <td class="sudokuCell row6 col8" id="r6c8" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square3row2">
-                    <td class="sudokuCell row7 col6" id="r7c6"></td>
-                    <td class="sudokuCell row7 col7" id="r7c7"></td>
-                    <td class="sudokuCell row7 col8" id="r7c8"></td>
+                    <td class="sudokuCell row7 col6" id="r7c6" contenteditable></td>
+                    <td class="sudokuCell row7 col7" id="r7c7" contenteditable></td>
+                    <td class="sudokuCell row7 col8" id="r7c8" contenteditable></td>
                 </tr>
                 <tr class="sudokuRow" id="square3row3">
-                    <td class="sudokuCell row8 col6" id="r8c6"></td>
-                    <td class="sudokuCell row8 col7" id="r8c7"></td>
-                    <td class="sudokuCell row8 col8" id="r8c8"></td>
+                    <td class="sudokuCell row8 col6" id="r8c6" contenteditable></td>
+                    <td class="sudokuCell row8 col7" id="r8c7" contenteditable></td>
+                    <td class="sudokuCell row8 col8" id="r8c8" contenteditable></td>
                 </tr>
             </table>
-
-
-
         </article>
     </main>
 

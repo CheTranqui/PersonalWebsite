@@ -23,11 +23,8 @@
 }
 
 body {
-    /* width: 90%; */
-    /* margin: 1rem auto 2rem auto; */
     background-color: var(--color-primaryBackground);
     color: var(--color-primaryText);
-    /* font-size: 1.5rem; */
     font-family: var(--ff-primaryFont);
 }
 
@@ -36,7 +33,6 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-
     align-items: baseline;
     width: 600px;
     height: 600px;
@@ -60,6 +56,8 @@ td{
     text-align: center;
     align-self: center;
     font-size: 3rem;
+    text-align: center;
+    overflow: ;
 }
 
 .sudokuButton{

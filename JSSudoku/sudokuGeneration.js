@@ -24,11 +24,11 @@ window.onload = init();
 function init() {
     activateDarkMode();
     loadNewSudoku();
+    initializeFeatures();
 }
 
 function loadNewSudoku(){
     getNewBoard();
-	loadCellListeners();
 }
 
 function clearBoard() {

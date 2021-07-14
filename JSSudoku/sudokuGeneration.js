@@ -1,8 +1,6 @@
 // Author: Chaz Peterson
 // Alias: CheTranqui
 
-function $(id) { return document.getElementById(id); }
-
 const board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -29,14 +27,8 @@ function init() {
 
 function loadNewSudoku(){
     getNewBoard();
-}
-
-function clearBoard() {
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
-            board[i][j] = 0;
-        }
-    }
+    adjustBoardToDifficulty();
+    loadValuesIntoCells();
 }
 
 function getNewBoard(){
@@ -46,9 +38,14 @@ function getNewBoard(){
         generateBoard();
         validBoard = getStatistics();
     } while (!validBoard);
+}
 
-    loadValuesIntoCells();
-    activateHighlight();
+function clearBoard() {
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            board[i][j] = 0;
+        }
+    }
 }
 
 function generateBoard() {
@@ -360,7 +357,7 @@ function getRandom(max) {
 }
 
 function highlightValues(){
-    if ($("r0c0").style.background == ""){
+    if ($("r0c0").style.background == "var(--color-primaryBackground)"){
         activateHighlight();
     }
     else{
@@ -372,7 +369,7 @@ function removeHighlight(){
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
             let myCellId = getIdOfSudokuCell(i, j);
-            $(myCellId).style.background = "";
+            $(myCellId).style.background = "var(--color-primaryBackground)";
         }
     }
 }

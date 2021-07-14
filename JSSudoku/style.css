@@ -22,28 +22,39 @@
     --ff-accentFont: 'Palatino Linotype';
 }
 
+select{
+    text-align: center;
+}
+
 body {
     background-color: var(--color-primaryBackground);
     color: var(--color-primaryText);
     font-family: var(--ff-primaryFont);
 }
 
+.sudoku{
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+}
+
 .board{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: baseline;
+    justify-content: center;
+    align-content: center;
     width: 600px;
     height: 600px;
     gap: 4px;
     background-color: #333;
+    border: 6px solid rgba(1, 175, 167, 0.8);
 }
 
 .board table{
     display: flex;
-    width: 197px;
-    height: 197px;
+    width: 195px;
+    height: 195px;
     align-content: center;
     align-items: center;
 }
@@ -51,18 +62,39 @@ body {
 td{
     padding: 0;
     margin: 0;
-    height: 62px;
-    width: 62px;
+    height: 61px;
+    width: 61px;
     text-align: center;
     align-self: center;
     font-size: 3rem;
     text-align: center;
-    overflow: ;
+    background: var(--color-primaryBackground);
+}
+
+.btn{
+    color: var(--color-primaryTitle);
+    background-color: var(--color-secondaryBackground);
 }
 
 .sudokuButton{
     font-size: 1rem;
     text-decoration: none;
-    color: var(--color-primaryTitle);
-    background-color: var(--color-secondaryBackground);
+    border-radius: 5px;
+    margin: 0.5rem;
+}
+
+.numberButtons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-left: 1.5rem;
+}
+
+.numberButton{
+    margin: 5px 0 5px 0;
+    height: 50px;
+    width: 50px;
+    font-size: 2rem;
+    border-radius: 10px;
 }

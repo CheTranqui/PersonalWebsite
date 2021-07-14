@@ -57,6 +57,7 @@ function updateCellValue(event){
             updateBoard(currentCell, inputNumber);
         }
     }
+    checkSudoku("newNumberInput");
 }
 
 function successfulCompletion(){

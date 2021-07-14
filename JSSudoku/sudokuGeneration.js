@@ -26,6 +26,7 @@ function init() {
 }
 
 function loadNewSudoku(){
+    removeHighlight();
     getNewBoard();
     adjustBoardToDifficulty();
     loadValuesIntoCells();

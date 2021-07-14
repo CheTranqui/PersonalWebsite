@@ -62,7 +62,7 @@ function checkSudoku(source){
         }
         // checks to see if values are equal and cell is filled
         for (let j = 0; j < 9; j++){
-            if (board[i][j] != winningBoard[i][j] && board[i][j] != ""){
+            if (board[i][j] != winningBoard[i][j] && board[i][j] != "" && !isNaN(board[i][j])){
                 missmatch = true;
                 if (source != "newNumberInput"){
                     $("checkSudokuButton").style.backgroundColor = "maroon";
@@ -74,7 +74,7 @@ function checkSudoku(source){
                 }
                 break;
             }
-            else if (board[i][j] == ""){
+            else if (board[i][j] == "" || isNaN(board[i][j])){
                 complete = false;
             }
         }

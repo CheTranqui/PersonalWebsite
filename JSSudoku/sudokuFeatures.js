@@ -63,15 +63,8 @@ function updateCellValue(inputNumber){
     if (selectedNumber < 1 || selectedNumber > 9){
         if (currentCell != undefined && currentCell != null && currentCell.textContent.length > 0){
             if (isNaN(inputNumber)){
-                let lastCharacter = currentCell.textContent.substring(currentCell.textContent.length-1);
-                if (!isNaN(lastCharacter)){
-                    currentCell.textContent = lastCharacter;
-                    updateBoard(currentCell, lastCharacter);
-                }
-                else{
-                    currentCell.textContent = "";
-                    updateBoard(currentCell, "");
-                }
+                currentCell.textContent = "";
+                updateBoard(currentCell, "");
             }
             else {
                 currentCell.textContent = inputNumber;

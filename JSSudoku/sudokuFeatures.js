@@ -81,6 +81,7 @@ function updateCellValue(inputNumber){
     }
     else if (currentCell.contentEditable == "true"){
         currentCell.textContent = selectedNumber;
+        updateBoard(currentCell, selectedNumber);
     }
         checkSudoku("newNumberInput");
 }

@@ -18,6 +18,7 @@
     --color-linksShadow: rgba(1, 175, 167, 0.8);
     --color-carouselButtons: rgba(200,200,200,0.6);
     --color-carouselButtonText: darkgray;
+    --color-sudokuBoardHighlight: rgba(1, 175, 167, 0.3);
     --ff-primaryFont: 'Times New Roman';
     --ff-accentFont: 'Palatino Linotype';
 }
@@ -74,6 +75,11 @@ td{
 .btn{
     color: var(--color-primaryTitle);
     background-color: var(--color-secondaryBackground);
+}
+
+.btnInverse{
+    color: var(--color-secondaryBackground);
+    background-color: var(--color-primaryTitle);
 }
 
 .sudokuButton{

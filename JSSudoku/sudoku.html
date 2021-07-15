@@ -44,9 +44,9 @@
             </select>
             <select onclick="setHintLevel()" class="sudokuButton btn" id="hintLevelDropdown" tabindex="2">
                     <option value="None">None</option>
-                    <option value="SameNumber">Numbers</option>
+                    <option value="Numbers">Numbers</option>
                     <option value="RowsAndColumns">Rows and Columns</option>
-                    <option value="RowsAndColumns">All</option>
+                    <option value="All">All</option>
             </select>
             <button onclick="checkSudoku()" class="sudokuButton btn" id="checkSudokuButton" tabindex="3">
                 Test Solution
@@ -209,15 +209,15 @@
                 </table>
             </section>
             <section class="numberButtons">
-                <button class="numberButton btn" id="numberButton1">1</button>
-                <button class="numberButton btn" id="numberButton2">2</button>
-                <button class="numberButton btn" id="numberButton3">3</button>
-                <button class="numberButton btn" id="numberButton4">4</button>
-                <button class="numberButton btn" id="numberButton5">5</button>
-                <button class="numberButton btn" id="numberButton6">6</button>
-                <button class="numberButton btn" id="numberButton7">7</button>
-                <button class="numberButton btn" id="numberButton8">8</button>
-                <button class="numberButton btn" id="numberButton9">9</button>
+                <button class="numberButton btn" id="numberButton1" onclick="selectNumber(1)">1</button>
+                <button class="numberButton btn" id="numberButton2" onclick="selectNumber(2)">2</button>
+                <button class="numberButton btn" id="numberButton3" onclick="selectNumber(3)">3</button>
+                <button class="numberButton btn" id="numberButton4" onclick="selectNumber(4)">4</button>
+                <button class="numberButton btn" id="numberButton5" onclick="selectNumber(5)">5</button>
+                <button class="numberButton btn" id="numberButton6" onclick="selectNumber(6)">6</button>
+                <button class="numberButton btn" id="numberButton7" onclick="selectNumber(7)">7</button>
+                <button class="numberButton btn" id="numberButton8" onclick="selectNumber(8)">8</button>
+                <button class="numberButton btn" id="numberButton9" onclick="selectNumber(9)">9</button>
             </section>
         </article>
     </main>

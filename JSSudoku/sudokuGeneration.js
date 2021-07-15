@@ -371,6 +371,7 @@ function removeHighlight(){
         for (let j = 0; j < 9; j++) {
             let myCellId = getIdOfSudokuCell(i, j);
             $(myCellId).style.background = "var(--color-primaryBackground)";
+            $(myCellId).style.color = "var(--color-primaryText)";
         }
     }
 }

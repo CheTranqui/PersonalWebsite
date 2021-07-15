@@ -19,13 +19,13 @@ function determineHowManyCellsToRemove(){
     switch (getDifficulty()){
         default:
         case ("Easy"):
-            numberOfCellsToRemove = 44 - getRandom(6);
+            numberOfCellsToRemove = 42 - getRandom(6);
             break;
         case ("Medium"):
-            numberOfCellsToRemove = 54 - getRandom(6);
+            numberOfCellsToRemove = 50 - getRandom(6);
             break;
         case ("Hard"):
-            numberOfCellsToRemove = 62 - getRandom(6);
+            numberOfCellsToRemove = 58 - getRandom(6);
             break;
         case ("Devious"):
             // 17 is the least you can have and still only have one possible solution
@@ -36,6 +36,11 @@ function determineHowManyCellsToRemove(){
 }
 
 function removeNumbersFromCells(numberOfCellsToRemove){
+    for (let i = 0; i < 9; i++){
+        for (let j= 0; j < 9; j++){
+            $(getIdOfSudokuCell(i, j)).setAttribute("contentEditable",false);
+        }
+    }
     for (let i = 0; i < numberOfCellsToRemove; i++){
         cellPlaced = false;
         do{
@@ -43,7 +48,7 @@ function removeNumbersFromCells(numberOfCellsToRemove){
             let index2 = getRandom(9);
             if (board[index1][index2] != ""){
                 board[index1][index2] = "";
-                $(getIdOfSudokuCell(index1, index2)).contentEditable = true;
+                $(getIdOfSudokuCell(index1, index2)).setAttribute("contentEditable", true);
                 cellPlaced = true;
             }
         } while (!cellPlaced);
@@ -65,16 +70,17 @@ function checkSudoku(source){
             if (board[i][j] != winningBoard[i][j] && board[i][j] != "" && !isNaN(board[i][j])){
                 missmatch = true;
                 if (source != "newNumberInput"){
-                    $("checkSudokuButton").style.backgroundColor = "maroon";
-                    $(getIdOfSudokuCell(i,j)).style.backgroundColor = "maroon";
+                    $("checkSudokuButton").style.background = "maroon";
+                    $(getIdOfSudokuCell(i,j)).style.background = "maroon";
                     setTimeout(function(){
-                        $("checkSudokuButton").style.backgroundColor = "var(--color-secondaryBackground)";
-                        $(getIdOfSudokuCell(i,j)).style.backgroundColor = "var(--color-primaryBackground)";
+                        $("checkSudokuButton").style.background = "var(--color-secondaryBackground)";
+                        $(getIdOfSudokuCell(i,j)).style.background = "var(--color-primaryBackground)";
                     },750);
                 }
                 break;
             }
             else if (board[i][j] == "" || isNaN(board[i][j])){
+                board[i][j] = "";
                 complete = false;
             }
         }

@@ -88,4 +88,10 @@ function checkSudoku(source){
     if (!missmatch && complete){
         successfulCompletion();
     }
+    else if (!missmatch){
+        $("sudokuBoard").classList.add("rainbowBorder");
+        setTimeout(function(){
+            $("sudokuBoard").classList.remove("rainbowBorder");
+        },600);
+    }
 }

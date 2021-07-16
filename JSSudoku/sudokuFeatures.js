@@ -1,6 +1,9 @@
 // Author: Chaz Peterson
 // Alias: CheTranqui
 
+// TODO: Allow deletion of numbers
+
+
 let lastCell;
 let currentCell;
 let difficulty = "Easy";

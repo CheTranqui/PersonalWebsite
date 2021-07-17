@@ -88,7 +88,7 @@ function checkSudoku(source){
     if (!missmatch && complete){
         successfulCompletion();
     }
-    else if (!missmatch && source != newNumberInput){
+    else if (!missmatch && source != "newNumberInput"){
         $("sudokuBoard").classList.add("rainbowBorder");
         setTimeout(function(){
             $("sudokuBoard").classList.remove("rainbowBorder");

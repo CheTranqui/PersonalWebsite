@@ -3,11 +3,9 @@
 
 // TODO: Allow deletion of numbers
 // allow proper new number to overwrite old number
-// set right-click to drop the currently selected number
 // allow setting to have 'number' hint only highlight and not place number
 // set up arrow keys to change focus
 // fix everything for mobile
-// disable the keyboard for mobile
 
 
 let lastCell;
@@ -21,9 +19,9 @@ let numberSelected = false;
 function $(id) { return document.getElementById(id); }
 
 function initializeFeatures(){
-    loadCellListeners();
-    loadBoardListener();
-    fillNumberButtonArray();
+    loadCellListeners(); // listens for left-click within each cell
+    loadBoardListener(); // listens for right-click on board and keyup events
+    fillNumberButtonArray(); // populates array of numberButtons
 }
 
 function loadCellListeners(){
@@ -38,9 +36,7 @@ function loadCellListeners(){
 function updateCurrentCell(cell){
     lastCell = currentCell;
     currentCell = cell;
-    if (selectedNumber < 10){
-        updateCellValue(selectedNumber);
-    }
+    updateCellValue(selectedNumber);
 }  
 
 function boardLeftClick(){
@@ -83,13 +79,16 @@ function updateValue(event){
 }
 
 function updateCellValue(inputNumber){
-    if (selectedNumber < 1 && selectedNumber != 0){
+    if (selectedNumber < 1 || selectedNumber > 9){
         if (currentCell != undefined && currentCell != null && currentCell.textContent.length > 0){
             if (isNaN(inputNumber)){
                 currentCell.textContent = "";
                 updateBoard(currentCell, "");
             }
-            else {
+            else if (currentCell.textContent.length > 1){
+                currentCell.textContent = currentCell.textContent[0];
+            }
+            else if (selectedNumber > 0 && selectedNumber < 10){
                 currentCell.textContent = inputNumber;
                 updateBoard(currentCell, inputNumber);
             }
@@ -99,7 +98,7 @@ function updateCellValue(inputNumber){
         currentCell.textContent = selectedNumber;
         updateBoard(currentCell, selectedNumber);
     }
-        checkSudoku("newNumberInput");
+    checkSudoku("newNumberInput");
 }
 
 function successfulCompletion(){

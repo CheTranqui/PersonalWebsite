@@ -369,6 +369,7 @@ function highlightValues(){
 }
 
 function removeHighlight(){
+    // resets highlights to default colors
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
             let myCellId = getIdOfSudokuCell(i, j);
@@ -379,6 +380,7 @@ function removeHighlight(){
 }
 
 function activateHighlight(){
+    // obnoxious highlighting that was used for development purposes only
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
             let myCellId = getIdOfSudokuCell(i, j);

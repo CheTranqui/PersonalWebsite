@@ -2,6 +2,12 @@
 // Alias: CheTranqui
 
 // TODO: Allow deletion of numbers
+// allow proper new number to overwrite old number
+// set right-click to drop the currently selected number
+// allow setting to have 'number' hint only highlight and not place number
+// set up arrow keys to change focus
+// fix everything for mobile
+// disable the keyboard for mobile
 
 
 let lastCell;
@@ -24,7 +30,7 @@ function loadCellListeners(){
     for (let i = 0; i < 9; i++){
         for (let j = 0; j < 9; j++){
             let cell = $(getIdOfSudokuCell(i,j));
-            cell.onclick = hintHighlighting;
+            cell.onclick = boardLeftClick;
         }
     }
 }
@@ -37,24 +43,38 @@ function updateCurrentCell(cell){
     }
 }  
 
-function hintHighlighting(){
+function boardLeftClick(){
 	updateCurrentCell(this);
-    updateHighlights();
     let cell = $(currentCell.id);
     cell.style.background = "black";
     setTimeout(() => {(cell.style.background = "var(--color-primaryBackground)");}, 2000);
+    updateHighlights();
+}
+
+function boardRightClick(){
+    selectNumber(0);
+    updateHighlights();
+    return false;
 }
 
 function loadBoardListener(){
     $("sudokuBoard").onkeyup = updateValue;
+    $("sudokuBoard").addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+        boardRightClick()});
 }
 
 function updateValue(event){
     switch (event.key){
-        case "ArrowLeft":
+        case "ArrowLeft": 
         case "ArrowRight":
         case "ArrowUp":
         case "ArrowDown":
+            break;
+        case "Delete":
+        case "Backspace":
+            currentCell.textContent = "";
+            break;
 
         default:
             updateCellValue(event.key);
@@ -63,7 +83,7 @@ function updateValue(event){
 }
 
 function updateCellValue(inputNumber){
-    if (selectedNumber < 1 || selectedNumber > 9){
+    if (selectedNumber < 1 && selectedNumber != 0){
         if (currentCell != undefined && currentCell != null && currentCell.textContent.length > 0){
             if (isNaN(inputNumber)){
                 currentCell.textContent = "";
@@ -75,7 +95,7 @@ function updateCellValue(inputNumber){
             }
         }
     }
-    else if (currentCell.contentEditable == "true"){
+    else if (currentCell.contentEditable == "true" && selectedNumber > 0){
         currentCell.textContent = selectedNumber;
         updateBoard(currentCell, selectedNumber);
     }
@@ -141,26 +161,40 @@ function updateBoard(currentCell, newValue){
 
 function selectNumber(number){
     let selected = false;
-    if ($("numberButton" + number).classList.contains("btnInverse")){
-        selected = true;
-    }
-    for (let i = 0; i < 9; i++){
-        numberButtons[i].classList.remove("btnInverse");
-        numberButtons[i].classList.add("btn");
-    }
-    if (selected){
-        $("numberButton" + number).classList.remove("btnInverse");
-        $("numberButton" + number).classList.add("btn");
-        removeHighlight();
-        selectedNumber = 10;
+    // if selectedNumber is greater than 0:
+    if (number > 0){
+        // mark the selected number's button as selected
+        if ($("numberButton" + number).classList.contains("btnInverse")){
+            selected = true;
+        }
+        // reset all button colors
+        for (let i = 0; i < 9; i++){
+            numberButtons[i].classList.remove("btnInverse");
+            numberButtons[i].classList.add("btn");
+        }
+        // if it's already selected, then unselect it
+        if (selected){
+            $("numberButton" + number).classList.remove("btnInverse");
+            $("numberButton" + number).classList.add("btn");
+            removeHighlight();
+            selectedNumber = 0;
+        }
+        // otherwise, highlight it and make it active
+        else{
+            $("numberButton" + number).classList.remove("btn");
+            $("numberButton" + number).classList.add("btnInverse");
+            selectedNumber = number;
+            highlightNumbers();
+        }
         highlightRowsAndColumns();
     }
-    else{
-        $("numberButton" + number).classList.remove("btn");
-        $("numberButton" + number).classList.add("btnInverse");
-        selectedNumber = number;
-        highlightNumbers();
-        highlightRowsAndColumns();
+    // if selectedNumber < 1 then remove all highlighting from number buttons
+    else {
+        selectedNumber = 0;
+        for (let i = 0; i < 9; i++){
+            numberButtons[i].classList.remove("btnInverse");
+            numberButtons[i].classList.add("btn");
+        }
     }
 }
 
@@ -183,20 +217,22 @@ function updateHighlights(){
 
 function highlightNumbers(){
     removeHighlight();
-    if (hintLevel == "Numbers" || hintLevel == "All"){
-        for (let i = 0; i < 9; i++){
-            for (let j = 0; j < 9; j++){
-                if ($(getIdOfSudokuCell(i,j)).textContent == selectedNumber){
-                    $(getIdOfSudokuCell(i,j)).style.backgroundColor = "var(--color-sudokuBoardHighlight)";
+    if (selectedNumber > 0){
+        if (hintLevel == "Numbers" || hintLevel == "All"){
+            for (let i = 0; i < 9; i++){
+                for (let j = 0; j < 9; j++){
+                    if ($(getIdOfSudokuCell(i,j)).textContent == selectedNumber){
+                        $(getIdOfSudokuCell(i,j)).style.backgroundColor = "var(--color-sudokuBoardHighlight)";
+                    }
                 }
             }
         }
-    }
-    else if (hintLevel == "All"){
-        highlightRowsAndColumns();
-    }
-    else{
-        removeHighlight();
+        else if (hintLevel == "All"){
+            highlightRowsAndColumns();
+        }
+        else{
+            removeHighlight();
+        }
     }
 }
 

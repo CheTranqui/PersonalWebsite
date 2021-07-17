@@ -36,9 +36,14 @@ function determineHowManyCellsToRemove(){
 }
 
 function removeNumbersFromCells(numberOfCellsToRemove){
+    let onfocus = "";
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        onfocus = "blur()";
+    }
     for (let i = 0; i < 9; i++){
         for (let j= 0; j < 9; j++){
             $(getIdOfSudokuCell(i, j)).setAttribute("contentEditable",false);
+            $(getIdOfSudokuCell(i, j)).setAttribute("onfocus", onfocus);
         }
     }
     for (let i = 0; i < numberOfCellsToRemove; i++){

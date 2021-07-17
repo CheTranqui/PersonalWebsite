@@ -70,11 +70,11 @@ function checkSudoku(source){
             if (board[i][j] != winningBoard[i][j] && board[i][j] != "" && !isNaN(board[i][j])){
                 missmatch = true;
                 if (source != "newNumberInput"){
-                    $("checkSudokuButton").style.background = "maroon";
-                    $(getIdOfSudokuCell(i,j)).style.background = "maroon";
+                    $("checkSudokuButton").style.backgroundColor = "maroon";
+                    $(getIdOfSudokuCell(i,j)).style.backgroundColor = "maroon";
                     setTimeout(function(){
-                        $("checkSudokuButton").style.background = "var(--color-secondaryBackground)";
-                        $(getIdOfSudokuCell(i,j)).style.background = "var(--color-primaryBackground)";
+                        $("checkSudokuButton").style.backgroundColor = "var(--color-secondaryBackground)";
+                        $(getIdOfSudokuCell(i,j)).style.backgroundColor = "var(--color-primaryBackground)";
                     },750);
                 }
                 break;

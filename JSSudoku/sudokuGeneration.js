@@ -360,7 +360,7 @@ function getRandom(max) {
 }
 
 function highlightValues(){
-    if ($("r0c0").style.background == "var(--color-primaryBackground)"){
+    if ($("r0c0").style.backgroundColor == "var(--color-primaryBackground)"){
         activateHighlight();
     }
     else{
@@ -372,7 +372,7 @@ function removeHighlight(){
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
             let myCellId = getIdOfSudokuCell(i, j);
-            $(myCellId).style.background = "var(--color-primaryBackground)";
+            $(myCellId).style.backgroundColor = "var(--color-primaryBackground)";
             $(myCellId).style.color = "var(--color-primaryText)";
         }
     }
@@ -395,7 +395,7 @@ function activateHighlight(){
                 case "9": newColor = "darkgreen"; break;
                 default: newColor = "";
             }
-            $(myCellId).style.background = newColor;
+            $(myCellId).style.backgroundColor = newColor;
         }
     }
 }

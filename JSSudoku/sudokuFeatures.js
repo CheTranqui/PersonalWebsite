@@ -103,13 +103,13 @@ function makeItRainbow(){
             case 9: color = "yellow"; break;
         }
         for (let j = 0; j < 9; j++){
-            $(getIdOfSudokuCell(i,j)).style.background = color;
+            $(getIdOfSudokuCell(i,j)).style.backgroundColor = color;
         }
     }
     let seventh = 143; // milliseconds
     for (let i = 1; i < 25; i++){
-        // alternates colors every 143 milliseconds for 20 iterations (2 seconds)
-        let waitPeriod = i * seventh;
+        // alternates colors every 143 milliseconds for 25 iterations (2.5 seconds)
+        let waitPeriod = (i * seventh);
         setTimeout(updateRainbowColors, waitPeriod);
     }
 }
@@ -117,7 +117,7 @@ function makeItRainbow(){
 function updateRainbowColors(){
     for (let j = 0; j < 9; j++){
         for (let k = 0; k < 9; k++){
-            let color = $(getIdOfSudokuCell(j,k)).style.background;
+            let color = $(getIdOfSudokuCell(j,k)).style.backgroundColor;
             let newColor;
             switch (color){
                 default:
@@ -129,7 +129,7 @@ function updateRainbowColors(){
                 case ("indigo"): newColor = "violet"; break;
                 case ("violet"): newColor = "red"; break;
             }
-            $(getIdOfSudokuCell(j,k)).style.background = newColor;
+            $(getIdOfSudokuCell(j,k)).style.backgroundColor = newColor;
         }
     }
 }
@@ -187,7 +187,7 @@ function highlightNumbers(){
         for (let i = 0; i < 9; i++){
             for (let j = 0; j < 9; j++){
                 if ($(getIdOfSudokuCell(i,j)).textContent == selectedNumber){
-                    $(getIdOfSudokuCell(i,j)).style.background = "var(--color-sudokuBoardHighlight)";
+                    $(getIdOfSudokuCell(i,j)).style.backgroundColor = "var(--color-sudokuBoardHighlight)";
                 }
             }
         }
@@ -208,10 +208,10 @@ function highlightRowsAndColumns(){
         for (let i = 0; i < 9; i++){
             for (let j = 0; j < 9; j++){
                 if (row == i){
-                    $(getIdOfSudokuCell(i,j)).style.background = "var(--color-sudokuBoardHighlight)";
+                    $(getIdOfSudokuCell(i,j)).style.backgroundColor = "var(--color-sudokuBoardHighlight)";
                 }
                 if (column == j){
-                    $(getIdOfSudokuCell(i,j)).style.background = "var(--color-sudokuBoardHighlight)";
+                    $(getIdOfSudokuCell(i,j)).style.backgroundColor = "var(--color-sudokuBoardHighlight)";
                 }
             }
         }

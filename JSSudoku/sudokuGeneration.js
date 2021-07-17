@@ -36,6 +36,8 @@ function getNewBoard(){
     let validBoard = false;
     do {
         clearBoard();
+        setDifficulty();
+        setHintLevel();
         generateBoard();
         validBoard = getStatistics();
     } while (!validBoard);

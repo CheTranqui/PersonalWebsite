@@ -19,17 +19,17 @@ function determineHowManyCellsToRemove(){
     switch (getDifficulty()){
         default:
         case ("Easy"):
-            numberOfCellsToRemove = 42 - getRandom(6);
+            numberOfCellsToRemove = 40 - getRandom(6);
             break;
         case ("Medium"):
-            numberOfCellsToRemove = 50 - getRandom(6);
+            numberOfCellsToRemove = 58 - getRandom(6);
             break;
         case ("Hard"):
-            numberOfCellsToRemove = 58 - getRandom(6);
+            numberOfCellsToRemove = 56 - getRandom(6);
             break;
         case ("Devious"):
             // 17 is the least you can have and still only have one possible solution
-            numberOfCellsToRemove = 64;
+            numberOfCellsToRemove = 60;
             break;
     }
     return numberOfCellsToRemove;
@@ -88,7 +88,7 @@ function checkSudoku(source){
     if (!missmatch && complete){
         successfulCompletion();
     }
-    else if (!missmatch){
+    else if (!missmatch && source != newNumberInput){
         $("sudokuBoard").classList.add("rainbowBorder");
         setTimeout(function(){
             $("sudokuBoard").classList.remove("rainbowBorder");

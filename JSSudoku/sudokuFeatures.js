@@ -140,9 +140,8 @@ function makeItRainbow(){
 
 function updateRainbowColors(){
     for (let j = 0; j < 9; j++){
-        for (let k = 0; k < 9; k++){
-            let color = $(getIdOfSudokuCell(j,k)).style.backgroundColor;
-            let newColor;
+        let color = $(getIdOfSudokuCell(j,0)).style.backgroundColor;
+        let newColor;
             switch (color){
                 default:
                 case ("red"): newColor = "orange"; break;
@@ -153,6 +152,7 @@ function updateRainbowColors(){
                 case ("indigo"): newColor = "violet"; break;
                 case ("violet"): newColor = "red"; break;
             }
+        for (let k = 0; k < 9; k++){
             $(getIdOfSudokuCell(j,k)).style.backgroundColor = newColor;
         }
     }

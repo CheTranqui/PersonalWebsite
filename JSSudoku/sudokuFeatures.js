@@ -107,6 +107,7 @@ function updateCellValue(inputNumber){
 }
 
 function successfulCompletion(){
+    removeHighlight();
     makeItRainbow();
 }
 

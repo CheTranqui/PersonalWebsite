@@ -95,8 +95,13 @@ function updateCellValue(inputNumber){
         }
     }
     else if (currentCell.contentEditable == "true" && selectedNumber > 0){
+
         currentCell.textContent = selectedNumber;
         updateBoard(currentCell, selectedNumber);
+    }
+    else if (selectedNumber == "D" && currentCell.contentEditable == "true"){
+        currentCell.textContent = "";
+        updateBoard(currentCell, "");
     }
     checkSudoku("newNumberInput");
 }
@@ -161,13 +166,13 @@ function updateBoard(currentCell, newValue){
 function selectNumber(number){
     let selected = false;
     // if selectedNumber is greater than 0:
-    if (number > 0){
+    if (number > 0 || number == "D"){
         // mark the selected number's button as selected
         if ($("numberButton" + number).classList.contains("btnInverse")){
             selected = true;
         }
         // reset all button colors
-        for (let i = 0; i < 9; i++){
+        for (let i = 0; i < 10; i++){
             numberButtons[i].classList.remove("btnInverse");
             numberButtons[i].classList.add("btn");
         }
@@ -187,10 +192,10 @@ function selectNumber(number){
         }
         highlightRowsAndColumns();
     }
-    // if selectedNumber < 1 then remove all highlighting from number buttons
+    // if selectedNumber < 1 then remove all highlighting from all number buttons
     else {
         selectedNumber = 0;
-        for (let i = 0; i < 9; i++){
+        for (let i = 0; i < 10; i++){
             numberButtons[i].classList.remove("btnInverse");
             numberButtons[i].classList.add("btn");
         }
@@ -257,6 +262,7 @@ function fillNumberButtonArray(){
     for (let i = 1; i < 10; i++){
         numberButtons.push($("numberButton" + i));
     }
+    numberButtons.push($("numberButtonD"));
 }
 
 function getBoardCoordinates(cell){

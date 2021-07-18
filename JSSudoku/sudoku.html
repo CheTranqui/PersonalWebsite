@@ -25,38 +25,35 @@
     </header>
     <main>
         <section>
-            <span id="sudokuTitleLeft">
-                Difficulty: <span id="sudokuDifficulty"></span>
-            </span>
             <span id="sudokuTitleRight">
                 Time: <span id="sudokuTime"></span>
             </span>
         </section>
         </section>
-            <button onclick="loadNewSudoku()" class="sudokuButton btn" id="loadNewSudokuButton" tabindex="0">
+            <button onclick="loadNewSudoku()" class="sudokuButton menuButton btn" id="loadNewSudokuButton" tabindex="0">
                 New Sudoku
             </button>
-            <select onclick="setDifficulty()" class="sudokuButton btn" id="difficultyDropdown" tabindex="1">
+            <select onclick="setDifficulty()" class="sudokuButton menuButton btn" id="difficultyDropdown" tabindex="1">
                     <option value="Easy">Easy</option>
                     <option value="Medium">Medium</option>
                     <option value="Hard">Hard</option>
                     <option value="Devious">Devious</option>
             </select>
-            <select onclick="setHintLevel()" class="sudokuButton btn" id="hintLevelDropdown" tabindex="2">
-                    <option value="None">None</option>
+            <select onclick="setHintLevel()" class="sudokuButton menuButton btn" id="hintLevelDropdown" tabindex="2">
+                    <option value="None">Highlight:</option>
                     <option value="Numbers">Numbers</option>
                     <option value="RowsAndColumns">Rows and Columns</option>
                     <option value="All">All</option>
             </select>
-            <button onclick="checkSudoku()" class="sudokuButton btn" id="checkSudokuButton" tabindex="3">
-                Test Solution
+            <button onclick="checkSudoku()" class="sudokuButton menuButton btn" id="checkSudokuButton" tabindex="3">
+                Check?
             </button>
         </section>
         <article class="sudoku">
             <section class="board" id="sudokuBoard">
                 <table class="square" id="square1">
                     <tr class="sudokuRow" id="square1row1">
-                        <td class="sudokuCell row0 col0" id="r0c0" tabindex="4" onfocus="blur()"></td>
+                        <td class="sudokuCell row0 col0" id="r0c0" tabindex="4"></td>
                         <td class="sudokuCell row0 col1" id="r0c1"></td>
                         <td class="sudokuCell row0 col2" id="r0c2"></td>
                     </tr>
@@ -218,6 +215,7 @@
                 <button class="numberButton btn" id="numberButton7" onclick="selectNumber(7)">7</button>
                 <button class="numberButton btn" id="numberButton8" onclick="selectNumber(8)">8</button>
                 <button class="numberButton btn" id="numberButton9" onclick="selectNumber(9)">9</button>
+                <button class="numberButton btn" id="numberButtonD" onclick="selectNumber('D')">Del</button>
             </section>
         </article>
     </main>

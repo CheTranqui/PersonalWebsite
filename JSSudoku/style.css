@@ -35,7 +35,10 @@ body {
 
 .sudoku{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    width: 610px;
+    flex-direction: column;
     margin: 1rem;
 }
 
@@ -79,13 +82,16 @@ td{
     background-color: var(--color-secondaryBackground);
 }
 
+.menuButton{
+    font-size: 1.5rem;
+}
+
 .btnInverse{
     color: var(--color-secondaryBackground);
     background-color: var(--color-primaryTitle);
 }
 
 .sudokuButton{
-    font-size: 1rem;
     text-decoration: none;
     border-radius: 5px;
     margin: 0.5rem;
@@ -93,18 +99,23 @@ td{
 
 .numberButtons{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-content: center;
-    margin-left: 1.5rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .numberButton{
-    margin: 5px 0 5px 0;
     height: 50px;
     width: 50px;
     font-size: 2rem;
     border-radius: 10px;
+}
+
+/* the Del button*/
+#numberButtonD{
+    width: 60px;
 }
 
 .rainbowBorder{

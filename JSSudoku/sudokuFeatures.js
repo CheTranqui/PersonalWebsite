@@ -69,10 +69,21 @@ function updateValue(event){
             break;
         case "Delete":
         case "Backspace":
+        case "d":
+        case "D":
             currentCell.textContent = "";
+            updateCellValue("D");
             break;
 
-        default:
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
             updateCellValue(event.key);
     }
     
@@ -86,16 +97,28 @@ function updateCellValue(inputNumber){
                 updateBoard(currentCell, "");
             }
             else if (currentCell.textContent.length > 1){
-                currentCell.textContent = currentCell.textContent[0];
+                currentCell.textContent = inputNumber;
+                updateBoard(currentCell, inputNumber);
             }
             else if (selectedNumber > 0 && selectedNumber < 10){
                 currentCell.textContent = inputNumber;
                 updateBoard(currentCell, inputNumber);
             }
+            else if (currentCell.contentEditable == "true" && (inputNumber > 0 && inputNumber < 10)){
+                currentCell.textContent = inputNumber;
+                updateBoard(currentCell, inputNumber);
+            }
+            else{
+                currentCell.textContent = "";
+                updateBoard(currentCell, "");
+            }
         }
     }
     else if (currentCell.contentEditable == "true" && selectedNumber > 0){
-
+        currentCell.textContent = selectedNumber;
+        updateBoard(currentCell, selectedNumber);
+    }
+    else if (currentCell.contentEditable == "true" && inputNumber > 0){
         currentCell.textContent = selectedNumber;
         updateBoard(currentCell, selectedNumber);
     }
@@ -140,9 +163,12 @@ function makeItRainbow(){
 }
 
 function updateRainbowColors(){
+    let color;
+    let newColor;
     for (let j = 0; j < 9; j++){
-        let color = $(getIdOfSudokuCell(j,0)).style.backgroundColor;
-        let newColor;
+        if (j == 0){
+            color = $(getIdOfSudokuCell(j,0)).style.backgroundColor;
+        }
             switch (color){
                 default:
                 case ("red"): newColor = "orange"; break;
@@ -153,6 +179,7 @@ function updateRainbowColors(){
                 case ("indigo"): newColor = "violet"; break;
                 case ("violet"): newColor = "red"; break;
             }
+        color = newColor;
         for (let k = 0; k < 9; k++){
             $(getIdOfSudokuCell(j,k)).style.backgroundColor = newColor;
         }

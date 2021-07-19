@@ -67,14 +67,6 @@ function updateValue(event){
         case "ArrowUp":
         case "ArrowDown":
             break;
-        case "Delete":
-        case "Backspace":
-        case "d":
-        case "D":
-            currentCell.textContent = "";
-            updateCellValue("D");
-            break;
-
         case "1":
         case "2":
         case "3":
@@ -85,6 +77,15 @@ function updateValue(event){
         case "8":
         case "9":
             updateCellValue(event.key);
+            break;
+        default:
+        case "Delete":
+        case "Backspace":
+        case "d":
+        case "D":
+            currentCell.textContent = "";
+            updateCellValue("D");
+            break;
     }
     
 }

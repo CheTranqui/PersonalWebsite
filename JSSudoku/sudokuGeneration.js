@@ -17,6 +17,7 @@ const numList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let goodBoards = 0;
 let badBoards = 0;
 let goodBoardPercentage = 0;
+let won = false;
 
 window.onload = init();
 function init() {
@@ -32,6 +33,7 @@ function loadNewSudoku(){
 }
 
 function continueLoading(){
+    setWon(false);
     showGameMenu();
     removeHighlight();
     getNewBoard();
@@ -408,4 +410,13 @@ function activateHighlight(){
             $(myCellId).style.backgroundColor = newColor;
         }
     }
+}
+
+// either true or false
+function setWon(boardComplete){
+    won = boardComplete;
+}
+
+function getWon(){
+    return won;
 }

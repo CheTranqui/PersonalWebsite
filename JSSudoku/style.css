@@ -82,9 +82,6 @@ body {
     opacity: 1;
 }
 
-
-
-
 .board{
     display: flex;
     flex-direction: row;
@@ -130,8 +127,9 @@ td{
 }
 
 .menuLabel{
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     color: var(--color-primaryTitle);
+    margin: 1rem;
 }
 
 

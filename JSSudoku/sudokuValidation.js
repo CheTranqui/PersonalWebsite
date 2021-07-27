@@ -101,6 +101,8 @@ function checkSudoku(source){
         }
     }
     if (!missmatch && complete){
+        stopPuzzleTimer();
+        setWon(true);
         successfulCompletion();
     }
     // this provides positive feedback in the case that no error is found when the checkSudoku button is pressed

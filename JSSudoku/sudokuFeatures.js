@@ -3,7 +3,9 @@
 
 // TODO:
 // allow setting to have 'number' hint only highlight and not place number
+// stop it from de-coloring a number that I just placed
 // set up arrow keys to change focus
+// enable tabbing and currentCell
 // add undo, allow for notes
 // PC Sudoku.  When I delete a given number, I can't put it or any other num in that space.  Not a biggie just don't del!  
 // FOR MOBILE:
@@ -83,7 +85,7 @@ function loadBoardListener(){
 }
 
 function checkForEscape(event){
-    if (puzzleTime != "00:00"){
+    if (seconds > 0){
         if (event.key == "Escape"){
             keyboardPause();
         }
@@ -111,6 +113,7 @@ function updateValue(event){
         case "7":
         case "8":
         case "9":
+            selectNumber(0);
             updateCellValue(event.key);
             break;
         default:
@@ -126,41 +129,43 @@ function updateValue(event){
 }
 
 function updateCellValue(inputNumber){
-    if (selectedNumber < 1 || selectedNumber > 9){
-        if (currentCell != undefined && currentCell != null && currentCell.textContent.length > 0){
-            if (isNaN(inputNumber)){
-                currentCell.textContent = "";
-                updateBoard(currentCell, "");
-            }
-            else if (currentCell.textContent.length > 1){
-                currentCell.textContent = inputNumber;
-                updateBoard(currentCell, inputNumber);
-            }
-            else if (selectedNumber > 0 && selectedNumber < 10){
-                currentCell.textContent = inputNumber;
-                updateBoard(currentCell, inputNumber);
-            }
-            else if (currentCell.contentEditable == "true" && (inputNumber > 0 && inputNumber < 10)){
-                currentCell.textContent = inputNumber;
-                updateBoard(currentCell, inputNumber);
-            }
-            else if (currentCell.contentEditable == "true"){
-                currentCell.textContent = "";
-                updateBoard(currentCell, "");
+    if (currentCell.contentEditable == "true"){
+        if (selectedNumber < 1 || selectedNumber > 9){
+            if (currentCell != undefined && currentCell != null && currentCell.textContent.length > 0){
+                if (isNaN(inputNumber)){
+                    currentCell.textContent = "";
+                    updateBoard(currentCell, "");
+                }
+                else if (currentCell.textContent.length > 1){
+                    currentCell.textContent = inputNumber;
+                    updateBoard(currentCell, inputNumber);
+                }
+                else if (selectedNumber > 0 && selectedNumber < 10){
+                    currentCell.textContent = inputNumber;
+                    updateBoard(currentCell, inputNumber);
+                }
+                else if (inputNumber > 0 && inputNumber < 10){
+                    currentCell.textContent = inputNumber;
+                    updateBoard(currentCell, inputNumber);
+                }
+                else{
+                    currentCell.textContent = "";
+                    updateBoard(currentCell, "");
+                }
             }
         }
-    }
-    else if (currentCell.contentEditable == "true" && selectedNumber > 0){
-        currentCell.textContent = selectedNumber;
-        updateBoard(currentCell, selectedNumber);
-    }
-    else if (currentCell.contentEditable == "true" && inputNumber > 0){
-        currentCell.textContent = selectedNumber;
-        updateBoard(currentCell, selectedNumber);
-    }
-    else if (selectedNumber == "D" && currentCell.contentEditable == "true"){
-        currentCell.textContent = "";
-        updateBoard(currentCell, "");
+        else if (selectedNumber > 0){
+            currentCell.textContent = selectedNumber;
+            updateBoard(currentCell, selectedNumber);
+        }
+        else if (inputNumber > 0){
+            currentCell.textContent = selectedNumber;
+            updateBoard(currentCell, selectedNumber);
+        }
+        else if (selectedNumber == "D"){
+            currentCell.textContent = "";
+            updateBoard(currentCell, "");
+        }
     }
     userModifyingCell = false;
     checkSudoku("newNumberInput");
@@ -277,6 +282,8 @@ function startPuzzleTimer(){
 
 function resetPuzzleTimer(){
     stopPuzzleTimer();
+    paused = false;
+    setWon(false);
     previousTime = puzzleTime;
     minutes = 0;
     seconds = 0;
@@ -292,15 +299,27 @@ function keyboardPause(){
         userModifyingCell = false;
     }
     else{
-        togglePuzzleTimer();
+        if (getWon()){
+            if ($("gameMenuBackground").classList.contains("activeMenu")){
+                showGameMenu();
+            }
+            else{
+                hideGameMenu();
+            }
+        }
+        else{
+            togglePuzzleTimer();
+        }
     }
     selectNumber(0);
 }
 
 function togglePuzzleTimer(){
-    paused = !paused;
-    togglePauseScreen();
-    puzzleTimer();
+    if (!won){
+        paused = !paused;
+        togglePauseScreen();
+        puzzleTimer();
+    }
 }
 
 function stopPuzzleTimer(){

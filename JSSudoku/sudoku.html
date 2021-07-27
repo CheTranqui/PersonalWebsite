@@ -23,37 +23,47 @@
             CheSudoku
         </h1>
     </header>
-    <main>
+    <main id="main">
         <section>
-            <span id="sudokuTitleRight">
-                Time: <span id="sudokuTime"></span>
-            </span>
+            <label class="menuLabel" id="timeLabel">
+                Time: <span id="timeClock">00:00</span>
+            </label>
         </section>
         </section>
-            <button onclick="loadNewSudoku()" class="sudokuButton menuButton btn" id="loadNewSudokuButton" tabindex="0">
+            <button class="sudokuButton menuButton btn" id="loadNewSudokuButton" tabindex="0">
                 New Sudoku
             </button>
-            <select onclick="setDifficulty()" class="sudokuButton menuButton btn" id="difficultyDropdown" tabindex="1">
+            <select class="sudokuButton menuButton btn" id="difficultyDropdown" tabindex="1">
                     <option value="Easy">Easy</option>
                     <option value="Medium">Medium</option>
                     <option value="Hard">Hard</option>
-                    <option value="Devious">Devious</option>
             </select>
-            <select onclick="setHintLevel()" class="sudokuButton menuButton btn" id="hintLevelDropdown" tabindex="2">
+            <select class="sudokuButton menuButton btn" id="hintLevelDropdown" tabindex="2">
                     <option value="None">Highlight:</option>
                     <option value="Numbers">Numbers</option>
-                    <option value="RowsAndColumns">Rows and Columns</option>
+                    <option value="RowsAndColumns">Rows</option>
                     <option value="All">All</option>
             </select>
-            <button onclick="checkSudoku()" class="sudokuButton menuButton btn" id="checkSudokuButton" tabindex="3">
+            <button  class="sudokuButton menuButton btn" id="checkSudokuButton" tabindex="3">
                 Check?
+            </button>
+            <button  class="sudokuButton menuButton btn" id="pauseSudokuButton" tabindex="4">
+                Pause
             </button>
         </section>
         <article class="sudoku">
+            <aside class="gameMenuBackground hiddenMenu" id="gameMenuBackground">
+                <button class="sudokuButton menuButton btn gameMenu" id="gameStartResumeButton">
+                    Start
+                </button>
+                <!-- <button class="sudokuButton menuButton btn gameMenu" id="gameSettingsButton">
+                    Settings
+                </button> -->
+            </aside>
             <section class="board" id="sudokuBoard">
                 <table class="square" id="square1">
                     <tr class="sudokuRow" id="square1row1">
-                        <td class="sudokuCell row0 col0" id="r0c0" tabindex="4"></td>
+                        <td class="sudokuCell row0 col0" id="r0c0" tabindex="5"></td>
                         <td class="sudokuCell row0 col1" id="r0c1"></td>
                         <td class="sudokuCell row0 col2" id="r0c2"></td>
                     </tr>

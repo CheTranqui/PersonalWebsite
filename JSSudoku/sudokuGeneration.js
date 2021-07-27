@@ -26,16 +26,24 @@ function init() {
 }
 
 function loadNewSudoku(){
+    hideGameMenu();
+    setTimeout(showGameMenu,500);
+    setTimeout(continueLoading,850);
+}
+
+function continueLoading(){
+    showGameMenu();
     removeHighlight();
     getNewBoard();
     adjustBoardToDifficulty();
+    resetPuzzleTimer();
     loadValuesIntoCells();
 }
 
 function getNewBoard(){
     let validBoard = false;
     do {
-        clearBoard();
+        clearBoard(0);
         setDifficulty();
         setHintLevel();
         generateBoard();
@@ -43,10 +51,10 @@ function getNewBoard(){
     } while (!validBoard);
 }
 
-function clearBoard() {
+function clearBoard(value) {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
-            board[i][j] = 0;
+            board[i][j] = value;
         }
     }
 }
@@ -344,7 +352,7 @@ function loadValuesIntoCells(){
             // values are loaded into the board as the square is determined
             let myCellValue = board[i][j];
             let myCellId = getIdOfSudokuCell(i, j);
-            $(myCellId).innerHTML = myCellValue;
+            $(myCellId).textContent = myCellValue;
             // console.log("Cell " + myCellId + " : " + myCellValue);
         }
     }

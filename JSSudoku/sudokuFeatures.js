@@ -1,11 +1,15 @@
 // Author: Chaz Peterson
 // Alias: CheTranqui
 
-// TODO: Allow deletion of numbers
-// allow proper new number to overwrite old number
+// TODO:
 // allow setting to have 'number' hint only highlight and not place number
 // set up arrow keys to change focus
-// fix everything for mobile
+// add undo, allow for notes
+// PC Sudoku.  When I delete a given number, I can't put it or any other num in that space.  Not a biggie just don't del!  
+// FOR MOBILE:
+// fixed: insertion, deletion, makeItRainbow
+// scale puzzle/page properly
+// highlight choices don't implement until 2nd button press on mobile, work properly on desktop
 
 
 let lastCell;
@@ -15,13 +19,30 @@ let hintLevel = "None";
 let numberButtons = [];
 let selectedNumber = 0;
 let numberSelected = false;
+let userModifyingCell = false;
+let seconds = 0;
+let minutes = 0;
+let puzzleTime;
+let previousTime;
+let paused = true;
 
 function $(id) { return document.getElementById(id); }
 
 function initializeFeatures(){
     loadCellListeners(); // listens for left-click within each cell
     loadBoardListener(); // listens for right-click on board and keyup events
+    loadButtonListeners();
     fillNumberButtonArray(); // populates array of numberButtons
+}
+
+function loadButtonListeners(){
+    $("loadNewSudokuButton").addEventListener("click",loadNewSudoku);
+    $("difficultyDropdown").addEventListener("click", setDifficulty);
+    $("hintLevelDropdown").addEventListener("click", setHintLevel);
+    $("checkSudokuButton").addEventListener("click", checkSudoku);
+    $("pauseSudokuButton").addEventListener("click", togglePuzzleTimer);
+    $("gameStartResumeButton").addEventListener("click", startPuzzleTimer);
+    window.addEventListener("keyup", checkForEscape);
 }
 
 function loadCellListeners(){
@@ -41,6 +62,7 @@ function updateCurrentCell(cell){
 
 function boardLeftClick(){
 	updateCurrentCell(this);
+    userModifyingCell = true;
     let cell = $(currentCell.id);
     cell.style.background = "black";
     setTimeout(() => {(cell.style.background = "var(--color-primaryBackground)");}, 2000);
@@ -54,14 +76,25 @@ function boardRightClick(){
 }
 
 function loadBoardListener(){
-    $("sudokuBoard").onkeyup = updateValue;
+    $("sudokuBoard").addEventListener("keyup", updateValue);
     $("sudokuBoard").addEventListener("contextmenu", (event) => {
         event.preventDefault();
         boardRightClick()});
 }
 
+function checkForEscape(event){
+    if (event.key == "Escape"){
+        keyboardPause();
+    }
+    else{
+        updateValue(event);
+    }
+}
+
 function updateValue(event){
     switch (event.key){
+        case "Escape":
+            break;
         case "ArrowLeft": 
         case "ArrowRight":
         case "ArrowUp":
@@ -109,7 +142,7 @@ function updateCellValue(inputNumber){
                 currentCell.textContent = inputNumber;
                 updateBoard(currentCell, inputNumber);
             }
-            else{
+            else if (currentCell.contentEditable == "true"){
                 currentCell.textContent = "";
                 updateBoard(currentCell, "");
             }
@@ -127,6 +160,7 @@ function updateCellValue(inputNumber){
         currentCell.textContent = "";
         updateBoard(currentCell, "");
     }
+    userModifyingCell = false;
     checkSudoku("newNumberInput");
 }
 
@@ -231,6 +265,92 @@ function selectNumber(number){
     }
 }
 
+function startPuzzleTimer(){
+    paused = false;
+    togglePauseScreen();
+    puzzleTimer();
+    // create new clock and start timer
+}
+
+function resetPuzzleTimer(){
+    stopPuzzleTimer();
+    previousTime = puzzleTime;
+    minutes = 0;
+    seconds = 0;
+    puzzleTime = "00:00";
+    $("timeClock").textContent = puzzleTime;
+}
+
+function keyboardPause(){
+    currentCell.blur();
+    if (userModifyingCell){
+        updateCellValue("d");
+        userModifyingCell = false;
+    }
+    else if (puzzleTime != "00:00"){
+        togglePuzzleTimer();
+    }
+    selectNumber(0);
+}
+
+function togglePuzzleTimer(){
+    paused = !paused;
+    togglePauseScreen();
+    puzzleTimer();
+}
+
+function stopPuzzleTimer(){
+    paused = true;
+}
+
+function togglePauseScreen(){
+    if (paused){
+        showGameMenu();
+    }
+    else{
+        hideGameMenu();
+    }
+}
+
+function showGameMenu(){
+    $("gameMenuBackground").classList.remove("hiddenMenu");
+    $("gameMenuBackground").classList.add("activeMenu");
+}
+
+function hideGameMenu(){
+    $("gameMenuBackground").classList.remove("activeMenu");
+    $("gameMenuBackground").classList.add("hiddenMenu");
+}
+
+function savePuzzleTimer(){
+    // save time, stop clock
+}
+
+// clock adjusted from original at: https://jsfiddle.net/Daniel_Hug/pvk6p/
+function puzzleTimer() {
+    if (!paused){
+        setTimeout(addToPuzzleTimer, 1000);
+    }
+}
+
+function addToPuzzleTimer() {
+    if (!paused){
+        seconds++;
+        if (seconds >= 60) {
+            seconds = 0;
+            minutes++;
+            if (minutes > 99) {
+                minutes = 0;
+            }
+        }
+        puzzleTime = (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00")
+        + ":" + (seconds > 9 ? seconds : "0" + seconds);
+        $("timeClock").textContent = puzzleTime;
+
+        puzzleTimer();
+    }
+}
+
 function updateHighlights(){
     removeHighlight();
     switch (hintLevel){
@@ -319,3 +439,4 @@ function setHintLevel(){
 function getHintLevel(){
     return hintLevel;
 }
+

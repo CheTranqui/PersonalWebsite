@@ -83,11 +83,13 @@ function loadBoardListener(){
 }
 
 function checkForEscape(event){
-    if (event.key == "Escape"){
-        keyboardPause();
-    }
-    else{
-        updateValue(event);
+    if (puzzleTime != "00:00"){
+        if (event.key == "Escape"){
+            keyboardPause();
+        }
+        else{
+            updateValue(event);
+        }
     }
 }
 
@@ -289,7 +291,7 @@ function keyboardPause(){
         updateCellValue("d");
         userModifyingCell = false;
     }
-    else if (puzzleTime != "00:00"){
+    else{
         togglePuzzleTimer();
     }
     selectNumber(0);

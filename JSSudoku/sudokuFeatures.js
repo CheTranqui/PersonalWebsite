@@ -266,6 +266,7 @@ function selectNumber(number){
 }
 
 function startPuzzleTimer(){
+    $("gameStartResumeButton").textContent = "Resume";
     paused = false;
     togglePauseScreen();
     puzzleTimer();
@@ -278,6 +279,7 @@ function resetPuzzleTimer(){
     minutes = 0;
     seconds = 0;
     puzzleTime = "00:00";
+    $("gameStartResumeButton").textContent = "Start";
     $("timeClock").textContent = puzzleTime;
 }
 

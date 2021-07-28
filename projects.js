@@ -13,7 +13,7 @@ let projectImageElement = $("projectImage");
 
 function loadProjects() {
     //once page is loaded, get project info separately from server
-    getProjects();
+    getProjects().then(loadSlide(0));
     //activate carousel functions
     $('carouselRightButton').addEventListener("click", getNextSlide);
     $('carouselLeftButton').addEventListener("click", getPreviousSlide);
@@ -21,11 +21,10 @@ function loadProjects() {
     carouselIndicators.forEach(function (indicator, index) {
         indicator.addEventListener("click", function () {
             loadSlide(index);})});
-    loadSlide(0);
 }
 
 //getProjects acquires the project text/info from the JSON
-function getProjects() {
+async function getProjects() {
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {

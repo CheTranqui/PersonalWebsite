@@ -17,7 +17,7 @@ function loadProjects() {
     //activate carousel functions
     $('carouselRightButton').addEventListener("click", getNextSlide);
     $('carouselLeftButton').addEventListener("click", getPreviousSlide);
-    carouselIndicators.push($('bottomButton1'), $('bottomButton2'), $('bottomButton3'));
+    carouselIndicators.push($('bottomButton1'), $('bottomButton2'), $('bottomButton3'), $('bottomButton4'));
     carouselIndicators.forEach(function (indicator, index) {
         indicator.addEventListener("click", function () {
             loadSlide(index);})});

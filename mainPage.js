@@ -30,7 +30,6 @@ window.onresize = resizeButtons;
 function initializePage(){
     resizeButtons();
     loadProjects();
-    loadSlide(0);
 }
 
 function resizeButtons() {

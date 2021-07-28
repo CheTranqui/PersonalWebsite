@@ -21,6 +21,7 @@ function loadProjects() {
     carouselIndicators.forEach(function (indicator, index) {
         indicator.addEventListener("click", function () {
             loadSlide(index);})});
+    loadSlide(0);
 }
 
 //getProjects acquires the project text/info from the JSON

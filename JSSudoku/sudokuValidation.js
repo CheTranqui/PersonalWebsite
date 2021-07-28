@@ -80,23 +80,25 @@ function checkSudoku(source){
         }
         // checks to see if values are equal and cell is filled
         for (let j = 0; j < 9; j++){
-            if (board[i][j] != winningBoard[i][j] && board[i][j] != "" && !isNaN(board[i][j])){
-                missmatch = true;
-                // "newNumberInput" will only check for actual completion
-                // this feedback should only come if the checkSudoku button is pressed
-                if (source != "newNumberInput"){
-                    $("checkSudokuButton").style.backgroundColor = "maroon";
-                    $(getIdOfSudokuCell(i,j)).style.backgroundColor = "maroon";
-                    setTimeout(function(){
-                        $("checkSudokuButton").style.backgroundColor = "var(--color-secondaryBackground)";
-                        $(getIdOfSudokuCell(i,j)).style.backgroundColor = "var(--color-primaryBackground)";
-                    },750);
-                }
-                break;
-            }
-            else if (board[i][j] == "" || isNaN(board[i][j])){
+            if (board[i][j] == "" || isNaN(board[i][j])){
                 board[i][j] = "";
                 complete = false;
+            }
+            else {
+                if (board[i][j] != winningBoard[i][j] && board[i][j] != ""){
+                    missmatch = true;
+                    // "newNumberInput" will only check for actual completion
+                    // this feedback should only come if the checkSudoku button is pressed
+                    if (source != "newNumberInput"){
+                        $("checkSudokuButton").style.backgroundColor = "maroon";
+                        $(getIdOfSudokuCell(i,j)).style.backgroundColor = "maroon";
+                        setTimeout(function(){
+                            $("checkSudokuButton").style.backgroundColor = "var(--color-secondaryBackground)";
+                            $(getIdOfSudokuCell(i,j)).style.backgroundColor = "var(--color-primaryBackground)";
+                        },750);
+                    }
+                    break;
+                }
             }
         }
     }

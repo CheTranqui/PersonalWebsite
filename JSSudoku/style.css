@@ -141,6 +141,7 @@ td{
 .sudokuButton{
     text-decoration: none;
     border-radius: 5px;
+    border-color: rgba(211,211,211,1);
     margin: 0.5rem;
 }
 
@@ -158,6 +159,12 @@ td{
     width: 50px;
     font-size: 2rem;
     border-radius: 10px;
+    border-color: rgba(211,211,211,1);
+}
+
+.numberButtonDepleted{
+    color: rgba(56,162,194,0.6);
+    border-color: rgba(211,211,211,0.4);
 }
 
 /* the Del button*/

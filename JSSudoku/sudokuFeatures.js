@@ -17,16 +17,11 @@
 let lastCell;
 let currentCell;
 let difficulty = "Easy";
-let hintLevel = "None";
 let numberButtons = [];
 let selectedNumber = 0;
+let numberButtonsInsertNumber = false;
 let numberSelected = false;
-let userModifyingCell = false;
-let seconds = 0;
-let minutes = 0;
-let puzzleTime;
-let previousTime;
-let paused = true;
+
 
 function $(id) { return document.getElementById(id); }
 
@@ -40,10 +35,11 @@ function initializeFeatures(){
 function loadButtonListeners(){
     $("loadNewSudokuButton").addEventListener("click",loadNewSudoku);
     $("difficultyDropdown").addEventListener("click", setDifficulty);
-    $("hintLevelDropdown").addEventListener("click", setHintLevel);
+    $("hintLevelDropdown").addEventListener("click", setHintLevel); // code in sudokuHighlights
     $("checkSudokuButton").addEventListener("click", checkSudoku);
     $("pauseSudokuButton").addEventListener("click", togglePuzzleTimer);
     $("gameStartResumeButton").addEventListener("click", startPuzzleTimer);
+    $("numberInsertSettingsButton").addEventListener("click", toggleNumberButtonSetting);
     window.addEventListener("keyup", checkForEscape);
 }
 
@@ -57,18 +53,16 @@ function loadCellListeners(){
 }
 
 function updateCurrentCell(cell){
-    lastCell = currentCell;
     currentCell = cell;
-    updateCellValue(selectedNumber);
 }  
 
 function boardLeftClick(){
 	updateCurrentCell(this);
     userModifyingCell = true;
-    let cell = $(currentCell.id);
-    cell.style.background = "black";
-    setTimeout(() => {(cell.style.background = "var(--color-primaryBackground)");}, 2000);
-    updateHighlights();
+    if (numberButtonsInsertNumber){
+        updateCellValue(selectedNumber);
+        updateHighlights();
+    }
 }
 
 function boardRightClick(){
@@ -113,15 +107,16 @@ function updateValue(event){
         case "7":
         case "8":
         case "9":
-            selectNumber(0);
-            updateCellValue(event.key);
+            selectNumber(event.key);
+            if (userModifyingCell || numberButtonsInsertNumber){
+                updateCellValue(event.key);
+            }
             break;
         default:
         case "Delete":
         case "Backspace":
         case "d":
         case "D":
-            currentCell.textContent = "";
             updateCellValue("D");
             break;
     }
@@ -129,108 +124,70 @@ function updateValue(event){
 }
 
 function updateCellValue(inputNumber){
-    if (currentCell.contentEditable == "true"){
-        if (selectedNumber < 1 || selectedNumber > 9){
-            if (currentCell != undefined && currentCell != null && currentCell.textContent.length > 0){
-                if (isNaN(inputNumber)){
-                    currentCell.textContent = "";
-                    updateBoard(currentCell, "");
+    if (currentCell != undefined){
+        if (currentCell.contentEditable == "true"){
+            if (selectedNumber < 1 || selectedNumber > 9){
+                if (currentCell != undefined && currentCell != null && currentCell.textContent.length > 0){
+                    if (isNaN(inputNumber)){
+                        currentCell.textContent = "";
+                        updateBoard(currentCell, "");
+                    }
+                    else if (currentCell.textContent.length > 1){
+                        currentCell.textContent = inputNumber;
+                        updateBoard(currentCell, inputNumber);
+                    }
+                    else if (selectedNumber > 0 && selectedNumber < 10){
+                        currentCell.textContent = inputNumber;
+                        updateBoard(currentCell, inputNumber);
+                    }
+                    else if (inputNumber > 0 && inputNumber < 10){
+                        currentCell.textContent = inputNumber;
+                        updateBoard(currentCell, inputNumber);
+                    }
+                    else{
+                        currentCell.textContent = "";
+                        updateBoard(currentCell, "");
+                    }
                 }
-                else if (currentCell.textContent.length > 1){
-                    currentCell.textContent = inputNumber;
-                    updateBoard(currentCell, inputNumber);
-                }
-                else if (selectedNumber > 0 && selectedNumber < 10){
-                    currentCell.textContent = inputNumber;
-                    updateBoard(currentCell, inputNumber);
-                }
-                else if (inputNumber > 0 && inputNumber < 10){
-                    currentCell.textContent = inputNumber;
-                    updateBoard(currentCell, inputNumber);
-                }
-                else{
+                else if (currentCell.textContent.length == 0){
                     currentCell.textContent = "";
                     updateBoard(currentCell, "");
                 }
             }
-        }
-        else if (selectedNumber > 0){
-            currentCell.textContent = selectedNumber;
-            updateBoard(currentCell, selectedNumber);
-        }
-        else if (inputNumber > 0){
-            currentCell.textContent = selectedNumber;
-            updateBoard(currentCell, selectedNumber);
-        }
-        else if (selectedNumber == "D"){
-            currentCell.textContent = "";
-            updateBoard(currentCell, "");
-        }
-    }
-    userModifyingCell = false;
-    checkSudoku("newNumberInput");
-}
-
-function successfulCompletion(){
-    removeHighlight();
-    makeItRainbow();
-}
-
-function makeItRainbow(){
-    for (let i = 0; i < 9; i++){
-        let color;
-        switch (i){
-            default:
-            case 0: color = "red"; break;
-            case 1: color = "orange"; break;
-            case 2: color = "yellow"; break;
-            case 3: color = "green"; break;
-            case 4: color = "blue"; break;
-            case 5: color = "indigo"; break;
-            case 6: color = "violet"; break;
-            case 7: color = "red"; break;
-            case 8: color = "orange"; break;
-            case 9: color = "yellow"; break;
-        }
-        for (let j = 0; j < 9; j++){
-            $(getIdOfSudokuCell(i,j)).style.backgroundColor = color;
-        }
-    }
-    let seventh = 143; // milliseconds
-    for (let i = 1; i < 25; i++){
-        // alternates colors every 143 milliseconds for 25 iterations (2.5 seconds)
-        let waitPeriod = (i * seventh);
-        setTimeout(updateRainbowColors, waitPeriod);
-    }
-}
-
-function updateRainbowColors(){
-    let color;
-    let newColor;
-    for (let j = 0; j < 9; j++){
-        if (j == 0){
-            color = $(getIdOfSudokuCell(j,0)).style.backgroundColor;
-        }
-            switch (color){
-                default:
-                case ("red"): newColor = "orange"; break;
-                case ("orange"): newColor = "yellow"; break;
-                case ("yellow"): newColor = "green"; break;
-                case ("green"): newColor = "blue"; break;
-                case ("blue"): newColor = "indigo"; break;
-                case ("indigo"): newColor = "violet"; break;
-                case ("violet"): newColor = "red"; break;
+            else if ((selectedNumber > 0 && numberButtonsInsertNumber ) || inputNumber > 0){
+                currentCell.textContent = selectedNumber;
+                updateBoard(currentCell, selectedNumber);
             }
-        color = newColor;
-        for (let k = 0; k < 9; k++){
-            $(getIdOfSudokuCell(j,k)).style.backgroundColor = newColor;
+            else if (selectedNumber == "D" || inputNumber == "D"){
+                currentCell.textContent = "";
+                updateBoard(currentCell, "");
+            }
         }
+        currentCell.blur();
+        lastCell = currentCell;
+        currentCell = undefined;
+        userModifyingCell = false;
+        checkSudoku("newNumberInput");
     }
 }
+
+
 
 function updateBoard(currentCell, newValue){
     let coords = getBoardCoordinates(currentCell);
     board[coords[0]][coords[1]] = parseInt(newValue);
+}
+
+function toggleNumberButtonSetting(){
+        numberButtonsInsertNumber = !numberButtonsInsertNumber;
+        if (numberButtonsInsertNumber){
+            $("numberInsertSettingsButton").classList.remove("btn");
+            $("numberInsertSettingsButton").classList.add("btnInverse");
+        }
+        else{
+            $("numberInsertSettingsButton").classList.remove("btnInverse");
+            $("numberInsertSettingsButton").classList.add("btn");
+        }
 }
 
 function selectNumber(number){
@@ -260,6 +217,19 @@ function selectNumber(number){
             selectedNumber = number;
             highlightNumbers();
         }
+        for (let i=1; i < 10; i++){
+            count = 0;
+            for (let j = 0; j < 9; j++){
+                for (let k = 0; k < 9; k++){
+                    if (board[j][k] == i){
+                        count++;
+                    }
+                }
+            }
+            if (count == 9){
+                numberButtons[i-1].classList.add("numberButtonDepleted")
+            }
+        }
         highlightRowsAndColumns();
     }
     // if selectedNumber < 1 then remove all highlighting from all number buttons
@@ -268,164 +238,6 @@ function selectNumber(number){
         for (let i = 0; i < 10; i++){
             numberButtons[i].classList.remove("btnInverse");
             numberButtons[i].classList.add("btn");
-        }
-    }
-}
-
-function startPuzzleTimer(){
-    $("gameStartResumeButton").textContent = "Resume";
-    paused = false;
-    togglePauseScreen();
-    puzzleTimer();
-    // create new clock and start timer
-}
-
-function resetPuzzleTimer(){
-    stopPuzzleTimer();
-    paused = false;
-    setWon(false);
-    previousTime = puzzleTime;
-    minutes = 0;
-    seconds = 0;
-    puzzleTime = "00:00";
-    $("gameStartResumeButton").textContent = "Start";
-    $("timeClock").textContent = puzzleTime;
-}
-
-function keyboardPause(){
-    currentCell.blur();
-    if (userModifyingCell){
-        updateCellValue("d");
-        userModifyingCell = false;
-    }
-    else{
-        if (getWon()){
-            if ($("gameMenuBackground").classList.contains("activeMenu")){
-                showGameMenu();
-            }
-            else{
-                hideGameMenu();
-            }
-        }
-        else{
-            togglePuzzleTimer();
-        }
-    }
-    selectNumber(0);
-}
-
-function togglePuzzleTimer(){
-    if (!won){
-        paused = !paused;
-        togglePauseScreen();
-        puzzleTimer();
-    }
-}
-
-function stopPuzzleTimer(){
-    paused = true;
-}
-
-function togglePauseScreen(){
-    if (paused){
-        showGameMenu();
-    }
-    else{
-        hideGameMenu();
-    }
-}
-
-function showGameMenu(){
-    $("gameMenuBackground").classList.remove("hiddenMenu");
-    $("gameMenuBackground").classList.add("activeMenu");
-}
-
-function hideGameMenu(){
-    $("gameMenuBackground").classList.remove("activeMenu");
-    $("gameMenuBackground").classList.add("hiddenMenu");
-}
-
-function savePuzzleTimer(){
-    // save time, stop clock
-}
-
-// clock adjusted from original at: https://jsfiddle.net/Daniel_Hug/pvk6p/
-function puzzleTimer() {
-    if (!paused){
-        setTimeout(addToPuzzleTimer, 1000);
-    }
-}
-
-function addToPuzzleTimer() {
-    if (!paused){
-        seconds++;
-        if (seconds >= 60) {
-            seconds = 0;
-            minutes++;
-            if (minutes > 99) {
-                minutes = 0;
-            }
-        }
-        puzzleTime = (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00")
-        + ":" + (seconds > 9 ? seconds : "0" + seconds);
-        $("timeClock").textContent = puzzleTime;
-
-        puzzleTimer();
-    }
-}
-
-function updateHighlights(){
-    removeHighlight();
-    switch (hintLevel){
-        case "Numbers":
-            highlightNumbers();
-            break;
-        case "All":
-            highlightNumbers(); //falls through to include RowsAndColumns as well
-        case "RowsAndColumns":
-            highlightRowsAndColumns();
-            break;
-        default:
-        case "None":
-            break;
-    }
-}
-
-function highlightNumbers(){
-    removeHighlight();
-    if (selectedNumber > 0){
-        if (hintLevel == "Numbers" || hintLevel == "All"){
-            for (let i = 0; i < 9; i++){
-                for (let j = 0; j < 9; j++){
-                    if ($(getIdOfSudokuCell(i,j)).textContent == selectedNumber){
-                        $(getIdOfSudokuCell(i,j)).style.backgroundColor = "var(--color-sudokuBoardHighlight)";
-                    }
-                }
-            }
-        }
-        else if (hintLevel == "All"){
-            highlightRowsAndColumns();
-        }
-        else{
-            removeHighlight();
-        }
-    }
-}
-
-function highlightRowsAndColumns(){
-    let boardCoordinates = getBoardCoordinates(currentCell);
-    if (hintLevel == "RowsAndColumns" || hintLevel == "All"){
-        let row = parseInt(boardCoordinates[0]);
-        let column = parseInt(boardCoordinates[1]);
-        for (let i = 0; i < 9; i++){
-            for (let j = 0; j < 9; j++){
-                if (row == i){
-                    $(getIdOfSudokuCell(i,j)).style.backgroundColor = "var(--color-sudokuBoardHighlight)";
-                }
-                if (column == j){
-                    $(getIdOfSudokuCell(i,j)).style.backgroundColor = "var(--color-sudokuBoardHighlight)";
-                }
-            }
         }
     }
 }
@@ -450,16 +262,5 @@ function setDifficulty(){
 
 function getDifficulty(){
     return difficulty;
-}
-
-function setHintLevel(){
-    hintLevel = $("hintLevelDropdown").value;
-    if (hintLevel == "None"){
-        removeHighlight();
-    }
-}
-
-function getHintLevel(){
-    return hintLevel;
 }
 

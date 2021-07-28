@@ -13,7 +13,7 @@ let projectImageElement = $("projectImage");
 
 function loadProjects() {
     //once page is loaded, get project info separately from server
-    getProjects().then(loadSlide(0));
+    getProjects();
     //activate carousel functions
     $('carouselRightButton').addEventListener("click", getNextSlide);
     $('carouselLeftButton').addEventListener("click", getPreviousSlide);
@@ -24,7 +24,7 @@ function loadProjects() {
 }
 
 //getProjects acquires the project text/info from the JSON
-async function getProjects() {
+function getProjects() {
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {

@@ -139,20 +139,7 @@ function createSlides(JSONSlides) {
     function loadSlide(slideNumber) {
         currentSlide = slideNumber;
         $("projectTitle").innerHTML = slides[slideNumber].projectTitle;
-        // slide 0 = JSSudoku - load iFrame instead of image
-        if (currentSlide == 0){
-            let iframe = document.createElement('iframe');
-            iframe.src = "https://www.chetranqui.com/jssudoku/sudoku";
-            iframe.title = "CheSudoku";
-            iframe.classList.add("iframe");
-            projectImageElement = $("projectFigure").replaceChild(iframe, $("projectImage"));
-        }
-        else{
-            if ($("projectFigure").children[1] != projectImageElement){
-                $("projectFigure").replaceChild(projectImageElement, $("projectFigure").children[1]);
-            }
-            $("projectImage").src = slides[slideNumber].projectImage.src;
-        }
+        $("projectImage").src = slides[slideNumber].projectImage.src;
         $("projectDescription").innerHTML = slides[slideNumber].projectDescription;
         $("projectLesson").innerHTML = slides[slideNumber].projectLesson;
         $("projectLink1").href = slides[slideNumber].projectLink1;

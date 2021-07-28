@@ -24,8 +24,14 @@ function socialMediaDropdownExpander() {
 }
 
 //carousel side buttons get centered to the image and match height on load and resize
-window.onload = resizeButtons;
+window.onload = initializePage;
 window.onresize = resizeButtons;
+
+function initializePage(){
+    resizeButtons();
+    loadProjects();
+    loadSlide(0);
+}
 
 function resizeButtons() {
     let idealButtonHeight = $("projectImage").height;

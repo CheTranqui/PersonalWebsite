@@ -1,6 +1,18 @@
 {
   "Projects": [
     {
+      "projectTitle": "CheSudoku",
+      "projectImageFile": "",
+      "projectDescription": "My current side-project is creating my own personalized sudoku. It was very challenging to create a worthwhile algorithm for board generation, but with that now in place I'm currently working on adding and debugging features to make it an ideal experience.'",
+      "projectLesson": "A great approach a new project is to first create a working MVP, then refine it. The original algorithm randomly placed numbers from the first square's top row into the second's middle or bottom and continued as such with placing specific numbers in particular locations randomly. It was bulky and no more accurate than this final version. I found this version when I got to square number 5 and had to take all directions of collisions into account. Extrapolating that provided this nicely succint result.",
+      "projectLinkToGithub": "https://github.com/CheTranqui/PersonalWebsite/tree/main/JSSudoku",
+      "projectLinkToYouTube": null,
+      "projectLinkToSteam": null,
+      "projectLinkToDownload": null,
+      "projectLinkToGithubIO": null,
+      "projectLinkToWebsite": "JSSudoku/JSSudoku.html"
+    },
+    {
       "projectTitle": "The Martian Tribune",
       "projectImageFile": "MartianTribunePreview.jpg",
       "projectDescription": "In 2018 <a class='inlineLink' href='https://www.haemimontgames.com/' target='_blank'>Haemimont Games</a> released a game called Surviving Mars. I wanted the colonists to have a more personal feel, so I trusted that I'd learned enough in making the drafting minigame and made my first ever mod: The Martian Tribune. It presents stories that my team and I wrote to the player every three in-game days. Stories are selected dynamically based upon the current state of the game.",

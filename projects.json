@@ -2,7 +2,7 @@
   "Projects": [
     {
       "projectTitle": "CheSudoku",
-      "projectImageFile": "",
+      "projectImageFile": "Sudoku.jpg",
       "projectDescription": "My current side-project is creating my own personalized sudoku. It was very challenging to create a worthwhile algorithm for board generation, but with that now in place I'm currently working on adding and debugging features to make it an ideal experience.'",
       "projectLesson": "A great approach a new project is to first create a working MVP, then refine it. The original algorithm randomly placed numbers from the first square's top row into the second's middle or bottom and continued as such with placing specific numbers in particular locations randomly. It was bulky and no more accurate than this final version. I found this version when I got to square number 5 and had to take all directions of collisions into account. Extrapolating that provided this nicely succint result.",
       "projectLinkToGithub": "https://github.com/CheTranqui/PersonalWebsite/tree/main/JSSudoku",

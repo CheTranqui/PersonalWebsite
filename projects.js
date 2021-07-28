@@ -9,6 +9,7 @@ const track = $('carouselTrack');
 const slides = [];
 const carouselIndicators = [];
 let currentSlide = 0;
+let projectImageElement = $("projectImage");
 
 function loadProjects() {
     //once page is loaded, get project info separately from server
@@ -94,11 +95,7 @@ function createSlides(JSONSlides) {
         slide.projectLink1Text = links[0].text;
 
         slides.push(slide);
-
-        // To exclude JSSudoku:
-        if (i > 0) {
-            getImage(slide);
-        }
+        getImage(slide);
     }
 }
 
@@ -147,11 +144,12 @@ function createSlides(JSONSlides) {
             let iframe = document.createElement('iframe');
             iframe.src = "https://www.chetranqui.com/jssudoku/sudoku";
             iframe.title = "CheSudoku";
-            $("projectImage").appendChild(iframe);
+            iframe.classList.add("iframe");
+            projectImageElement = $("projectFigure").replaceChild(iframe, $("projectImage"));
         }
         else{
-            if ($("projectImage").hasChildNodes()){
-                $("projectImage").removeChild($("projectImage").firstChild);
+            if ($("projectFigure").children[1] != projectImageElement){
+                $("projectFigure").replaceChild(projectImageElement, $("projectFigure").children[1]);
             }
             $("projectImage").src = slides[slideNumber].projectImage.src;
         }

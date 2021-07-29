@@ -44,17 +44,22 @@ function copyEmail() {
     //1st click = notify and copy text, 2nd click opens mail app - but only on desktop
     if (contactCount % 2 == 1 && $("navContainer").offsetWidth > 800) {
         //confirm permission to write to clipboard
-        navigator.permissions.query({ name: "clipboard-write" }).then(result => {
-            //if so copy email address and let user know
-            if (result.state == "granted" || result.state == "prompt") {
-                navigator.clipboard.writeText("chetranqui@gmail.com").then(function () {
-                    displayCopyPrompt();
-                    //if not on desktop, then always open mail app
-                }).catch(function () {
-                    openMailTo();
-                });
-            }
-        })
+            navigator.permissions.query({ name: "clipboard-write" })
+            .then(result => {
+                //if so copy email address and let user know
+                if (result.state == "granted" || result.state == "prompt") {
+                    navigator.clipboard.writeText("chetranqui@gmail.com")
+                    .then(function () {
+                        displayCopyPrompt();
+                        //if not on desktop, then always open mail app
+                    }).catch(function () {
+                        openMailTo();
+                    });
+                }
+                // if checking permissions causes error (i.e. user's on Firefox):
+            }).catch(function(){
+                displayCopyPrompt();
+            })
     }
     else {
         openMailTo();

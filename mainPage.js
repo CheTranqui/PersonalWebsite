@@ -7,6 +7,7 @@ let contactCount = 0;
 //click anywhere to collapse the social media dropdown
 window.onclick = function (event) {
     if (!event.target.matches(".socialMediaDropdownButton")) {
+        $("socialMediaDropdownLink").classList.remove("activeNav");
         $("socialMediaDropdownDiv").classList.remove("show");
     }
 }
@@ -19,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //handles the CheMedia dropdown
 function socialMediaDropdownExpander() {
-    event.preventDefault();
+    // event.preventDefault();
+    $("socialMediaDropdownLink").classList.toggle("activeNav");
     $("socialMediaDropdownDiv").classList.toggle("show");
 }
 

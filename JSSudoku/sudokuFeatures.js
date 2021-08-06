@@ -19,7 +19,7 @@ let currentCell;
 let difficulty = "Easy";
 let numberButtons = [];
 let selectedNumber = 0;
-let numberButtonsInsertNumber = false;
+let insertOnClick = false;
 let numberSelected = false;
 
 
@@ -39,7 +39,6 @@ function loadButtonListeners(){
     $("checkSudokuButton").addEventListener("click", checkSudoku);
     $("pauseSudokuButton").addEventListener("click", togglePuzzleTimer);
     $("gameStartResumeButton").addEventListener("click", startPuzzleTimer);
-    $("numberInsertSettingsButton").addEventListener("click", toggleNumberButtonSetting);
     window.addEventListener("keyup", checkForEscape);
 }
 
@@ -59,7 +58,7 @@ function updateCurrentCell(cell){
 function boardLeftClick(){
 	updateCurrentCell(this);
     userModifyingCell = true;
-    if (numberButtonsInsertNumber){
+    if (insertOnClick){
         updateCellValue(selectedNumber);
         updateHighlights();
     }
@@ -108,7 +107,7 @@ function updateValue(event){
         case "8":
         case "9":
             selectNumber(event.key);
-            if (userModifyingCell || numberButtonsInsertNumber){
+            if (userModifyingCell || insertOnClick){
                 updateCellValue(event.key);
             }
             break;
@@ -154,7 +153,7 @@ function updateCellValue(inputNumber){
                     updateBoard(currentCell, "");
                 }
             }
-            else if ((selectedNumber > 0 && numberButtonsInsertNumber ) || inputNumber > 0){
+            else if ((selectedNumber > 0 && insertOnClick ) || inputNumber > 0){
                 currentCell.textContent = selectedNumber;
                 updateBoard(currentCell, selectedNumber);
             }
@@ -171,23 +170,14 @@ function updateCellValue(inputNumber){
     }
 }
 
+function updateInsertOnClickSetting(){
+    insertOnClick = $("insertOnClickCheckbox").checked;
+}
 
 
 function updateBoard(currentCell, newValue){
     let coords = getBoardCoordinates(currentCell);
     board[coords[0]][coords[1]] = parseInt(newValue);
-}
-
-function toggleNumberButtonSetting(){
-        numberButtonsInsertNumber = !numberButtonsInsertNumber;
-        if (numberButtonsInsertNumber){
-            $("numberInsertSettingsButton").classList.remove("btn");
-            $("numberInsertSettingsButton").classList.add("btnInverse");
-        }
-        else{
-            $("numberInsertSettingsButton").classList.remove("btnInverse");
-            $("numberInsertSettingsButton").classList.add("btn");
-        }
 }
 
 function selectNumber(number){

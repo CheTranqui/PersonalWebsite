@@ -127,7 +127,8 @@
         transition: background-position 0.5s;
     }
 
-    .navLink:hover {
+    .navLink:hover,
+    .activeNav {
         font-size: 1.0rem;
         color: #fff;
         background-position: 0 100%;

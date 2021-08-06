@@ -58,9 +58,18 @@
                 <button class="sudokuButton menuButton btn gameMenu" id="gameStartResumeButton">
                     Start
                 </button>
-                <button class="sudokuButton menuButton btn gameMenu" id="numberInsertSettingsButton">
+                <div class="insertOnClickContainer">
+                    <label class="insertOnClickLabel" id="insertOnClickLabel">
+                        <span>
+                            Insert highlighted number on click:
+                        </span>
+                        <input type="checkbox" class="insertOnClickCheckbox " id="insertOnClickCheckbox" />
+                        <span class="slider" id="insertOnClickSlider"></span>
+                    </label>
+                </div>
+                <!-- <button class="sudokuButton menuButton btn gameMenu" id="numberInsertSettingsButton">
                     Insert highlighted number on click
-                </button>
+                </button> -->
             </aside>
             <section class="board" id="sudokuBoard">
                 <table class="square" id="square1">

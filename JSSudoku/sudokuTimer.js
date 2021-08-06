@@ -8,6 +8,7 @@ let paused = true;
 function startPuzzleTimer(){
     $("gameStartResumeButton").textContent = "Resume";
     paused = false;
+    updateInsertOnClickSetting();
     togglePauseScreen();
     puzzleTimer();
     // create new clock and start timer
@@ -48,6 +49,7 @@ function keyboardPause(){
         }
     }
     selectNumber(0);
+    updateInsertOnClickSetting();
 }
 
 function togglePuzzleTimer(){

@@ -152,7 +152,7 @@
         background: var(--color-secondaryBackground);
         font-size: small;
         text-align: center;
-        text-wrap: normal;
+        /* text-wrap: normal; */
         word-wrap: normal;
         z-index: 2;
     }

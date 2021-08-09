@@ -283,10 +283,10 @@
 
     #pageNavButton{
         display: none;
-        transform: rotate(-90deg) scale(0.75);
+        transform: rotate(-90deg) scale(1);
         position: fixed;
         bottom: 1%;
-        right: 1%;
+        right: 7.5%;
         z-index: 2;
     }
 
@@ -617,6 +617,11 @@
     #navContainer {
         padding: 0.5rem 0.5rem 0.5rem 0.5rem;
         width: auto;
+    }
+
+    #pageNavButton{
+        transform: rotate(-90deg) scale(0.8);
+        right: 5.5%;
     }
 
     /*======================================

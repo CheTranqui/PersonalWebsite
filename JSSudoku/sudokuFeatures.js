@@ -2,8 +2,6 @@
 // Alias: CheTranqui
 
 // TODO:
-// allow setting to have 'number' hint only highlight and not place number
-// stop it from de-coloring a number that I just placed
 // set up arrow keys to change focus
 // enable tabbing and currentCell
 // add undo, allow for notes
@@ -19,7 +17,7 @@ let currentCell;
 let difficulty = "Easy";
 let numberButtons = [];
 let selectedNumber = 0;
-let insertOnClick = false;
+let insertOnClick = true;
 let numberSelected = false;
 
 
@@ -29,6 +27,7 @@ function initializeFeatures(){
     loadCellListeners(); // listens for left-click within each cell
     loadBoardListener(); // listens for right-click on board and keyup events
     loadButtonListeners();
+    confirmPlatform();
     fillNumberButtonArray(); // populates array of numberButtons
 }
 
@@ -40,6 +39,14 @@ function loadButtonListeners(){
     $("pauseSudokuButton").addEventListener("click", togglePuzzleTimer);
     $("gameStartResumeButton").addEventListener("click", startPuzzleTimer);
     window.addEventListener("keyup", checkForEscape);
+}
+
+function confirmPlatform(){
+    // force mobile devices to default to insertOnClick, remove option to change this behavior
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        insertOnClick = true;
+        $("insertOnClickOptionContainer").style.display = "none";
+    }
 }
 
 function loadCellListeners(){
@@ -125,46 +132,49 @@ function updateValue(event){
 function updateCellValue(inputNumber){
     if (currentCell != undefined){
         if (currentCell.contentEditable == "true"){
+            // if editable and a user has a number button selected:
             if (selectedNumber < 1 || selectedNumber > 9){
                 if (currentCell != undefined && currentCell != null && currentCell.textContent.length > 0){
-                    if (isNaN(inputNumber)){
+                    if (isNaN(inputNumber)){  // null out NaN entries
                         currentCell.textContent = "";
                         updateBoard(currentCell, "");
                     }
                     else if (currentCell.textContent.length > 1){
+                        // if more than one number is entered, use most recently entered number
                         currentCell.textContent = inputNumber;
                         updateBoard(currentCell, inputNumber);
                     }
-                    else if (selectedNumber > 0 && selectedNumber < 10){
-                        currentCell.textContent = inputNumber;
-                        updateBoard(currentCell, inputNumber);
-                    }
-                    else if (inputNumber > 0 && inputNumber < 10){
+                    else if (selectedNumber > 0 && selectedNumber < 10 || inputNumber > 0 && inputNumber < 10){
+                        // if not more than one number, place selectedNumber / inputNumber
                         currentCell.textContent = inputNumber;
                         updateBoard(currentCell, inputNumber);
                     }
                     else{
+                        // null out invalid entries (shouldn't happen)
                         currentCell.textContent = "";
                         updateBoard(currentCell, "");
                     }
                 }
                 else if (currentCell.textContent.length == 0){
+                    // if user deleted the value, null it out
                     currentCell.textContent = "";
                     updateBoard(currentCell, "");
                 }
             }
             else if ((selectedNumber > 0 && insertOnClick ) || inputNumber > 0){
+                // if insertOnClick and selectedNumber is valid, above 0, input that number
                 currentCell.textContent = selectedNumber;
                 updateBoard(currentCell, selectedNumber);
             }
             else if (selectedNumber == "D" || inputNumber == "D"){
+                // delete D stuff
                 currentCell.textContent = "";
                 updateBoard(currentCell, "");
             }
         }
-        currentCell.blur();
+        currentCell.blur(); // deselect cell
         lastCell = currentCell;
-        currentCell = undefined;
+        currentCell = undefined; // reset currentCell
         userModifyingCell = false;
         checkSudoku("newNumberInput");
     }

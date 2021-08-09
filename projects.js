@@ -21,6 +21,18 @@ function loadProjects() {
     carouselIndicators.forEach(function (indicator, index) {
         indicator.addEventListener("click", function () {
             loadSlide(index);})});
+    document.body.addEventListener("keyup", selectNewProject);
+}
+
+function selectNewProject(event){
+    switch (event.key){
+        case "ArrowLeft": 
+            getPreviousSlide();
+            break;
+        case "ArrowRight":
+            getNextSlide();
+            break;
+    }
 }
 
 //getProjects acquires the project text/info from the JSON

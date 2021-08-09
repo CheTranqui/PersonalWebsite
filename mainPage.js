@@ -12,10 +12,15 @@ window.onclick = function (event) {
     }
 }
 
+window.onscroll = function(){
+    toggleScrollToTopButton();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     resizeButtons();
     $("emailMeLink").addEventListener("click", copyEmail);
     $("modeCheckbox").addEventListener("click", updateColorScheme);
+    $("pageNavButton").addEventListener("click", scrollToTop);
 });
 
 //handles the CheMedia dropdown
@@ -103,4 +108,20 @@ function updateColorScheme() {
         $("socialMediaDropdownGitHubImage").src = "images/socialMediaIcons/GitHub-Mark-Light-120px-plus.png";
         activateDarkMode();
     }
+}
+
+function toggleScrollToTopButton(){
+    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+        $("pageNavButton").style.display = "inline-block";
+    }
+    else {
+        $("pageNavButton").style.display = "none";
+    }
+}
+      
+      // When the user clicks on the button, scroll to the top of the document
+function scrollToTop() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    toggleScrollToTopButton();
 }

@@ -283,9 +283,11 @@
 
     #pageNavButton{
         display: none;
+        font-size: 2.5rem;
+        width: 1.7ch;
         transform: rotate(-90deg) scale(1);
         position: fixed;
-        bottom: 1%;
+        bottom: 3%;
         right: 7.5%;
         z-index: 2;
     }
@@ -620,6 +622,8 @@
     }
 
     #pageNavButton{
+        font-size: 2.75rem;
+        width: 1.7ch;
         transform: rotate(-90deg) scale(0.8);
         right: 5.5%;
     }

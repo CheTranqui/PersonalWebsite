@@ -72,6 +72,12 @@ function getHintLevel(){
     return hintLevel;
 }
 
+function resetPuzzleHighlighting(){
+    selectNumber(0);
+    removeHighlight();
+    deselectAllNumbers();
+}
+
 function successfulCompletion(){
     removeHighlight();
     makeItRainbow();

@@ -199,10 +199,7 @@ function selectNumber(number){
             selected = true;
         }
         // reset all button colors
-        for (let i = 0; i < 10; i++){
-            numberButtons[i].classList.remove("btnInverse");
-            numberButtons[i].classList.add("btn");
-        }
+        deselectAllNumbers();
         // if it's already selected, then unselect it
         if (selected){
             $("numberButton" + number).classList.remove("btnInverse");
@@ -239,6 +236,13 @@ function selectNumber(number){
             numberButtons[i].classList.remove("btnInverse");
             numberButtons[i].classList.add("btn");
         }
+    }
+}
+
+function deselectAllNumbers(){
+    for (let i = 0; i < 10; i++){
+        numberButtons[i].classList.remove("btnInverse");
+        numberButtons[i].classList.add("btn");
     }
 }
 

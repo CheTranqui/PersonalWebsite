@@ -22,20 +22,19 @@ let won = false;
 window.onload = init();
 function init() {
     activateDarkMode();
-    loadNewSudoku();
     initializeFeatures();
+    loadNewSudoku();
 }
 
 function loadNewSudoku(){
     hideGameMenu();
     setTimeout(showGameMenu,500);
+    setTimeout(resetPuzzleHighlighting,550);
     setTimeout(continueLoading,850);
 }
 
 function continueLoading(){
     setWon(false);
-    showGameMenu();
-    removeHighlight();
     getNewBoard();
     adjustBoardToDifficulty();
     resetPuzzleTimer();

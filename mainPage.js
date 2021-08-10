@@ -144,6 +144,9 @@ function checkFloatingCheStartPosition(){
 }
 
 function moveFloatingChe(){
+    // moves the two elements of the faded name 'Che Tranqui' around the page
+    // resets to initial position once it reaches the final case
+    // only move Top and Left so that the transition remains in effect
     floatingCheCount++;
     let cheTop;
     let cheLeft;
@@ -181,7 +184,20 @@ function moveFloatingChe(){
             cheLeft = "87%";
             tranquiTop = "36rem";
             tranquiLeft = "10%";
+            break;
+        case 6:
+            cheTop = "7%";
+            cheLeft = "87%";
+            tranquiTop = "7%";
+            tranquiLeft = "8%";
+            break;
+        case 7:
+            cheTop = "36rem";
+            cheLeft = "9.5%";
+            tranquiTop = "34.5rem";
+            tranquiLeft = "7%";
             floatingCheCount = 0;
+            break;
     }
     let floatingCheStyle = $("floatingCheFirstPart").style;
     let floatingTranquiStyle = $("floatingCheSecondPart").style;

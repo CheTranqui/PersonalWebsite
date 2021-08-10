@@ -22,6 +22,8 @@
     --ff-accentFont: 'Palatino Linotype';
 }
 
+@font-face { font-family: 'MartinHandwriting'; src: url('Martinhand2.ttf');}
+
     ul {
         margin-top: 0;
     }
@@ -797,4 +799,18 @@
     .CSSValidator a img {
         max-height: 1.3rem;
         max-width: 4rem;
+    }
+
+    /*==================================
+        Floating CheTranqui
+     ====================================*/
+     .floatingChe{
+        position: absolute;
+        font-family: 'MartinHandwriting', Fallback, 'Comic Sans MS';
+        font-size: 1rem;
+        transform: rotate(-30deg);
+        color: var(--color-carouselButtons);
+        cursor: pointer;
+        transition: all 0.75s;
+        z-index: 3;
     }

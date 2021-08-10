@@ -3,6 +3,8 @@
 
 function $(id) { return document.getElementById(id); }
 let contactCount = 0;
+let floatingCheCount = 0;
+let floatingCheWide = false;
 
 //click anywhere to collapse the social media dropdown
 window.onclick = function (event) {
@@ -21,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     $("emailMeLink").addEventListener("click", copyEmail);
     $("modeCheckbox").addEventListener("click", updateColorScheme);
     $("pageNavButton").addEventListener("click", scrollToTop);
+    $("floatingCheFirstPart").addEventListener("click", moveFloatingChe);
+    $("floatingCheSecondPart").addEventListener("click", moveFloatingChe);
 });
 
 //handles the CheMedia dropdown
@@ -37,6 +41,8 @@ window.onresize = resizeButtons;
 function initializePage(){
     resizeButtons();
     loadProjects();
+    checkFloatingCheStartPosition();
+    moveFloatingChe();
 }
 
 function resizeButtons() {
@@ -124,4 +130,63 @@ function scrollToTop() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     toggleScrollToTopButton();
+}
+
+// sets floatingCheWide to inform us if it's widescreen or not
+// not currently used, but may be in the future
+function checkFloatingCheStartPosition(){
+    if (document.documentElement.clientWidth < 650){
+        floatingCheWide = false;
+    }
+    else{
+        floatingCheWide = true;
+    }
+}
+
+function moveFloatingChe(){
+    floatingCheCount++;
+    let cheTop;
+    let cheLeft;
+    let tranquiTop;
+    let tranquiLeft;
+    let height = document.documentElement.scrollHeight;
+    let width = document.documentElement.scrollWidth;
+    switch (floatingCheCount){
+        case 1:
+            cheTop = "35rem";
+            cheLeft = "8%";
+            tranquiTop = "36rem";
+            tranquiLeft = "7.5%";
+            break;
+        case 2:
+            cheTop = (0.50 * height)+"px";
+            cheLeft = "8%";
+            tranquiTop = "36rem";
+            tranquiLeft = "86%";
+            break;
+        case 3:
+            cheTop = (0.7 * height)+"px";
+            cheLeft = "64%";
+            tranquiTop = "6%";
+            tranquiLeft = (0.40 * width)+"px";
+            break;
+        case 4:
+            cheTop = (0.53 * height)+"px";
+            cheLeft = "85%";
+            tranquiTop = (0.533 * height)+"px";
+            tranquiLeft = "84.5%";
+            break;
+        case 5:
+            cheTop = (0.2 * height)+"px";
+            cheLeft = "87%";
+            tranquiTop = "36rem";
+            tranquiLeft = "10%";
+            floatingCheCount = 0;
+    }
+    let floatingCheStyle = $("floatingCheFirstPart").style;
+    let floatingTranquiStyle = $("floatingCheSecondPart").style;
+    floatingCheStyle.top = cheTop;
+    floatingCheStyle.left = cheLeft;
+    floatingTranquiStyle.top = tranquiTop;
+    floatingTranquiStyle.left = tranquiLeft;
 }

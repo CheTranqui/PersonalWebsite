@@ -6,7 +6,7 @@
       "projectDescription": "My current side-project is creating my own personalized sudoku. It was very challenging to develop a worthwhile algorithm for board generation, but with that now in place I'm iterating on the features to make it an ideal experience.",
       "projectLesson": "Start new projects with a working MVP, then refine it. The original algorithm for board generation randomly placed numbers from the first square's top row into the second's middle or bottom and continued as such with placing specific numbers in particular locations randomly. It was bulky and no more accurate than this final version. I found this version when I got to square number 5 and had to take all directions of collisions into account. Extrapolating that provided this nicely succinct result.",
       "projectLinkToGithub": "https://github.com/CheTranqui/PersonalWebsite/tree/main/JSSudoku",
-      "projectLinkToYouTube": null,
+      "projectLinkToYouTube": "https://youtu.be/oib97gNg6a4",
       "projectLinkToSteam": null,
       "projectLinkToDownload": null,
       "projectLinkToGithubIO": null,

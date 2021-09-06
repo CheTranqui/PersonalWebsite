@@ -13,6 +13,18 @@
       "projectLinkToWebsite": "JSSudoku/sudoku.html"
     },
     {
+      "projectTitle": "Java MVC App",
+      "projectImageFile": "JavaMVC.jpg",
+      "projectDescription": "The original college assignment was simply to create and display a linked-list of students. It expanded to allow the selection of one or multiple students from the original list into a new one for a specific course. I then refactored it to incorporate explicit GUI and Controller classes.",
+      "projectLesson": "There is a huge difference between a prototype and a finished product. The conversion from a basic, functioning application to an organized MVC application with appropriate comments. Accomplishing this required additional time and energy, but despite its imperfections, the resultant readability is hugely beneficial.",
+      "projectLinkToGithub": "https://github.com/CheTranqui/Registrar-Java-Swing-LinkedList",
+      "projectLinkToYouTube": "https://www.youtube.com/watch?v=N5rHHaRTat8",
+      "projectLinkToSteam": null,
+      "projectLinkToDownload": null,
+      "projectLinkToGithubIO": null,
+      "projectLinkToWebsite": null
+    },
+    {
       "projectTitle": "The Martian Tribune",
       "projectImageFile": "MartianTribunePreview.jpg",
       "projectDescription": "<a class='inlineLink' href='https://www.haemimontgames.com/' target='_blank'>Haemimont Games</a> released Surviving Mars back in 2018. I wanted the colonists to feel more personal, so using what I learned in making my drafting minigame I developed my first ever mod: The Martian Tribune. Every third in-game day ('sol') it dynamically presents stories that my team and I wrote depending upon the current state of the game.",
